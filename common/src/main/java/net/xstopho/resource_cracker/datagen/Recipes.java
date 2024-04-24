@@ -1,6 +1,8 @@
-package net.xstopho.resource_cracker.datagen.recipes;
+package net.xstopho.resource_cracker.datagen;
 
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -81,5 +83,40 @@ public class Recipes extends BaseRecipes {
         compressionRecipe(output, Items.DIAMOND, ItemRegistry.NUGGET_DIAMOND.get(), true, false);
         compressionRecipe(output, Items.EMERALD, ItemRegistry.NUGGET_EMERALD.get(), true, false);
         compressionRecipe(output, Items.COPPER_INGOT, ItemRegistry.NUGGET_COPPER.get(), true, true);
+    }
+
+    public static void generateOtherRecipes(RecipeOutput output) {
+        // Netherite Dust Recipe
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), 1)
+                .pattern("AAA").pattern("AGG").pattern("GG ")
+                .define('A', ModItemTags.NETHERITE_SCRAP_DUSTS)
+                .define('G', ModItemTags.GOLD_DUSTS)
+                .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get()), has(ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get()))
+                .save(output, location("crafting/" + getSimpleRecipeName(ItemRegistry.MATERIAL_DUST_NETHERITE.get())));
+
+        // Steeldust Recipe
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_STEEL.get(), 2)
+                .pattern("II").pattern("SS")
+                .define('I', ModItemTags.IRON_DUSTS)
+                .define('S', ModItemTags.COAL_DUSTS)
+                .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_IRON.get()), has(ItemRegistry.MATERIAL_DUST_IRON.get()))
+                .save(output, location("crafting/" + getSimpleRecipeName(ItemRegistry.MATERIAL_DUST_STEEL.get())));
+
+        // Slimeball Recipe
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 3)
+                .pattern("HGS")
+                .define('H', Items.HONEYCOMB)
+                .define('G', Items.GREEN_DYE)
+                .define('S', ModItemTags.SALTPETER_DUSTS)
+                .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_SALTPETER.get()), has(ItemRegistry.MATERIAL_DUST_SALTPETER.get()))
+                .save(output, location("crafting/" + getSimpleRecipeName(Items.SLIME_BALL)));
+
+        // Gunpowder Recipe
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.GUNPOWDER, 3)
+                .pattern("SPC").define('C', Items.CHARCOAL)
+                .define('P', ModItemTags.SALTPETER_DUSTS)
+                .define('S', ModItemTags.SULFUR_DUSTS)
+                .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_SALTPETER.get()), has(ItemRegistry.MATERIAL_DUST_SALTPETER.get()))
+                .save(output, location("crafting/" + getSimpleRecipeName(Items.GUNPOWDER)));
     }
 }

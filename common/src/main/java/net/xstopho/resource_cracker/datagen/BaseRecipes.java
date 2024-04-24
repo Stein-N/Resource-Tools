@@ -1,9 +1,11 @@
-package net.xstopho.resource_cracker.datagen.recipes;
+package net.xstopho.resource_cracker.datagen;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.critereon.ContextAwarePredicate;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +19,7 @@ import net.xstopho.resource_cracker.Constants;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public class BaseRecipes {
 
@@ -131,15 +134,19 @@ public class BaseRecipes {
         return getItemName(item);
     }
 
-    static Criterion<InventoryChangeTrigger.TriggerInstance> has(ItemLike itemLike) {
+    public static Criterion<InventoryChangeTrigger.TriggerInstance> has(ItemLike itemLike) {
         return inventoryTrigger(net.minecraft.advancements.critereon.ItemPredicate.Builder.item().of(itemLike));
     }
 
-    static Criterion<InventoryChangeTrigger.TriggerInstance> inventoryTrigger(ItemPredicate.Builder... builders) {
+    public static Criterion<InventoryChangeTrigger.TriggerInstance> has(TagKey<Item> tagKey) {
+        return inventoryTrigger(net.minecraft.advancements.critereon.ItemPredicate.Builder.item().of(tagKey));
+    }
+
+    public static Criterion<InventoryChangeTrigger.TriggerInstance> inventoryTrigger(ItemPredicate.Builder... builders) {
         return inventoryTrigger(Arrays.stream(builders).map(ItemPredicate.Builder::build).toArray(ItemPredicate[]::new));
     }
 
-    static Criterion<InventoryChangeTrigger.TriggerInstance> inventoryTrigger(ItemPredicate... itemPredicates) {
+    public static Criterion<InventoryChangeTrigger.TriggerInstance> inventoryTrigger(ItemPredicate... itemPredicates) {
         return CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(itemPredicates)));
     }
 

@@ -9,9 +9,8 @@ base {
 
 jarJar.enable()
 
-if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
-    minecraft.accessTransformers.file file('src/main/resources/META-INF/accesstransformer.cfg')
-}
+var at = file('src/main/resources/META-INF/accesstransformer.cfg')
+if (at.exists()) minecraft.accessTransformers.file at
 
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
@@ -35,31 +34,12 @@ runs {
         systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         programArgument '--username xStopho'
     }
-    server {
-        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        programArgument '--nogui'
-    }
     data {
         programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
     }
 }
 
-// NeoGradle compiles the game, but we don't want to add our common code to the game's code
-Spec<Task> notNeoTask = { Task it -> !it.name.startsWith("neo") } as Spec<Task>
-
-tasks.withType(JavaCompile).matching(notNeoTask).configureEach {
-    source(project(":common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).matching(notNeoTask).configureEach {
-    source(project(":common").sourceSets.main.allJava)
-}
-
-tasks.named("sourcesJar", Jar) {
-    from(project(":common").sourceSets.main.allSource)
-}
-
-tasks.withType(ProcessResources).matching(notNeoTask).configureEach {
-    from project(":common").sourceSets.main.resources
-    from file('src/generated/resources')
+publishMods {
+    file = jar.archiveFile
+    modLoaders.add("neoforge")
 }

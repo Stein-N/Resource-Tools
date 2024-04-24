@@ -8,7 +8,6 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.xstopho.resource_cracker.Constants;
-import net.xstopho.resource_cracker.datagen.recipes.Recipes;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
 public class RecipeProv extends RecipeProvider {
@@ -18,25 +17,25 @@ public class RecipeProv extends RecipeProvider {
 
     @Override
     protected void buildRecipes(RecipeOutput output) {
-        Recipes.generateToolRecipes(output, ForgeItemTags.CRAFTING_INGREDIENTS);
-        Recipes.generateMaterialDustRecipes(output, ForgeItemTags.CRACK_HAMMER);
-        Recipes.generateSpringBlockRecipes(output, ForgeItemTags.STEEL_BLOCKS);
+        Recipes.generateToolRecipes(output, ModItemTags.CRAFTING_INGREDIENTS);
+        Recipes.generateMaterialDustRecipes(output, ModItemTags.CRACK_HAMMER);
+        Recipes.generateSpringBlockRecipes(output, ModItemTags.STEEL_BLOCKS);
         Recipes.generateProcessingRecipes(output);
         Recipes.generateCompactingRecipes(output);
 
         // Netherite Dust Recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), 1)
                 .pattern("AAA").pattern("AGG").pattern("GG ")
-                .define('A', ForgeItemTags.NETHERITE_SCRAP_DUSTS)
-                .define('G', ForgeItemTags.GOLD_DUSTS)
+                .define('A', ModItemTags.NETHERITE_SCRAP_DUSTS)
+                .define('G', ModItemTags.GOLD_DUSTS)
                 .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get()), has(ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get()))
                 .save(output, location("crafting/" + getSimpleRecipeName(ItemRegistry.MATERIAL_DUST_NETHERITE.get())));
 
         // Steeldust Recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_STEEL.get(), 2)
                 .pattern("II").pattern("SS")
-                .define('I', ForgeItemTags.IRON_DUSTS)
-                .define('S', ForgeItemTags.COAL_DUSTS)
+                .define('I', ModItemTags.IRON_DUSTS)
+                .define('S', ModItemTags.COAL_DUSTS)
                 .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_IRON.get()), has(ItemRegistry.MATERIAL_DUST_IRON.get()))
                 .save(output, location("crafting/" + getSimpleRecipeName(ItemRegistry.MATERIAL_DUST_STEEL.get())));
 
@@ -45,7 +44,7 @@ public class RecipeProv extends RecipeProvider {
                 .pattern("HGS")
                 .define('H', Items.HONEYCOMB)
                 .define('G', Items.GREEN_DYE)
-                .define('S', ForgeItemTags.SALTPETER_DUSTS)
+                .define('S', ModItemTags.SALTPETER_DUSTS)
                 .unlockedBy(getHasName(Items.HONEYCOMB), has(Items.HONEYCOMB))
                 .unlockedBy(getHasName(Items.GREEN_DYE), has(Items.GREEN_DYE))
                 .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_SALTPETER.get()), has(ItemRegistry.MATERIAL_DUST_SALTPETER.get()))
@@ -54,8 +53,8 @@ public class RecipeProv extends RecipeProvider {
         // Gunpowder Recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.GUNPOWDER, 3)
                 .pattern("SPC").define('C', Items.CHARCOAL)
-                .define('P', ForgeItemTags.SALTPETER_DUSTS)
-                .define('S', ForgeItemTags.SULFUR_DUSTS)
+                .define('P', ModItemTags.SALTPETER_DUSTS)
+                .define('S', ModItemTags.SULFUR_DUSTS)
                 .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_SALTPETER.get()), has(ItemRegistry.MATERIAL_DUST_SALTPETER.get()))
                 .save(output, location("crafting/" + getSimpleRecipeName(Items.GUNPOWDER)));
     }

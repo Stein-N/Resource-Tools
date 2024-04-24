@@ -6,7 +6,7 @@
 ### Provides Items and Tweaks to make your life in Minecraft easier.
 
 At first this Mod is heavily inspired by [Resource Tools by kwpugh](https://www.curseforge.com/minecraft/mc-mods/resource-tools-fabric). <br>
-But since he is still on break, I decided to create my own Mod with similar Blocks/Items/Features and some additions I had in mind.
+Because he was on break, I decided to create my own Mod with similar Blocks/Items/Features and some additions I had in mind.
 
 - Craft Crack Hammers to crush vanilla ores into dust and double them.
 - Sharpen your Chisel to scratch of saltpeter from Bricks Blocks
@@ -22,13 +22,19 @@ But since he is still on break, I decided to create my own Mod with similar Bloc
 ### Most used Textures are made by [Malcom Riley](https://github.com/malcolmriley/unused-textures).
 
 ### Provides Recipes for:
-- Fabric
-    - [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2)
-    - [Tech Reborn](https://www.curseforge.com/minecraft/mc-mods/techreborn)
+##### Fabric - 1.20 and above
+- [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (only 1.20.1)
+- [Tech Reborn](https://www.curseforge.com/minecraft/mc-mods/techreborn)
 
-- Forge
-    - [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2)
-    - [Mekanism](https://www.curseforge.com/minecraft/mc-mods/mekanism)
+##### Forge - 1.20.1 and above
+- [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (only 1.20.1)
+- [Mekanism](https://www.curseforge.com/minecraft/mc-mods/mekanism) (only 1.20.1)
+
+##### NeoForge - 1.20.4 and above
+- [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (upcoming update)
+- [Mekanism](https://www.curseforge.com/minecraft/mc-mods/mekanism) (upcoming update)
+
+### Item and Tools Overview
 
 <details>
   <summary>Item and Tools Overview</summary>
