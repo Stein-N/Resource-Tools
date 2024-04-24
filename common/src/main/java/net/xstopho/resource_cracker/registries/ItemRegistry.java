@@ -11,8 +11,8 @@ import net.xstopho.resource_cracker.item.ChiselItem;
 import net.xstopho.resource_cracker.item.CrackHammerItem;
 import net.xstopho.resource_cracker.item.ScytheItem;
 import net.xstopho.resource_cracker.item.tier.ToolTiers;
-import net.xstopho.stophoslib.registration.RegistryObject;
-import net.xstopho.stophoslib.registration.RegistryProvider;
+import net.xstopho.resourcelibrary.registration.RegistryObject;
+import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
 import java.util.function.Supplier;
 

@@ -2,21 +2,31 @@ package net.xstopho.resource_cracker.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.xstopho.resource_cracker.Constants;
+import net.xstopho.resource_cracker.datagen.mods.TechRebornRecipes;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
+import java.util.concurrent.CompletableFuture;
+
 public class RecipeProv extends FabricRecipeProvider {
-    public RecipeProv(FabricDataOutput output) {
-        super(output);
+
+
+    public RecipeProv(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(output, registriesFuture);
     }
 
     @Override
     public void buildRecipes(RecipeOutput output) {
+
+        //TODO: add back when tech reborn is updated
+        //TechRebornRecipes.generate(withConditions(output, ResourceConditions.allModsLoaded("techreborn")));
 
         Recipes.generateToolRecipes(output, ModItemTags.CRAFTING_INGREDIENTS);
         Recipes.generateMaterialDustRecipes(output, ModItemTags.CRACK_HAMMER);

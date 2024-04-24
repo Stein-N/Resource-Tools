@@ -1,10 +1,10 @@
 plugins {
     id 'java-library'
-    id 'net.neoforged.gradle.userdev' version '7.0.81'
+    id 'net.neoforged.gradle.userdev' version '7.0.105'
 }
 
 base {
-    archivesName = "${mod_id}-neoforge-1.20.4"
+    archivesName = "${mod_id}-neoforge-1.20.5"
 }
 
 jarJar.enable()
@@ -15,13 +15,8 @@ if (at.exists()) minecraft.accessTransformers.file at
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
 
-    implementation("xstopho.simpleconfigapi:simpleconfigapi-neoforge:${simple_config_api}")
-    implementation("xstopho.stophoslib:stophoslib-neoforge:${stophos_lib}")
-    jarJar("xstopho.stophoslib:stophoslib-neoforge:[${stophos_lib},)")
-
-    runtimeOnly("dev.emi:emi-neoforge:${emi}")
-    runtimeOnly("maven.modrinth:mekanism:${mekanism}")
-    runtimeOnly("maven.modrinth:ae2:${ae2}")
+    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resourceconfigapi}"
+    implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resourcelibrary}"
 
     compileOnly project(":common")
 }

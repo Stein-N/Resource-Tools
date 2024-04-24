@@ -1,11 +1,11 @@
 package net.xstopho.resource_cracker.config;
 
-import net.xstopho.simpleconfig.builder.SimpleConfigBuilder;
+import net.xstopho.resource_config_api.builder.ConfigBuilder;
 
 import java.util.function.Supplier;
 
 public class Config {
-    public static final SimpleConfigBuilder BUILDER = new SimpleConfigBuilder();
+    public static final ConfigBuilder BUILDER = new ConfigBuilder();
 
     public static final Supplier<Integer>
             CRACK_HAMMER_COPPER, CRACK_HAMMER_GOLD, CRACK_HAMMER_IRON, CRACK_HAMMER_STEEL, CRACK_HAMMER_DIAMOND, CRACK_HAMMER_NETHERITE,

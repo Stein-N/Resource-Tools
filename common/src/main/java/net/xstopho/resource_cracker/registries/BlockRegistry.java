@@ -10,8 +10,8 @@ import net.xstopho.resource_cracker.Constants;
 import net.xstopho.resource_cracker.block.GarlicCropBlock;
 import net.xstopho.resource_cracker.block.LavaSpringBlock;
 import net.xstopho.resource_cracker.block.WaterSpringBlock;
-import net.xstopho.stophoslib.registration.RegistryObject;
-import net.xstopho.stophoslib.registration.RegistryProvider;
+import net.xstopho.resourcelibrary.registration.RegistryObject;
+import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
 import java.util.function.Supplier;
 

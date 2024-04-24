@@ -13,6 +13,6 @@ minecraft {
 dependencies {
     compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
 
-    implementation "xstopho.simpleconfigapi:simpleconfigapi-common:${simple_config_api}"
-    implementation "xstopho.stophoslib:stophoslib-common:${stophos_lib}"
+    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-common:${resourceconfigapi}"
+    implementation "net.xstopho.resourcelibrary:resourcelibrary-common:${resourcelibrary}"
 }

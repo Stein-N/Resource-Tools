@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "id": "${mod_id}",
-    "version": "${version}",
+    "version": "${mod_version}",
     "name": "${mod_name}",
     "description": "${mod_description}",
     "authors": [
@@ -24,15 +24,12 @@
         "${mod_id}.fabric.mixins.json"
     ],
     "depends": {
-        "fabricloader": ">=0.14",
+        "fabricloader": ">=0.15",
         "fabric-api": "*",
-        "minecraft": ">=1.20.3 <1.21",
-        "java": ">=17",
-        "stophoslib": ">=${stophos_lib}",
-        "simpleconfigapi": ">=${simple_config_api}"
-    },
-    "suggests": {
-        "another-mod": "*"
+        "minecraft": "1.20.5",
+        "java": ">=21",
+        "resourceconfigapi": ">=${resourceconfigapi}",
+        "resourcelibrary": ">=${resourcelibrary}"
     }
 }
   

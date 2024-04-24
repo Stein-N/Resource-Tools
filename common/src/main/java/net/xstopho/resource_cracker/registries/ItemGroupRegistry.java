@@ -5,8 +5,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_cracker.Constants;
-import net.xstopho.stophoslib.registration.RegistryObject;
-import net.xstopho.stophoslib.registration.RegistryProvider;
+import net.xstopho.resourcelibrary.registration.RegistryObject;
+import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
 public class ItemGroupRegistry {
 

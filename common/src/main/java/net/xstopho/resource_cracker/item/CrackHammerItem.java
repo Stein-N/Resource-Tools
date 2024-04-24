@@ -4,19 +4,17 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import net.xstopho.stophoslib.items.RecipeRemainder;
-import org.jetbrains.annotations.Nullable;
+import net.xstopho.resourcelibrary.items.RecipeRemainder;
 
 import java.util.List;
 
-public class CrackHammerItem extends RecipeRemainder.Item {
+public class CrackHammerItem extends RecipeRemainder {
     public CrackHammerItem(int durability) {
-        super(new Properties().defaultDurability(durability));
+        super(new Properties().durability(durability));
     }
 
     @Override
-    public ItemStack getRemainder(ItemStack stack) {
+    public ItemStack getRemainingItem(ItemStack stack) {
         if (stack.getDamageValue() < stack.getMaxDamage() - 1) {
             ItemStack moreDamaged = stack.copy();
             moreDamaged.setDamageValue(stack.getDamageValue() + 1);
@@ -26,9 +24,9 @@ public class CrackHammerItem extends RecipeRemainder.Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
         tooltip.add(Component.translatable("item.crack_hammer.tooltip").withStyle(ChatFormatting.GOLD));
 
-        super.appendHoverText(stack, world, tooltip, flag);
+        super.appendHoverText(itemStack, tooltipContext, tooltip, tooltipFlag);
     }
 }

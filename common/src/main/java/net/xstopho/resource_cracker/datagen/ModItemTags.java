@@ -8,6 +8,7 @@ import net.xstopho.resource_cracker.service.Services;
 
 public class ModItemTags {
 
+    //TODO: change to new Tag Convention
     public static final TagKey<Item> CRACK_HAMMER = createTags("crack_hammers","tools/crack_hammers");
     public static final TagKey<Item> CHISEL = createTags("chisel", "tools/chisel");
     public static final TagKey<Item> SCYTHE = createTags("scythe", "tools/scythe");

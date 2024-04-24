@@ -1,6 +1,7 @@
 package net.xstopho.resource_cracker.modifier;
 
-import net.xstopho.stophoslib.modifier.LootTableModifier;
+
+import net.xstopho.resourcelibrary.modifier.LootTableModifier;
 
 public class LootModifier {
 

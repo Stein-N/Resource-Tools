@@ -9,7 +9,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.xstopho.resource_cracker.config.Config;
 import net.xstopho.resource_cracker.modifier.LootModifier;
-import net.xstopho.resource_cracker.registries.AttributeRegistry;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemGroupRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;

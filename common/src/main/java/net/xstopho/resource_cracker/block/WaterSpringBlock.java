@@ -4,10 +4,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -29,36 +30,27 @@ public class WaterSpringBlock extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-
+    protected ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult blockHitResult) {
         ItemStack handStack = player.getItemInHand(hand);
 
         if (handStack.getItem() == Items.BUCKET && !player.isCreative()) {
-            ItemStack newStack = new ItemStack(Items.WATER_BUCKET);
-            if (handStack.getCount() == 1) {
-                player.setItemInHand(hand, newStack);
-                return InteractionResult.SUCCESS;
-            }
-            if (!player.getInventory().add(newStack)) {
-                player.drop(newStack, false);
-            }
-            handStack.shrink(1);
-            return InteractionResult.SUCCESS;
+            return addOrDropItem(player, new ItemStack(Items.WATER_BUCKET));
         }
         if (handStack.getItem() == Items.GLASS_BOTTLE && !player.isCreative()) {
-            ItemStack stack = PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER);
-            if (handStack.getCount() == 1) {
-                player.setItemInHand(hand, stack);
-                return InteractionResult.SUCCESS;
-
-            }
-            if (!player.getInventory().add(stack)) {
-                player.drop(stack, false);
-            }
-            handStack.shrink(1);
-            return InteractionResult.SUCCESS;
+            return addOrDropItem(player, PotionContents.createItemStack(Items.POTION, Potions.WATER));
         }
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    static ItemInteractionResult addOrDropItem(Player player, ItemStack stack) {
+        ItemStack handStack = player.getItemInHand(InteractionHand.MAIN_HAND);
+        if (handStack.getCount() == 1) {
+            player.setItemInHand(InteractionHand.MAIN_HAND, stack);
+            return ItemInteractionResult.SUCCESS;
+        }
+        if (!player.getInventory().add(stack)) player.drop(stack, false);
+        handStack.shrink(1);
+        return ItemInteractionResult.SUCCESS;
     }
 
     @Nullable

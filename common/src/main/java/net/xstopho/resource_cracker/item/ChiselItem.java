@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -39,14 +40,14 @@ public class ChiselItem extends Item {
                 Containers.dropItemStack(context.getLevel(), pos.getX(), pos.getY(), pos.getZ(), drop);
             }
         }
-        context.getItemInHand().hurtAndBreak(1, context.getPlayer(), entity -> entity.broadcastBreakEvent(entity.getUsedItemHand()));
+        context.getItemInHand().hurtAndBreak(1, context.getPlayer(), EquipmentSlot.MAINHAND);
         return InteractionResult.SUCCESS;
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
         tooltip.add(Component.translatable("item.chisel.tooltip").withStyle(ChatFormatting.GOLD));
 
-        super.appendHoverText(stack, world, tooltip, flag);
+        super.appendHoverText(itemStack, tooltipContext, tooltip, tooltipFlag);
     }
 }

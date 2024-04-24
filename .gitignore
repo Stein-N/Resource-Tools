@@ -22,6 +22,7 @@ build
 eclipse
 */runs/server/*
 */runs/client/*
+*/runs/data/*
 !*/runs/client/options.txt
 
 

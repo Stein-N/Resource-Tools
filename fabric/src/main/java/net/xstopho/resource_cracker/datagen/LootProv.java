@@ -3,14 +3,19 @@ package net.xstopho.resource_cracker.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.xstopho.resource_cracker.block.GarlicCropBlock;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
+import java.util.concurrent.CompletableFuture;
+
 public class LootProv extends FabricBlockLootTableProvider {
-    public LootProv(FabricDataOutput dataOutput) {
-        super(dataOutput);
+
+
+    public LootProv(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(dataOutput, registryLookup);
     }
 
     @Override

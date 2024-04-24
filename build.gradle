@@ -11,7 +11,7 @@ subprojects {
     apply plugin: 'me.modmuss50.mod-publish-plugin'
 
     java {
-        toolchain.languageVersion = JavaLanguageVersion.of(17)
+        toolchain.languageVersion = JavaLanguageVersion.of(21)
         withSourcesJar()
         withJavadocJar()
     }
@@ -24,6 +24,7 @@ subprojects {
         maven { url 'https://api.modrinth.com/maven' }
         maven { url 'https://maven.shedaniel.me' }
         maven { url 'https://cursemaven.com'}
+        maven { url MAVEN_REPOSITORY_TEST }
     }
 
     // Basic Settings for the Mod Publish Plugin by modmuss50
@@ -40,17 +41,17 @@ subprojects {
             modrinth {
                 accessToken = MODRINTH_KEY
                 projectId = modrinth_id
-                minecraftVersions.add("1.20.4")
+                minecraftVersions.add("1.20.5")
             }
             curseforge {
                 accessToken = CURSEFORGE_KEY
                 projectId = curseforge_id
-                minecraftVersions.add("1.20.4")
+                minecraftVersions.add("1.20.5")
 
                 clientRequired = true
                 serverRequired = true
 
-                javaVersions.add(JavaVersion.VERSION_17)
+                javaVersions.add(JavaVersion.VERSION_21)
             }
         }
     }
@@ -60,7 +61,7 @@ subprojects {
     Spec<Task> notNeoTask = { Task itTask -> !itTask.name.startsWith("neo") } as Spec<Task>
     tasks.withType(JavaCompile).matching(notNeoTask).configureEach {
         it.options.encoding = 'UTF-8'
-        it.options.getRelease().set(17)
+        it.options.getRelease().set(21)
         if (project.name != 'common') {
             source(project(":common").sourceSets.main.allSource)
         }
@@ -90,6 +91,7 @@ subprojects {
                 "group": project.group,
 
                 // Mod related Keys
+                "mod_version": version,
                 "minecraft_version": minecraft_version,
                 "mod_name": mod_name,
                 "mod_author": mod_author,
@@ -115,8 +117,8 @@ subprojects {
                 "neoforge_loader_version_range": neoforge_loader_version_range,
 
                 // External Dependencies Keys
-                "simple_config_api": simple_config_api,
-                "stophos_lib": stophos_lib
+                "resourceconfigapi": resourceconfigapi,
+                "resourcelibrary": resourcelibrary
         ]
 
         filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', '*.mixins.json']) {

@@ -3,7 +3,7 @@ plugins {
 }
 
 base {
-    archivesName = "${mod_id}-fabric-1.20.3-1.20.4"
+    archivesName = "${mod_id}-fabric-1.20.5"
 }
 
 dependencies {
@@ -13,16 +13,11 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
 
-    modImplementation "xstopho.simpleconfigapi:simpleconfigapi-fabric:${simple_config_api}"
-    modImplementation "xstopho.stophoslib:stophoslib-fabric:${stophos_lib}"
-    include "xstopho.stophoslib:stophoslib-fabric:${stophos_lib}"
+    modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resourceconfigapi}"
+    modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${resourcelibrary}"
 
     // Runtime Mods
-    modRuntimeOnly "dev.emi:emi-fabric:${emi}"
-    modRuntimeOnly "com.terraformersmc:modmenu:${mod_menu}"
-    modRuntimeOnly "curse.maven:techreborn-233564:4958438"
-    modRuntimeOnly "curse.maven:reborncore-237903:4958437"
-    modRuntimeOnly "teamreborn:energy:3.0.0"
+
 
     compileOnly project(":common")
 }
