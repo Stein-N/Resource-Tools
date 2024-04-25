@@ -24,7 +24,6 @@ subprojects {
         maven { url 'https://api.modrinth.com/maven' }
         maven { url 'https://maven.shedaniel.me' }
         maven { url 'https://cursemaven.com'}
-        maven { url MAVEN_REPOSITORY_TEST }
     }
 
     // Basic Settings for the Mod Publish Plugin by modmuss50
@@ -42,6 +41,9 @@ subprojects {
                 accessToken = MODRINTH_KEY
                 projectId = modrinth_id
                 minecraftVersions.add("1.20.5")
+
+                requires('69TY9iyJ') // Resource Config API
+                requires('XLhounCW') // Resource Library
             }
             curseforge {
                 accessToken = CURSEFORGE_KEY
@@ -50,6 +52,9 @@ subprojects {
 
                 clientRequired = true
                 serverRequired = true
+
+                requires('975801') // Resource Config API
+                requires('975803') // Resource Library
 
                 javaVersions.add(JavaVersion.VERSION_21)
             }
@@ -121,7 +126,7 @@ subprojects {
                 "resourcelibrary": resourcelibrary
         ]
 
-        filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', '*.mixins.json']) {
+        filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/neoforge.mods.toml', '*.mixins.json']) {
             expand expandProps
         }
         inputs.properties(expandProps)

@@ -3,7 +3,7 @@ loaderVersion = "${neoforge_loader_version_range}"
 license = "${mod_license}"
 
 [[mods]]
-    modId = "${mod_id}"
+    modId = "resource_cracker"
     version = "${mod_version}"
     displayName = "${mod_name}"
     authors = "${mod_author}"
@@ -25,14 +25,21 @@ license = "${mod_license}"
 [[dependencies.${mod_id}]]
     modId = "minecraft"
     required = true
-    versionRange = "[1.20.4,)"
+    versionRange = "[1.20.5,)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.${mod_id}]]
-    modId = "simpleconfigapi"
+    modId = "resourceconfigapi"
     required = true
-    versionRange = "[${simple_config_api}, )"
+    versionRange = "[${resourceconfigapi}, )"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.${mod_id}]]
+    modId = "resourcelibrary"
+    required = true
+    versionRange = "[${resourcelibrary}, )"
     ordering = "NONE"
     side = "BOTH"
 

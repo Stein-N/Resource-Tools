@@ -1,5 +1,6 @@
 package net.xstopho.resource_cracker.datagen;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -9,14 +10,16 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
-import net.neoforged.neoforge.common.crafting.ConditionalRecipeOutput;
 import net.xstopho.resource_cracker.Constants;
-import net.xstopho.resource_cracker.datagen.mods.AE2Recipes;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
+import java.util.concurrent.CompletableFuture;
+
 public class RecipeProv extends RecipeProvider implements IConditionBuilder {
-    public RecipeProv(PackOutput output) {
-        super(output);
+
+
+    public RecipeProv(PackOutput output, CompletableFuture<HolderLookup.Provider> holderLookup) {
+        super(output, holderLookup);
     }
 
     @Override
@@ -29,8 +32,7 @@ public class RecipeProv extends RecipeProvider implements IConditionBuilder {
         Recipes.generateCompactingRecipes(output);
 
         // Mod Recipes
-        // noinspection UnstableApiUsage
-        AE2Recipes.generate(new ConditionalRecipeOutput(output, getConditions(modLoaded("ae2"))));
+        //AE2Recipes.generate(new ConditionalRecipeOutput(output, getConditions(modLoaded("ae2"))));
 
         // Netherite Dust Recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), 1)
