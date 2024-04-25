@@ -2,10 +2,8 @@ package net.xstopho.resource_cracker.datagen;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.ContextAwarePredicate;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -19,14 +17,13 @@ import net.xstopho.resource_cracker.Constants;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public class BaseRecipes {
 
-    static void crackHammerRecipe(RecipeOutput exporter, ItemLike output, ItemLike input, TagKey<Item> ingredients) {
+    static void crackHammerRecipe(RecipeOutput exporter, ItemLike output, ItemLike input) {
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, output, 1)
                 .pattern(" IT").pattern(" SI").pattern("S  ")
-                .define('T', Ingredient.of(ingredients))
+                .define('T', ModItemTags.CRACK_HAMMER_INGREDIENTS)
                 .define('S', Items.STICK).define('I', input)
                 .unlockedBy(getHasName(input), has(input))
                 .save(exporter, location("tools/crack_hammer/" + getSimpleRecipeName(output)));
@@ -40,10 +37,10 @@ public class BaseRecipes {
                 .save(exporter, location("tools/chisel/" + getSimpleRecipeName(output)));
     }
 
-    static void scytheRecipe(RecipeOutput exporter, ItemLike output, ItemLike input, TagKey<Item> ingredients) {
+    static void scytheRecipe(RecipeOutput exporter, ItemLike output, ItemLike input) {
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, output, 1)
                 .pattern("IIT").pattern(" SI").pattern("S  ")
-                .define('T', Ingredient.of(ingredients))
+                .define('T', ModItemTags.SCYTHE_INGREDIENTS)
                 .define('S', Items.STICK).define('I', input)
                 .unlockedBy(getHasName(input), has(input))
                 .save(exporter, location("tools/scythe/" + getSimpleRecipeName(output)));
@@ -56,25 +53,21 @@ public class BaseRecipes {
                 .save(exporter, location("smithing/" + getSimpleRecipeName(output)));
     }
 
-    static void springBlockRecipe(RecipeOutput exporter, ItemLike output, ItemLike input, TagKey<Item> ingredients) {
+    static void springBlockRecipe(RecipeOutput exporter, ItemLike output, ItemLike input) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 1)
                 .pattern("SSS").pattern("SBS").pattern("SSS")
-                .define('S', Ingredient.of(ingredients))
+                .define('S', ModItemTags.STEEL_INGOTS)
                 .define('B', input)
                 .unlockedBy(getHasName(input), has(input))
                 .save(exporter, location("blocks/" + getSimpleRecipeName(output)));
     }
 
-    static void materialDustRecipe(RecipeOutput exporter, ItemLike output, ItemLike input, int outputAmount, TagKey<Item> crackHammerTag, String path) {
+    static void materialDustRecipe(RecipeOutput exporter, ItemLike output, ItemLike input, int outputAmount) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, outputAmount)
-                .requires(Ingredient.of(crackHammerTag))
+                .requires(ModItemTags.CRACK_HAMMER)
                 .requires(input)
                 .unlockedBy(getHasName(input), has(input))
-                .save(exporter, location(path + "/" + getSimpleRecipeName(output) + "_from_" + getSimpleRecipeName(input)));
-    }
-
-    static void materialDustRecipe(RecipeOutput exporter, ItemLike output, ItemLike input, int outputAmount, TagKey<Item> crackHammerTag) {
-        materialDustRecipe(exporter, output, input, outputAmount, crackHammerTag, "material_dusts");
+                .save(exporter, location("material_dusts/" + getSimpleRecipeName(output) + "_from_" + getSimpleRecipeName(input)));
     }
 
     static void compressionRecipe(RecipeOutput exporter, ItemLike output, ItemLike input, boolean compress, boolean decompress) {

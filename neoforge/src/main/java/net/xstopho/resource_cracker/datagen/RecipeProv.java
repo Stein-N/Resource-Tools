@@ -25,8 +25,8 @@ public class RecipeProv extends RecipeProvider implements IConditionBuilder {
     @Override
     protected void buildRecipes(RecipeOutput output) {
 
-        Recipes.generateToolRecipes(output, ModItemTags.CRAFTING_INGREDIENTS);
-        Recipes.generateMaterialDustRecipes(output, ModItemTags.CRACK_HAMMER);
+        Recipes.generateToolRecipes(output);
+        Recipes.generateMaterialDustRecipes(output);
         Recipes.generateSpringBlockRecipes(output, ModItemTags.STEEL_BLOCKS);
         Recipes.generateProcessingRecipes(output);
         Recipes.generateCompactingRecipes(output);

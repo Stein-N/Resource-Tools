@@ -28,7 +28,10 @@ public class ItemTagProv extends FabricTagProvider.ItemTagProvider {
                 .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
                         ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
 
-        getOrCreateTagBuilder(ModItemTags.CRAFTING_INGREDIENTS)
+        getOrCreateTagBuilder(ModItemTags.CRACK_HAMMER_INGREDIENTS)
+                .add(Items.STRING, Items.LEATHER, Items.RABBIT_HIDE);
+
+        getOrCreateTagBuilder(ModItemTags.SCYTHE_INGREDIENTS)
                 .add(Items.STRING, Items.LEATHER, Items.RABBIT_HIDE);
 
         getOrCreateTagBuilder(ModItemTags.COAL_DUSTS).add(ItemRegistry.MATERIAL_DUST_CARBON.get());
@@ -52,5 +55,24 @@ public class ItemTagProv extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModItemTags.STEEL_INGOTS).add(ItemRegistry.STEEL_INGOT.get());
 
         getOrCreateTagBuilder(ModItemTags.STEEL_BLOCKS).add(BlockRegistry.STEEL_BLOCK.get().asItem());
+
+        getOrCreateTagBuilder(ModItemTags.createTag("dusts"))
+                .addTag(ModItemTags.COAL_DUSTS)
+                .addTag(ModItemTags.CARBON_DUSTS)
+                .addTag(ModItemTags.COPPER_DUSTS)
+                .addTag(ModItemTags.IRON_DUSTS)
+                .addTag(ModItemTags.GOLD_DUSTS)
+                .addTag(ModItemTags.DIAMOND_DUSTS)
+                .addTag(ModItemTags.EMERALD_DUSTS)
+                .addTag(ModItemTags.SULFUR_DUSTS)
+                .addTag(ModItemTags.SALTPETER_DUSTS)
+                .addTag(ModItemTags.STEEL_DUSTS)
+                .addTag(ModItemTags.NETHERITE_SCRAP_DUSTS)
+                .addTag(ModItemTags.NETHERITE_DUSTS);
+
+        getOrCreateTagBuilder(ModItemTags.createTag("nuggets"))
+                .addTag(ModItemTags.DIAMOND_NUGGETS)
+                .addTag(ModItemTags.EMERALD_NUGGETS)
+                .addTag(ModItemTags.COPPER_NUGGETS);
     }
 }

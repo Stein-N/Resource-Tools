@@ -28,8 +28,8 @@ public class RecipeProv extends FabricRecipeProvider {
         //TODO: add back when tech reborn is updated
         //TechRebornRecipes.generate(withConditions(output, ResourceConditions.allModsLoaded("techreborn")));
 
-        Recipes.generateToolRecipes(output, ModItemTags.CRAFTING_INGREDIENTS);
-        Recipes.generateMaterialDustRecipes(output, ModItemTags.CRACK_HAMMER);
+         Recipes.generateToolRecipes(output);
+        Recipes.generateMaterialDustRecipes(output);
         Recipes.generateSpringBlockRecipes(output, ModItemTags.STEEL_BLOCKS);
         Recipes.generateProcessingRecipes(output);
         Recipes.generateCompactingRecipes(output);
