@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 
 public class BlockRegistry {
 
-    private static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(Registries.BLOCK, Constants.MOD_ID);
+    public static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(Registries.BLOCK, Constants.MOD_ID);
 
     public static final RegistryObject<Block> GARLIC_CROP = BLOCKS.register("garlic_crop", GarlicCropBlock::new);
 

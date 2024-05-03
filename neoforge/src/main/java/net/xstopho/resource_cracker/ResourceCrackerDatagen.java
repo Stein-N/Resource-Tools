@@ -8,24 +8,26 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
-import net.xstopho.resource_cracker.datagen.BlockTagProv;
-import net.xstopho.resource_cracker.datagen.ItemTagProv;
-import net.xstopho.resource_cracker.datagen.RecipeProv;
+import net.xstopho.resource_cracker.datagen.*;
 
 import java.util.concurrent.CompletableFuture;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ResourceCrackerDatagen {
+
     @SubscribeEvent
     public static void data(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
-        ExistingFileHelper helper = event.getExistingFileHelper();
+        ExistingFileHelper fileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
         generator.addProvider(event.includeServer(), new RecipeProv(output, provider));
+        generator.addProvider(event.includeServer(), LootProv.create(output, provider));
+        generator.addProvider(event.includeServer(), new BlockStateProv(output, fileHelper));
+        generator.addProvider(event.includeServer(), new ItemModelProv(output, fileHelper));
 
-        BlockTagProv blockTags = generator.addProvider(event.includeServer(), new BlockTagProv(output, provider, helper));
-        generator.addProvider(event.includeServer(), new ItemTagProv(output, provider, blockTags.contentsGetter(), helper));
+        BlockTagProv blockTags = generator.addProvider(event.includeServer(), new BlockTagProv(output, provider, fileHelper));
+        generator.addProvider(event.includeServer(), new ItemTagProv(output, provider, blockTags.contentsGetter(), fileHelper));
     }
 }

@@ -1,6 +1,7 @@
 #### v1.11.0
 - more internal changes that have no impact to you experience
 - update to Minecraft 1.20.5
+- Mekanism and Applied Energetics 2 Recipes for NeoForge
 
 #### v1.10.3
 - many internal changes that have no impact to your experience

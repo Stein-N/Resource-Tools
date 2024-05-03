@@ -1,9 +1,6 @@
 plugins {
+    id 'ml-loader'
     id 'fabric-loom' version '1.6-SNAPSHOT'
-}
-
-base {
-    archivesName = "${mod_id}-fabric-1.20.5"
 }
 
 dependencies {
@@ -11,15 +8,10 @@ dependencies {
     mappings loom.officialMojangMappings()
 
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}+${minecraft_version}"
 
-    modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resourceconfigapi}"
-    modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${resourcelibrary}"
-
-    // Runtime Mods
-
-
-    compileOnly project(":common")
+    modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resource_config_api}"
+    modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${minecraft_version}-${resource_library}"
 }
 
 loom {

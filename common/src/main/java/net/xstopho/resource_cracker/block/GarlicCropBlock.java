@@ -27,7 +27,7 @@ public class GarlicCropBlock extends CropBlock {
     }
 
     @Override
-    protected IntegerProperty getAgeProperty() {
+    public IntegerProperty getAgeProperty() {
         return AGE;
     }
 

@@ -10,7 +10,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import net.neoforged.neoforge.common.crafting.ConditionalRecipeOutput;
 import net.xstopho.resource_cracker.Constants;
+import net.xstopho.resource_cracker.datagen.mods.MekanismRecipes;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
 import java.util.concurrent.CompletableFuture;
@@ -33,6 +35,7 @@ public class RecipeProv extends RecipeProvider implements IConditionBuilder {
 
         // Mod Recipes
         //AE2Recipes.generate(new ConditionalRecipeOutput(output, getConditions(modLoaded("ae2"))));
+        //MekanismRecipes.generate(new ConditionalRecipeOutput(output, getConditions(modLoaded("mekanism"))));
 
         // Netherite Dust Recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), 1)
