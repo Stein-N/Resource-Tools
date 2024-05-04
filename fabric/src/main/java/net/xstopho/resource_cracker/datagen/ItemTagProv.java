@@ -3,7 +3,9 @@ package net.xstopho.resource_cracker.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.xstopho.resource_cracker.item.CrackHammerItem;
 import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
@@ -82,5 +84,23 @@ public class ItemTagProv extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(CrackerItemTags.INGOTS).add(ItemRegistry.STEEL_INGOT.get());
         getOrCreateTagBuilder(CrackerItemTags.GARLIC).add(ItemRegistry.GARLIC.get());
         getOrCreateTagBuilder(CrackerItemTags.BEEF_JERKY).add(ItemRegistry.BEEF_JERKY.get());
+        getOrCreateTagBuilder(CrackerItemTags.FOODS).add(ItemRegistry.GARLIC.get(), ItemRegistry.BEEF_JERKY.get());
+
+        getOrCreateTagBuilder(CrackerItemTags.TOOLS)
+                .addTag(CrackerItemTags.CRACK_HAMMER)
+                .addTag(CrackerItemTags.CHISEL)
+                .addTag(CrackerItemTags.SCYTHE);
+
+        getOrCreateTagBuilder(CrackerItemTags.ENCHANTABLES).addTag(CrackerItemTags.SCYTHE);
+
+        getOrCreateTagBuilder(ItemTags.WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
+        getOrCreateTagBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
+
+        getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ItemRegistry.GARLIC.get());
+
+        getOrCreateTagBuilder(ItemTags.BREAKS_DECORATED_POTS)
+                .addTag(CrackerItemTags.SCYTHE)
+                .addTag(CrackerItemTags.CHISEL)
+                .addTag(CrackerItemTags.CRACK_HAMMER);
     }
 }

@@ -3,6 +3,7 @@ package net.xstopho.resource_cracker.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -88,5 +89,23 @@ public class ItemTagProv extends ItemTagsProvider {
         this.tag(CrackerItemTags.INGOTS).add(ItemRegistry.STEEL_INGOT.get());
         this.tag(CrackerItemTags.GARLIC).add(ItemRegistry.GARLIC.get());
         this.tag(CrackerItemTags.BEEF_JERKY).add(ItemRegistry.BEEF_JERKY.get());
+        this.tag(CrackerItemTags.FOODS).add(ItemRegistry.GARLIC.get(), ItemRegistry.BEEF_JERKY.get());
+
+        this.tag(CrackerItemTags.TOOLS)
+                .addTag(CrackerItemTags.CRACK_HAMMER)
+                .addTag(CrackerItemTags.CHISEL)
+                .addTag(CrackerItemTags.SCYTHE);
+
+        this.tag(CrackerItemTags.ENCHANTABLES).addTag(CrackerItemTags.SCYTHE);
+
+        this.tag(ItemTags.WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
+        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
+
+        this.tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ItemRegistry.GARLIC.get());
+
+        this.tag(ItemTags.BREAKS_DECORATED_POTS)
+                .addTag(CrackerItemTags.SCYTHE)
+                .addTag(CrackerItemTags.CHISEL)
+                .addTag(CrackerItemTags.CRACK_HAMMER);
     }
 }

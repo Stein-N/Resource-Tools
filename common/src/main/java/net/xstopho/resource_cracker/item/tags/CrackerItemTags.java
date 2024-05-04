@@ -10,6 +10,9 @@ public class CrackerItemTags {
     public static final TagKey<Item> DUSTS = createTag("dusts");
     public static final TagKey<Item> NUGGETS = createTag("nuggets");
     public static final TagKey<Item> INGOTS = createTag("ingots");
+    public static final TagKey<Item> FOODS = createTag("foods");
+    public static final TagKey<Item> TOOLS = createTag("tools");
+    public static final TagKey<Item> ENCHANTABLES = createTag("enchantables");
 
     // Mod specific Tags
     public static final TagKey<Item> CRACK_HAMMER = createTag("tools/crack_hammer");
@@ -40,8 +43,8 @@ public class CrackerItemTags {
     public static final TagKey<Item> STEEL_INGOTS = createTag("ingots/steel");
 
     public static final TagKey<Item> STEEL_BLOCKS = createTag("blocks/steel");
-    public static final TagKey<Item> GARLIC = createTag("food/garlic");
-    public static final TagKey<Item> BEEF_JERKY = createTag("food/beef_jerky");
+    public static final TagKey<Item> GARLIC = createTag("foods/garlic");
+    public static final TagKey<Item> BEEF_JERKY = createTag("foods/beef_jerky");
 
     public static TagKey<Item> createTag(String id) {
         return TagHelper.createPlatformTag(id);
