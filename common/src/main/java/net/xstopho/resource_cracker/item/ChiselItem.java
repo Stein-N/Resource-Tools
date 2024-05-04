@@ -8,11 +8,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.xstopho.resource_cracker.config.CrackerConfig;
+import net.xstopho.resource_cracker.registries.ItemRegistry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -21,8 +22,8 @@ import java.util.Random;
 public class ChiselItem extends Item {
     public static final Random rnd = new Random();
 
-    public ChiselItem(Properties properties) {
-        super(properties);
+    public ChiselItem(int durability) {
+        super(new Properties().durability(durability));
     }
 
     @NotNull
@@ -33,10 +34,8 @@ public class ChiselItem extends Item {
         Block block = context.getLevel().getBlockState(context.getClickedPos()).getBlock();
         BlockPos pos = context.getClickedPos().relative(context.getClickedFace());
 
-        //TODO: Add Config Value
-        //TODO: Add Saltpeter as drop when implemented
-        if (block.equals(Blocks.BRICKS) && rnd.nextFloat() <= .5f) {
-            Containers.dropItemStack(context.getLevel(), pos.getX(), pos.getY(), pos.getZ(), Items.DIAMOND.getDefaultInstance());
+        if (block.equals(Blocks.BRICKS) && rnd.nextFloat() <= CrackerConfig.SALTPETER_FROM_BRICKS.get()) {
+            Containers.dropItemStack(context.getLevel(), pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ItemRegistry.MATERIAL_DUST_SALTPETER.get()));
         }
 
         context.getItemInHand().hurtAndBreak(1, context.getPlayer(), EquipmentSlot.MAINHAND);

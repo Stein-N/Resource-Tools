@@ -9,8 +9,8 @@ import net.xstopho.resourcelibrary.items.RecipeRemainder;
 import java.util.List;
 
 public class CrackHammerItem extends RecipeRemainder {
-    public CrackHammerItem(Properties properties) {
-        super(properties);
+    public CrackHammerItem(int durability) {
+        super(new Properties().durability(durability));
     }
 
     @Override
