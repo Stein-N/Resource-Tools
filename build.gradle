@@ -4,15 +4,13 @@ plugins {
     id "me.modmuss50.mod-publish-plugin" version "0.5.1"
 }
 
-
 subprojects {
-    apply plugin: 'me.modmuss50.mod-publish-plugin'
-    // Basic Settings for the Mod Publish Plugin by modmuss50
-    // It also uses the CHANGELOG.md for an ongoing Changelog File
+    apply plugin: "me.modmuss50.mod-publish-plugin"
+
     publishMods {
         if (project.name != 'common') {
             displayName = file.map { it.asFile.name }
-            type = STABLE
+            type = ALPHA
 
             var changelogFile = rootProject.file('CHANGELOG.md')
             if (changelogFile.exists()) changelog = changelogFile.text
@@ -21,21 +19,13 @@ subprojects {
             modrinth {
                 accessToken = MODRINTH_KEY
                 projectId = modrinth_id
-                minecraftVersions.add("1.20.5")
-
-                requires('resource-config-api')
-                requires('resource-library')
             }
             curseforge {
                 accessToken = CURSEFORGE_KEY
                 projectId = curseforge_id
-                minecraftVersions.add("1.20.5")
 
                 clientRequired = true
                 serverRequired = true
-
-                requires('resource-config-api')
-                requires('resource-library')
 
                 javaVersions.add(JavaVersion.VERSION_21)
             }

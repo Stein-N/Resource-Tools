@@ -2,10 +2,6 @@ plugins {
     id 'java-library'
 }
 
-base {
-    archivesName = "${mod_id}-${project.name}-1.20.5-1.20.6"
-}
-
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
     withSourcesJar()
@@ -16,14 +12,19 @@ repositories {
     mavenCentral()
     maven { url 'https://raw.githubusercontent.com/Stein-N/resources/main/maven' }
     maven { url 'https://repo.spongepowered.org/repository/maven-public/' }
-    maven { url 'https://maven.terraformersmc.com/' }
     maven { url 'https://api.modrinth.com/maven' }
-    maven { url 'https://maven.shedaniel.me' }
-    maven { url 'https://cursemaven.com'}
 }
 
-tasks.withType(Javadoc).configureEach {
+dependencies {
+    implementation 'org.jetbrains:annotations:24.1.0'
+}
+
+tasks.named('javadoc', Javadoc) {
     options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+tasks.withType(GenerateModuleMetadata).configureEach {
+    enabled = project.name == 'neoforge'
 }
 
 processResources {
@@ -40,6 +41,8 @@ processResources {
             "mod_license": mod_license,
             "mod_credits": mod_credits,
             "mod_description": mod_description,
+
+            // General Key
             "minecraft_version_range": minecraft_version_range,
 
             // Fabric Keys
@@ -48,7 +51,6 @@ processResources {
 
             // Forge Keys
             "forge_version": forge_version,
-            "forge_loader_version_range": forge_loader_version_range,
             "forge_version_range": forge_version_range,
 
             // NeoForge Keys
@@ -56,11 +58,11 @@ processResources {
             "neoforge_loader_version_range": neoforge_loader_version_range,
 
             // Dependencies
-            "resourceconfigapi": resource_config_api,
-            "resourcelibrary": resource_library
+            "resource_config_api": resource_config_api,
+            "resource_library": resource_library
     ]
 
-    filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', 'META-INF/neoforge.mods.toml', '*.mixins.json']) {
+    filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/neoforge.mods.toml', 'META-INF/mods.toml', '*.mixins.json']) {
         expand expandProps
     }
     inputs.properties(expandProps)

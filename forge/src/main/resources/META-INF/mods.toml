@@ -1,10 +1,10 @@
 modLoader = "javafml"
-loaderVersion = "${forge_loader_version_range}"
+loaderVersion = "${forge_version_range}"
 license = "${mod_license}"
 
 [[mods]]
     modId = "${mod_id}"
-    version = "${mod_version}"
+    version = "${version}"
     displayName = "${mod_name}"
     authors = "${mod_author}"
     description = '''${mod_description}'''
@@ -25,8 +25,15 @@ license = "${mod_license}"
     side = "BOTH"
 
 [[dependencies.${mod_id}]]
-    modId = "simpleconfigapi"
+    modId = "resourceconfigapi"
     mandatory = true
-    versionRange = "[${simple_config_api}, )"
+    versionRange = "[${resource_config_api}, )"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.${mod_id}]]
+    modId = "resourcelibrary"
+    mandatory = true
+    versionRange = "[${resource_library}, )"
     ordering = "NONE"
     side = "BOTH"

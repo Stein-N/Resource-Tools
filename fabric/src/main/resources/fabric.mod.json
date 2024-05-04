@@ -8,8 +8,9 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://fabricmc.net/",
-        "sources": "https://github.com/FabricMC/fabric-example-mod"
+        "homepage": "https://github.com/Stein-N/Resource-Cracker",
+        "sources": "https://github.com/Stein-N/Resource-Cracker",
+        "issues": "https://github.com/Stein-N/Resource-Cracker/issues"
     },
     "license": "${mod_license}",
     "icon": "icon.png",
@@ -24,12 +25,12 @@
         "${mod_id}.fabric.mixins.json"
     ],
     "depends": {
-        "fabricloader": ">=0.15",
         "fabric-api": "*",
-        "minecraft": "1.20.5",
+        "fabricloader": "*",
+        "minecraft": "${minecraft_version}",
         "java": ">=21",
-        "resourceconfigapi": ">=${resourceconfigapi}",
-        "resourcelibrary": ">=${resourcelibrary}"
+
+        "resourceconfigapi": ">=${resource_config_api}",
+        "resourcelibrary": ">=${resource_library}"
     }
 }
-  

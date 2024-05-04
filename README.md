@@ -1,4 +1,5 @@
-![](https://cf.way2muchnoise.eu/title/917988.svg)![](https://cf.way2muchnoise.eu/917988.svg)![](https://cf.way2muchnoise.eu/versions/917988.svg)
+![](https://cf.way2muchnoise.eu/versions/917988.svg)![](https://cf.way2muchnoise.eu/917988.svg)
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/hwfBSwLz?logo=modrinth&label=Downloads&color=%2300AF5C)
 
 ![](https://cdn.modrinth.com/data/hwfBSwLz/images/43b0d1f531fdf8c96241ca6e0720c7914e8b20e4.png)
 
@@ -26,7 +27,7 @@ Because he was on break, I decided to create my own Mod with similar Blocks/Item
 - [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (only 1.20.1)
 - [Tech Reborn](https://www.curseforge.com/minecraft/mc-mods/techreborn)
 
-##### Forge - 1.20.1 and above
+##### Forge - 1.20.1 up to 1.20.6
 - [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (only 1.20.1)
 - [Mekanism](https://www.curseforge.com/minecraft/mc-mods/mekanism) (only 1.20.1)
 
