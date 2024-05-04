@@ -16,7 +16,6 @@ public class CrackerItemTags {
 
     // Mod specific Tags
     public static final TagKey<Item> CRACK_HAMMER = createTag("tools/crack_hammer");
-    public static final TagKey<Item> CRACK_HAMMER_FOR_MODS = createTag("tools/crack_hammer_for_mods");
     public static final TagKey<Item> CHISEL = createTag("tools/chisel");
     public static final TagKey<Item> SCYTHE = createTag("tools/scythe");
     public static final TagKey<Item> CRACK_HAMMER_INGREDIENTS = createTag("tools/crack_hammer/crafting_ingredients");
