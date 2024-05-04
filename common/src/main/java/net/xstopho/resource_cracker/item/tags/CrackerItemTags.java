@@ -42,7 +42,7 @@ public class CrackerItemTags {
 
     public static final TagKey<Item> STEEL_BLOCKS = createTag("blocks/steel");
 
-    private static TagKey<Item> createTag(String id) {
+    public static TagKey<Item> createTag(String id) {
         return TagHelper.createPlatformTag(id);
     }
 }

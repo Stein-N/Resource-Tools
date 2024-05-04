@@ -130,15 +130,15 @@ public class CrackerBaseRecipes {
     /**********************************************************************************/
     /*                          Here are only Helper Methods                          */
     /**********************************************************************************/
-    static String getHasName(ItemLike item) {
+    public static String getHasName(ItemLike item) {
         return "has_" + getItemName(item);
     }
 
-    static String getItemName(ItemLike item) {
+    public static String getItemName(ItemLike item) {
         return BuiltInRegistries.ITEM.getKey(item.asItem()).getPath();
     }
 
-    static String getSimpleRecipeName(ItemLike item) {
+    public static String getSimpleRecipeName(ItemLike item) {
         return getItemName(item);
     }
 
@@ -158,7 +158,7 @@ public class CrackerBaseRecipes {
         return CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(itemPredicates)));
     }
 
-    static ResourceLocation location(String path) {
+    public static ResourceLocation location(String path) {
         return new ResourceLocation(CrackerConstants.MOD_ID, path);
     }
 }

@@ -5,7 +5,7 @@ plugins {
 }
 
 base {
-    archivesName = "${mod_id}-forge-${minecraft_version}"
+    archivesName = "${mod_id}-forge-1.20.6"
 }
 
 dependencies {
@@ -61,10 +61,6 @@ sourceSets.each {
     def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
     it.output.resourcesDir = dir
     it.java.destinationDirectory = dir
-}
-
-processResources {
-    exclude('resource_cracker.mixins.json')
 }
 
 publishMods {
