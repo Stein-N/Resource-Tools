@@ -80,5 +80,7 @@ public class ItemTagProv extends FabricTagProvider.ItemTagProvider {
                 .addTag(CrackerItemTags.COPPER_NUGGETS);
 
         getOrCreateTagBuilder(CrackerItemTags.INGOTS).add(ItemRegistry.STEEL_INGOT.get());
+        getOrCreateTagBuilder(CrackerItemTags.GARLIC).add(ItemRegistry.GARLIC.get());
+        getOrCreateTagBuilder(CrackerItemTags.BEEF_JERKY).add(ItemRegistry.BEEF_JERKY.get());
     }
 }

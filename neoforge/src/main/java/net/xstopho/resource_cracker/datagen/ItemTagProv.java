@@ -86,5 +86,7 @@ public class ItemTagProv extends ItemTagsProvider {
                 .addTag(CrackerItemTags.COPPER_NUGGETS);
 
         this.tag(CrackerItemTags.INGOTS).add(ItemRegistry.STEEL_INGOT.get());
+        this.tag(CrackerItemTags.GARLIC).add(ItemRegistry.GARLIC.get());
+        this.tag(CrackerItemTags.BEEF_JERKY).add(ItemRegistry.BEEF_JERKY.get());
     }
 }
