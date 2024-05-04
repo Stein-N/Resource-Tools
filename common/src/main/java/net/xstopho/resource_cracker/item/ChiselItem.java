@@ -26,6 +26,11 @@ public class ChiselItem extends Item {
         super(new Properties().durability(durability));
     }
 
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return false;
+    }
+
     @NotNull
     @Override
     public InteractionResult useOn(UseOnContext context) {

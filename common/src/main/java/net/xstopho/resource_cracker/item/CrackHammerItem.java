@@ -14,6 +14,11 @@ public class CrackHammerItem extends RecipeRemainder {
     }
 
     @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return false;
+    }
+
+    @Override
     public ItemStack getRemainingItem(ItemStack itemStack) {
         if (itemStack.getDamageValue() < itemStack.getMaxDamage() -1) {
             ItemStack damaged = itemStack.copy();
