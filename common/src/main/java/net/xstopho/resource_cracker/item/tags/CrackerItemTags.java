@@ -7,7 +7,6 @@ import net.xstopho.resourcelibrary.items.tags.TagHelper;
 public class CrackerItemTags {
 
     // General Tags
-    public static final TagKey<Item> ORES = createTag("ores");
     public static final TagKey<Item> DUSTS = createTag("dusts");
     public static final TagKey<Item> NUGGETS = createTag("nuggets");
     public static final TagKey<Item> INGOTS = createTag("ingots");

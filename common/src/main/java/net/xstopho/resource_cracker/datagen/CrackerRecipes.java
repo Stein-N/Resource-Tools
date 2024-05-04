@@ -59,7 +59,7 @@ public class CrackerRecipes extends CrackerBaseRecipes {
         materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get(), Items.ANCIENT_DEBRIS, 2);
     }
 
-    public static void generateSpringBlockRecipes(RecipeOutput output, TagKey<Item> tagKey) {
+    public static void generateSpringBlockRecipes(RecipeOutput output) {
         springBlockRecipe(output, BlockRegistry.WATER_SPRING_BLOCK.get(), Items.WATER_BUCKET);
         springBlockRecipe(output, BlockRegistry.LAVA_SPRING_BLOCK.get(), Items.LAVA_BUCKET);
     }
