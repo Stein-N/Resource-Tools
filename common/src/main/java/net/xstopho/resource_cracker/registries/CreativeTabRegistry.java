@@ -15,7 +15,7 @@ public class CreativeTabRegistry {
 
     public static final RegistryObject<CreativeModeTab> RESOURCE_CRACKER = CREATIVE_TABS.register("item_group",
             () -> CreativeModeTab.builder(null, -1).title(Component.translatable("item_group.resource_cracker"))
-                    .icon(() -> new ItemStack(Items.DIAMOND)).displayItems((itemDisplayParameters, output) -> {
+                    .icon(() -> new ItemStack(ItemRegistry.CRACK_HAMMER_DIAMOND.get())).displayItems((itemDisplayParameters, output) -> {
 
                         output.accept(ItemRegistry.CRACK_HAMMER_COPPER.get());
                         output.accept(ItemRegistry.CRACK_HAMMER_GOLD.get());

@@ -1,13 +1,11 @@
 {
-  "item-group.resource_cracker": "Resource Cracker",
+  "item_group.resource_cracker": "Resource Cracker",
 
   "item.chisel.tooltip": "Tuğla duvarlardan potasyum nitrat kazı",
   "item.crack_hammer.tooltip": "Çiğ madenleri parçalayıp toz elde et.",
 
   "item.scythe.tooltip": "Ekinleri çok daha hızlı topla.",
   "item.scythe.tooltip.radius": "Şuanki alan: ",
-
-  "attribute.resource_cracker.attack_range": "Saldırı Menzili",
 
   "item.resource_cracker.crack_hammer_copper": "Bakır Parçalama Çekici",
   "item.resource_cracker.crack_hammer_gold": "Altın Parçalama Çekici",

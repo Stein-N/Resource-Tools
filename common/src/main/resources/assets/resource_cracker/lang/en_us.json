@@ -1,13 +1,11 @@
 {
-  "item-group.resource_cracker": "Resource Cracker",
+  "item_group.resource_cracker": "Resource Cracker",
 
   "item.chisel.tooltip": "Scrape Saltpeter from Bricks.",
   "item.crack_hammer.tooltip": "Process raw ores into dust.",
 
   "item.scythe.tooltip": "Harvest Crops much faster",
   "item.scythe.tooltip.radius": "Current radius: ",
-
-  "attribute.resource_cracker.attack_range": "Attack Range",
 
   "item.resource_cracker.crack_hammer_copper": "Copper Crack Hammer",
   "item.resource_cracker.crack_hammer_gold": "Gold Crack Hammer",
