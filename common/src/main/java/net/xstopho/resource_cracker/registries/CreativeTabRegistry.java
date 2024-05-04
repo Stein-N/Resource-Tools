@@ -17,6 +17,53 @@ public class CreativeTabRegistry {
             () -> CreativeModeTab.builder(null, -1).title(Component.translatable("item_group.resource_cracker"))
                     .icon(() -> new ItemStack(Items.DIAMOND)).displayItems((itemDisplayParameters, output) -> {
 
+                        output.accept(ItemRegistry.CRACK_HAMMER_COPPER.get());
+                        output.accept(ItemRegistry.CRACK_HAMMER_GOLD.get());
+                        output.accept(ItemRegistry.CRACK_HAMMER_IRON.get());
+                        output.accept(ItemRegistry.CRACK_HAMMER_STEEL.get());
+                        output.accept(ItemRegistry.CRACK_HAMMER_DIAMOND.get());
+                        output.accept(ItemRegistry.CRACK_HAMMER_NETHERITE.get());
+
+                        output.accept(ItemRegistry.CHISEL_COPPER.get());
+                        output.accept(ItemRegistry.CHISEL_GOLD.get());
+                        output.accept(ItemRegistry.CHISEL_IRON.get());
+                        output.accept(ItemRegistry.CHISEL_STEEL.get());
+                        output.accept(ItemRegistry.CHISEL_DIAMOND.get());
+                        output.accept(ItemRegistry.CHISEL_NETHERITE.get());
+
+                        output.accept(ItemRegistry.SCYTHE_COPPER.get());
+                        output.accept(ItemRegistry.SCYTHE_GOLD.get());
+                        output.accept(ItemRegistry.SCYTHE_IRON.get());
+                        output.accept(ItemRegistry.SCYTHE_STEEL.get());
+                        output.accept(ItemRegistry.SCYTHE_DIAMOND.get());
+                        output.accept(ItemRegistry.SCYTHE_NETHERITE.get());
+
+                        output.accept(BlockRegistry.WATER_SPRING_BLOCK.get());
+                        output.accept(BlockRegistry.LAVA_SPRING_BLOCK.get());
+                        output.accept(BlockRegistry.STEEL_BLOCK.get());
+
+                        output.accept(ItemRegistry.NUGGET_DIAMOND.get());
+                        output.accept(ItemRegistry.NUGGET_EMERALD.get());
+                        output.accept(ItemRegistry.NUGGET_COPPER.get());
+
+                        output.accept(ItemRegistry.MATERIAL_DUST_COPPER.get());
+                        output.accept(ItemRegistry.MATERIAL_DUST_IRON.get());
+                        output.accept(ItemRegistry.MATERIAL_DUST_GOLD.get());
+                        output.accept(ItemRegistry.MATERIAL_DUST_DIAMOND.get());
+                        output.accept(ItemRegistry.MATERIAL_DUST_EMERALD.get());
+                        output.accept(ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get());
+                        output.accept(ItemRegistry.MATERIAL_DUST_NETHERITE.get());
+
+                        output.accept(ItemRegistry.MATERIAL_DUST_CARBON.get());
+                        output.accept(ItemRegistry.MATERIAL_DUST_STEEL.get());
+                        output.accept(ItemRegistry.MATERIAL_DUST_SULFUR.get());
+                        output.accept(ItemRegistry.MATERIAL_DUST_SALTPETER.get());
+
+                        output.accept(ItemRegistry.STEEL_INGOT.get());
+
+                        output.accept(ItemRegistry.GARLIC.get());
+                        output.accept(ItemRegistry.BEEF_JERKY.get());
+
                     }).build());
 
     public static void init() {}
