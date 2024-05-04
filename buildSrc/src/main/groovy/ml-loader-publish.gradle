@@ -1,0 +1,34 @@
+plugins {
+    id "me.modmuss50.mod-publish-plugin"
+}
+
+publishMods {
+    if (project.name != 'common') {
+        displayName = file.map { it.asFile.name }
+        type = STABLE
+
+        var changelogFile = rootProject.file('CHANGELOG.md')
+        if (changelogFile.exists()) changelog = changelogFile.text
+        else changelog = 'NO VALID CHANGELOG FILE FOUND!'
+
+        modrinth {
+            accessToken = MODRINTH_KEY
+            projectId = modrinth_id
+
+            requires('resource-library')
+            requires('resource-config-api')
+        }
+        curseforge {
+            accessToken = CURSEFORGE_KEY
+            projectId = curseforge_id
+
+            clientRequired = true
+            serverRequired = true
+
+            requires('resource-library')
+            requires('resource-config-api')
+
+            javaVersions.add(JavaVersion.VERSION_21)
+        }
+    }
+}
