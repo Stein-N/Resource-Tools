@@ -62,18 +62,13 @@ public class ItemModelProv extends ItemModelProvider {
         simpleItem(ItemRegistry.BEEF_JERKY);
         simpleItem(ItemRegistry.GARLIC);
 
-        evenSimplerBlockItem(BlockRegistry.LAVA_SPRING_BLOCK);
-        evenSimplerBlockItem(BlockRegistry.WATER_SPRING_BLOCK);
+        withExistingParent("lava_spring_block", BlockRegistry.LAVA_SPRING_BLOCK.getId());
+        withExistingParent("water_spring_block", BlockRegistry.WATER_SPRING_BLOCK.getId());
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(CrackerConstants.MOD_ID,"item/" + item.getId().getPath()));
-    }
-
-    public void evenSimplerBlockItem(RegistryObject<Block> block) {
-        this.withExistingParent(CrackerConstants.MOD_ID + ":block/" + block.getId().getPath(),
-                modLoc("block/" + block.getId().getPath()));
     }
 }
