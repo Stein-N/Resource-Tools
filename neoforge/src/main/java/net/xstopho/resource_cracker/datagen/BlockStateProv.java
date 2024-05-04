@@ -26,8 +26,8 @@ public class BlockStateProv extends BlockStateProvider {
         createTrivialCube(BlockRegistry.STEEL_BLOCK);
         createGarlicCrop((CropBlock) BlockRegistry.GARLIC_CROP.get(), "garlic_crop_stage", "garlic_crop_stage");
 
-        simpleBlock(BlockRegistry.LAVA_SPRING_BLOCK.get(), createFurnaceModel("lava_spring_block", "spring_side", "spring_side"));
-        simpleBlock(BlockRegistry.WATER_SPRING_BLOCK.get(), createFurnaceModel("water_spring_block", "spring_side", "spring_side"));
+        horizontalBlock(BlockRegistry.LAVA_SPRING_BLOCK.get(), loc("spring_side"), loc("lava_spring_block_front"), loc("spring_side"));
+        horizontalBlock(BlockRegistry.WATER_SPRING_BLOCK.get(), loc("spring_side"), loc("water_spring_block_front"), loc("spring_side"));
     }
 
     private void createGarlicCrop(CropBlock cropBlock, String modelName, String textureName) {
@@ -46,13 +46,6 @@ public class BlockStateProv extends BlockStateProvider {
 
     private void createTrivialCube(RegistryObject<Block> block) {
         simpleBlockWithItem(block.get(), cubeAll(block.get()));
-    }
-
-    private ConfiguredModel[] createFurnaceModel(String modelName, String sideTexture, String topTexture) {
-        ConfiguredModel[] model = new ConfiguredModel[1];
-        model[0] = new ConfiguredModel(models().orientable(modelName, loc(sideTexture), loc(modelName + "_front"),
-                loc(topTexture)).renderType("solid"));
-        return model;
     }
 
     private ResourceLocation loc(String id) {
