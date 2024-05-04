@@ -1,6 +1,12 @@
 package net.xstopho.resource_cracker;
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.ModelEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.xstopho.resource_config_api.api.ConfigRegistry;
 import net.xstopho.resource_cracker.config.CrackerConfig;
 import net.xstopho.resource_cracker.modifier.LootModifier;
@@ -19,5 +25,14 @@ public class ResourceCracker {
         CreativeTabRegistry.init();
 
         LootModifier.init();
+    }
+
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ResourceCrackerClient {
+
+        @SubscribeEvent
+        public static void renderSetup(FMLClientSetupEvent event) {
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GARLIC_CROP.get(), RenderType.cutout());
+        }
     }
 }
