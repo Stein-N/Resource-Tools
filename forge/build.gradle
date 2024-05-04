@@ -72,9 +72,9 @@ publishMods {
     modLoaders.add("forge")
 
     modrinth {
-        minecraftVersions.addAll('1.20.5', '1.20.6')
+        minecraftVersions.add('1.20.6')
     }
     curseforge {
-        minecraftVersions.addAll('1.20.5', '1.20.6')
+        minecraftVersions.add('1.20.6')
     }
 }
