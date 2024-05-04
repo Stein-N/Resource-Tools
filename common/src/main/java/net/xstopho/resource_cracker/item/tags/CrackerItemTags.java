@@ -41,7 +41,7 @@ public class CrackerItemTags {
 
     public static final TagKey<Item> STEEL_BLOCKS = createTag("blocks/steel");
     public static final TagKey<Item> GARLIC = createTag("food/garlic");
-    public static final TagKey<Item> BEEF_JERKY = createTag("food/garlic");
+    public static final TagKey<Item> BEEF_JERKY = createTag("food/beef_jerky");
 
     public static TagKey<Item> createTag(String id) {
         return TagHelper.createPlatformTag(id);
