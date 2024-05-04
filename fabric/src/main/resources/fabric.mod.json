@@ -4,9 +4,7 @@
     "version": "${version}",
     "name": "${mod_name}",
     "description": "${mod_description}",
-    "authors": [
-        "${mod_author}"
-    ],
+    "authors": [ "${mod_author}" ],
     "contact": {
         "homepage": "https://github.com/Stein-N/Resource-Cracker",
         "sources": "https://github.com/Stein-N/Resource-Cracker",
@@ -20,10 +18,7 @@
         "client": [ "net.xstopho.resource_cracker.ResourceCrackerClient" ],
         "fabric-datagen": [ "net.xstopho.resource_cracker.ResourceCrackerDatagen" ]
     },
-    "mixins": [
-        "${mod_id}.mixins.json",
-        "${mod_id}.fabric.mixins.json"
-    ],
+    "mixins": [ "${mod_id}.mixins.json" ],
     "depends": {
         "fabric-api": "*",
         "fabricloader": "*",
