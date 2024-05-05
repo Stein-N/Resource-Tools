@@ -27,6 +27,6 @@ publishMods {
         requires('resource-library')
         requires('resource-config-api')
 
-        javaVersions.add(JavaVersion.VERSION_21)
+        javaVersions.add(JavaVersion.VERSION_17)
     }
 }
