@@ -3,6 +3,10 @@ plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
 }
 
+base {
+    archivesName = "${mod_id}-fabric-1.20-1.20.2"
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.officialMojangMappings()
@@ -52,11 +56,11 @@ publishMods {
     modLoaders.addAll("fabric", "quilt")
 
     modrinth {
-        minecraftVersions.addAll('1.20.3', '1.20.4')
+        minecraftVersions.addAll('1.20', '1.20.1', '1.20.2')
         requires('fabric-api')
     }
     curseforge {
-        minecraftVersions.addAll('1.20.3', '1.20.4')
+        minecraftVersions.addAll('1.20', '1.20.1', '1.20.2')
         requires('fabric-api')
     }
 }

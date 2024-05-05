@@ -4,6 +4,10 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
 }
 
+base {
+    archivesName = "${mod_id}-forge-1.20.1-1.20.2"
+}
+
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
@@ -12,10 +16,8 @@ dependencies {
     implementation(fg.deobf("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}"))
     implementation(fg.deobf("net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}"))
 
-    runtimeOnly(fg.deobf("maven.modrinth:rei:14.1.727+forge"))
-    runtimeOnly(fg.deobf("maven.modrinth:cloth-config:13.0.121+forge"))
-    runtimeOnly(fg.deobf("maven.modrinth:architectury-api:11.1.17+minecraftforge"))
-    runtimeOnly(fg.deobf("maven.modrinth:jade:13.2.1-forge"))
+    runtimeOnly(fg.deobf("maven.modrinth:emi:${emi}+forge"))
+    runtimeOnly(fg.deobf("maven.modrinth:jade:${jade}-forge"))
 }
 
 mixin {
@@ -83,9 +85,9 @@ publishMods {
     modLoaders.add("forge")
 
     modrinth {
-        minecraftVersions.addAll('1.20.3', '1.20.4')
+        minecraftVersions.addAll('1.20.1', '1.20.2')
     }
     curseforge {
-        minecraftVersions.addAll('1.20.3', '1.20.4')
+        minecraftVersions.addAll('1.20.1', '1.20.2')
     }
 }
