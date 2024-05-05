@@ -13,6 +13,7 @@ import net.xstopho.resource_cracker.modifier.LootModifier;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.CreativeTabRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
+import net.xstopho.resource_cracker.rendering.ScytheBakedModelRenderer;
 
 @Mod(CrackerConstants.MOD_ID)
 public class ResourceCracker {
@@ -33,6 +34,16 @@ public class ResourceCracker {
         @SubscribeEvent
         public static void renderSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GARLIC_CROP.get(), RenderType.cutout());
+        }
+
+        @SubscribeEvent
+        public static void modelRegistry(ModelEvent.RegisterAdditional event) {
+            ScytheBakedModelRenderer.onRegisterModel(event);
+        }
+
+        @SubscribeEvent
+        public static void renderModel(ModelEvent.ModifyBakingResult event) {
+            ScytheBakedModelRenderer.onModelBakeEvent(event);
         }
     }
 }
