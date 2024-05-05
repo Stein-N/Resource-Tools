@@ -76,11 +76,6 @@ public class ScytheBakedModel implements BakedModel, IForgeBakedModel {
         if (transformType != ItemDisplayContext.GUI && transformType != ItemDisplayContext.GROUND && transformType != ItemDisplayContext.FIXED) {
             model = this.inHandModel;
         }
-        return handleCameraTransforms(poseStack, model, transformType, applyLeftHandTransform);
-    }
-
-    private BakedModel handleCameraTransforms(PoseStack poseStack, BakedModel model, ItemDisplayContext cameraTransformType, boolean applyLeftHandTransform) {
-        model = model.applyTransform(cameraTransformType, poseStack, applyLeftHandTransform);
-        return model;
+        return model.applyTransform(transformType, poseStack, applyLeftHandTransform);
     }
 }
