@@ -58,7 +58,7 @@ minecraft {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    exclude("net/xstopho/mixin")
+    exclude("net/xstopho/resource_cracker/mixin")
 }
 
 processResources {
