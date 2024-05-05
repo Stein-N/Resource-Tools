@@ -1,11 +1,10 @@
 package net.xstopho.resource_cracker.datagen;
 
-import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 public class RecipeProv extends RecipeProvider {
 
@@ -14,7 +13,7 @@ public class RecipeProv extends RecipeProvider {
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput output) {
+    protected void buildRecipes(Consumer<FinishedRecipe> output) {
         CrackerRecipes.generateToolRecipes(output);
         CrackerRecipes.generateMaterialDustRecipes(output);
         CrackerRecipes.generateSpringBlockRecipes(output);

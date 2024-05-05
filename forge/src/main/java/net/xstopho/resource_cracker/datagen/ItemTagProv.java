@@ -18,8 +18,8 @@ import java.util.concurrent.CompletableFuture;
 public class ItemTagProv extends ItemTagsProvider {
 
 
-    public ItemTagProv(PackOutput p_275343_, CompletableFuture<HolderLookup.Provider> p_275729_, CompletableFuture<TagLookup<Block>> p_275322_, @Nullable ExistingFileHelper existingFileHelper) {
-        super(p_275343_, p_275729_, p_275322_, CrackerConstants.MOD_ID, existingFileHelper);
+    public ItemTagProv(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper existingFileHelper) {
+        super(output, provider, blockTags, CrackerConstants.MOD_ID, existingFileHelper);
     }
 
     @Override

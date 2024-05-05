@@ -1,18 +1,18 @@
 package net.xstopho.resource_cracker.datagen;
 
+import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
+import java.util.function.Consumer;
+
 public class CrackerRecipes extends CrackerBaseRecipes {
 
-    public static void generateToolRecipes(RecipeOutput output) {
+    public static void generateToolRecipes(Consumer<FinishedRecipe> output) {
         /* Crack Hammer */
         crackHammerRecipe(output, ItemRegistry.CRACK_HAMMER_COPPER.get(), Items.COPPER_INGOT);
         crackHammerRecipe(output, ItemRegistry.CRACK_HAMMER_GOLD.get(), Items.GOLD_INGOT);
@@ -38,7 +38,7 @@ public class CrackerRecipes extends CrackerBaseRecipes {
         netheriteUpgrade(output, ItemRegistry.SCYTHE_NETHERITE.get(), ItemRegistry.SCYTHE_DIAMOND.get());
     }
 
-    public static void generateMaterialDustRecipes(RecipeOutput output) {
+    public static void generateMaterialDustRecipes(Consumer<FinishedRecipe> output) {
         materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_CARBON.get(), Items.CHARCOAL, 2);
         materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_COPPER.get(), Items.RAW_COPPER, 2);
         materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_IRON.get(), Items.RAW_IRON, 2);
@@ -59,12 +59,12 @@ public class CrackerRecipes extends CrackerBaseRecipes {
         materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get(), Items.ANCIENT_DEBRIS, 2);
     }
 
-    public static void generateSpringBlockRecipes(RecipeOutput output) {
+    public static void generateSpringBlockRecipes(Consumer<FinishedRecipe> output) {
         springBlockRecipe(output, BlockRegistry.WATER_SPRING_BLOCK.get(), Items.WATER_BUCKET);
         springBlockRecipe(output, BlockRegistry.LAVA_SPRING_BLOCK.get(), Items.LAVA_BUCKET);
     }
 
-    public static void generateProcessingRecipes(RecipeOutput output) {
+    public static void generateProcessingRecipes(Consumer<FinishedRecipe> output) {
         processingRecipes(output, ItemRegistry.MATERIAL_DUST_COPPER.get(), Items.COPPER_INGOT, true, true, false, true);
         processingRecipes(output, ItemRegistry.MATERIAL_DUST_IRON.get(), Items.IRON_INGOT, true, true, false, true);
         processingRecipes(output, ItemRegistry.MATERIAL_DUST_GOLD.get(), Items.GOLD_INGOT, true, true, false, true);
@@ -79,14 +79,14 @@ public class CrackerRecipes extends CrackerBaseRecipes {
         smokingRecipe(output, Items.ROTTEN_FLESH, ItemRegistry.BEEF_JERKY.get());
     }
 
-    public static void generateCompactingRecipes(RecipeOutput output) {
+    public static void generateCompactingRecipes(Consumer<FinishedRecipe> output) {
         compressionRecipe(output, BlockRegistry.STEEL_BLOCK.get(), ItemRegistry.STEEL_INGOT.get(), true, true);
         compressionRecipe(output, Items.DIAMOND, ItemRegistry.NUGGET_DIAMOND.get(), true, false);
         compressionRecipe(output, Items.EMERALD, ItemRegistry.NUGGET_EMERALD.get(), true, false);
         compressionRecipe(output, Items.COPPER_INGOT, ItemRegistry.NUGGET_COPPER.get(), true, true);
     }
 
-    public static void generateOtherRecipes(RecipeOutput output) {
+    public static void generateOtherRecipes(Consumer<FinishedRecipe> output) {
         // Netherite Dust Recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), 1)
                 .pattern("AAA").pattern("AGG").pattern("GG ")

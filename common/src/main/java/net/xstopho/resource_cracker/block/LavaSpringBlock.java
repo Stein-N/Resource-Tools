@@ -14,7 +14,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.xstopho.resource_cracker.block.base.SpringBlock;
 
 public class LavaSpringBlock extends SpringBlock {
-    public static final MapCodec<LavaSpringBlock> CODEC = simpleCodec(LavaSpringBlock::new);
 
     public LavaSpringBlock(Properties properties) {
         super(properties);

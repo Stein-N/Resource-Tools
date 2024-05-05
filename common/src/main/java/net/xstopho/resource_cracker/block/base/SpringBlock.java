@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.jetbrains.annotations.Nullable;
 
 public class SpringBlock extends Block {
-    public static final MapCodec<SpringBlock> CODEC = simpleCodec(SpringBlock::new);
 
     public SpringBlock(Properties properties) {
         super(properties);

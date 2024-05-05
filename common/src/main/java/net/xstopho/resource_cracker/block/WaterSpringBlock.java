@@ -16,7 +16,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.xstopho.resource_cracker.block.base.SpringBlock;
 
 public class WaterSpringBlock extends SpringBlock {
-    public static final MapCodec<WaterSpringBlock> CODEC = simpleCodec(WaterSpringBlock::new);
 
     public WaterSpringBlock(Properties properties) {
         super(properties);

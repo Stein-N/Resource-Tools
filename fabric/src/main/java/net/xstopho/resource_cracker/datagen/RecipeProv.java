@@ -2,16 +2,9 @@ package net.xstopho.resource_cracker.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
-import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
-import net.xstopho.resource_cracker.registries.ItemRegistry;
+import net.minecraft.data.recipes.FinishedRecipe;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 public class RecipeProv extends FabricRecipeProvider {
 
@@ -21,7 +14,7 @@ public class RecipeProv extends FabricRecipeProvider {
     }
 
     @Override
-    public void buildRecipes(RecipeOutput output) {
+    public void buildRecipes(Consumer<FinishedRecipe> output) {
 
         CrackerRecipes.generateToolRecipes(output);
         CrackerRecipes.generateMaterialDustRecipes(output);
