@@ -8,6 +8,10 @@ java {
     withJavadocJar()
 }
 
+base {
+    archivesName = "$mod_id-$project.name-1.20.3-1.20.4"
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://raw.githubusercontent.com/Stein-N/resources/main/maven' }
