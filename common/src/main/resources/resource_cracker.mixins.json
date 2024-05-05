@@ -8,7 +8,9 @@
     "client": [
         "ItemRendererAccessor",
         "ItemRendererMixin",
-        "ModelBakeryMixin"
+        "ModelBakeryMixin",
+        "PlayerMixin",
+        "MultiPlayerGameModeMixin"
     ],
     "server": [],
     "injectors": {

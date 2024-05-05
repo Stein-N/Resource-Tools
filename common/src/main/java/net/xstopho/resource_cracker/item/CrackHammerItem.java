@@ -4,7 +4,9 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.xstopho.resourcelibrary.items.RecipeRemainder;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -30,9 +32,9 @@ public class CrackHammerItem extends RecipeRemainder {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag tooltipFlag) {
         tooltip.add(Component.translatable("item.crack_hammer.tooltip").withStyle(ChatFormatting.GOLD));
 
-        super.appendHoverText(itemStack, tooltipContext, tooltip, tooltipFlag);
+        super.appendHoverText(stack, level, tooltip, tooltipFlag);
     }
 }

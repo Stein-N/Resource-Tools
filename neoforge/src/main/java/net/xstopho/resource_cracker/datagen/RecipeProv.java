@@ -10,8 +10,8 @@ import java.util.concurrent.CompletableFuture;
 public class RecipeProv extends RecipeProvider {
 
 
-    public RecipeProv(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
-        super(output, provider);
+    public RecipeProv(PackOutput output) {
+        super(output);
     }
 
     @Override

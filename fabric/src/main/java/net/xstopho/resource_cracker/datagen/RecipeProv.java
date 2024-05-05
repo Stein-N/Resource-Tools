@@ -16,8 +16,8 @@ import java.util.concurrent.CompletableFuture;
 public class RecipeProv extends FabricRecipeProvider {
 
 
-    public RecipeProv(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-        super(output, registriesFuture);
+    public RecipeProv(FabricDataOutput output) {
+        super(output);
     }
 
     @Override

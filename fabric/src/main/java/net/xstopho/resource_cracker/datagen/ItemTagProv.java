@@ -90,9 +90,6 @@ public class ItemTagProv extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(CrackerItemTags.ENCHANTABLES).addTag(CrackerItemTags.SCYTHE);
 
-        getOrCreateTagBuilder(ItemTags.WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
-        getOrCreateTagBuilder(ItemTags.SHARP_WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
-
         getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ItemRegistry.GARLIC.get());
 
         getOrCreateTagBuilder(ItemTags.BREAKS_DECORATED_POTS)

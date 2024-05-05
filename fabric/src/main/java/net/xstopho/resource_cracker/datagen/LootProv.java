@@ -14,8 +14,8 @@ import java.util.concurrent.CompletableFuture;
 public class LootProv extends FabricBlockLootTableProvider {
 
 
-    public LootProv(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
-        super(dataOutput, registryLookup);
+    public LootProv(FabricDataOutput dataOutput) {
+        super(dataOutput);
     }
 
     @Override

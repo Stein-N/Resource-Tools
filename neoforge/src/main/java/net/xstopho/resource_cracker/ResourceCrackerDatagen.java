@@ -4,14 +4,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.xstopho.resource_cracker.datagen.*;
 
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = CrackerConstants.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = CrackerConstants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ResourceCrackerDatagen {
 
     @SubscribeEvent
@@ -21,8 +21,8 @@ public class ResourceCrackerDatagen {
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new RecipeProv(output, provider));
-        generator.addProvider(event.includeServer(), LootProv.create(output, provider));
+        generator.addProvider(event.includeServer(), new RecipeProv(output));
+        generator.addProvider(event.includeServer(), LootProv.create(output));
         generator.addProvider(event.includeServer(), new BlockStateProv(output, fileHelper));
         generator.addProvider(event.includeServer(), new ItemModelProv(output, fileHelper));
 

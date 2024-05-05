@@ -7,6 +7,8 @@
   "item.scythe.tooltip": "Ernte dein Feld schneller ab.",
   "item.scythe.tooltip.radius": "Aktueller Radius: ",
 
+  "attribute.generic.attack_range": "Reichweite",
+
   "item.resource_cracker.crack_hammer_copper": "Kupferhammer",
   "item.resource_cracker.crack_hammer_gold": "Goldhammer",
   "item.resource_cracker.crack_hammer_iron": "Eisenhammer",

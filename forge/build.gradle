@@ -9,12 +9,17 @@ dependencies {
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
-    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}"
-    implementation "net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}"
+    implementation(fg.deobf("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}"))
+    implementation(fg.deobf("net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}"))
 
-    runtimeOnly "maven.modrinth:rei:14.1.727+forge"
-    runtimeOnly "maven.modrinth:cloth-config:13.0.121+forge"
-    runtimeOnly "maven.modrinth:architectury-api:11.1.17+minecraftforge"
+    runtimeOnly(fg.deobf("maven.modrinth:rei:14.1.727+forge"))
+    runtimeOnly(fg.deobf("maven.modrinth:cloth-config:13.0.121+forge"))
+    runtimeOnly(fg.deobf("maven.modrinth:architectury-api:11.1.17+minecraftforge"))
+    runtimeOnly(fg.deobf("maven.modrinth:jade:13.2.1-forge"))
+}
+
+mixin {
+    config("${mod_id}.forge.mixins.json")
 }
 
 minecraft {
@@ -56,6 +61,8 @@ minecraft {
         }
     }
 }
+
+jar.finalizedBy("reobfJar")
 
 tasks.withType(JavaCompile).configureEach {
     exclude("net/xstopho/resource_cracker/mixin")

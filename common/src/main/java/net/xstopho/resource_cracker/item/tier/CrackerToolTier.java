@@ -1,59 +1,59 @@
 package net.xstopho.resource_cracker.item.tier;
 
-import com.google.common.base.Suppliers;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
+import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
-import net.xstopho.resourcelibrary.items.tags.TagHelper;
+import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 
-import java.util.Objects;
 import java.util.function.Supplier;
 
 public enum CrackerToolTier implements Tier {
 
-    STEEL(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 450, 6.0F, 2.0F, 14,
-            () -> Ingredient.of(TagHelper.createPlatformTag("ingot/steel")));
+    STEEL(2, 450, 6.0F, 2.0F, 14, () -> Ingredient.of(CrackerItemTags.STEEL_INGOTS));
 
-    private final TagKey<Block> incorrectBlocksForDrops;
+    private final int level;
     private final int uses;
     private final float speed;
     private final float damage;
     private final int enchantmentValue;
-    private final Supplier<Ingredient> repairIngredient;
+    private final LazyLoadedValue<Ingredient> repairIngredient;
 
-    CrackerToolTier(final TagKey<Block> tagKey, final int j, final float f, final float g, final int k, final Supplier<Ingredient> supplier) {
-        this.incorrectBlocksForDrops = tagKey;
-        this.uses = j;
-        this.speed = f;
-        this.damage = g;
-        this.enchantmentValue = k;
-        Objects.requireNonNull(supplier);
-        this.repairIngredient = Suppliers.memoize(supplier::get);
+    CrackerToolTier(int level, int uses, float speed, float damage, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
+        this.level = level;
+        this.uses = uses;
+        this.speed = speed;
+        this.damage = damage;
+        this.enchantmentValue = enchantmentValue;
+        this.repairIngredient = new LazyLoadedValue<>(repairIngredient);
     }
 
+    @Override
     public int getUses() {
         return this.uses;
     }
 
+    @Override
     public float getSpeed() {
         return this.speed;
     }
 
+    @Override
     public float getAttackDamageBonus() {
         return this.damage;
     }
 
-    public TagKey<Block> getIncorrectBlocksForDrops() {
-        return this.incorrectBlocksForDrops;
+    @Override
+    public int getLevel() {
+        return this.level;
     }
 
+    @Override
     public int getEnchantmentValue() {
         return this.enchantmentValue;
     }
 
+    @Override
     public Ingredient getRepairIngredient() {
-        return (Ingredient)this.repairIngredient.get();
+        return this.repairIngredient.get();
     }
 }

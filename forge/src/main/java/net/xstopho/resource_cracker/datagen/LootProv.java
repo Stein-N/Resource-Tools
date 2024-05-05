@@ -20,9 +20,9 @@ import java.util.concurrent.CompletableFuture;
 
 public class LootProv extends BlockLootSubProvider {
 
-    public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
+    public static LootTableProvider create(PackOutput output) {
         return new LootTableProvider(output, Set.of(), List.of(
-                new LootTableProvider.SubProviderEntry(LootProv::new, LootContextParamSets.BLOCK)), provider);
+                new LootTableProvider.SubProviderEntry(LootProv::new, LootContextParamSets.BLOCK)));
     }
 
     public LootProv() {

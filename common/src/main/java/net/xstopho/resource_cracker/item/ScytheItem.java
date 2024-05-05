@@ -1,37 +1,36 @@
 package net.xstopho.resource_cracker.item;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.xstopho.resource_cracker.registries.AttributeRegistry;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.UUID;
 
 public class ScytheItem extends SwordItem {
-    public static final UUID BASE_ENTITY_REACH_UUID = UUID.nameUUIDFromBytes("BASE_ENTITY_INTERACTION_RANGE_UUID".getBytes());
-    public static final UUID BASE_BLOCK_REACH_UUID = UUID.nameUUIDFromBytes("BASE_BLOCK_INTERACTION_REACH_UUID".getBytes());
+    public static final UUID BASE_ATTACK_RANGE_UUID = UUID.nameUUIDFromBytes("CRACKER_BASE_ATTACK_RANGE_UUID".getBytes());
     private static final int radius = 1;
 
     public ScytheItem(Tier tier, int attackDamage, float attackSpeed) {
-        super(tier, new Properties()
-                .attributes(createAttributes(tier, attackDamage, attackSpeed)
-                        .withModifierAdded(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(BASE_BLOCK_REACH_UUID, "bonus", 1,
-                                AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
-                        .withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(BASE_ENTITY_REACH_UUID, "bonus", 1,
-                                AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)));
+        super(tier, attackDamage, attackSpeed, new Properties());
+
     }
 
     @Override
@@ -55,7 +54,7 @@ public class ScytheItem extends SwordItem {
                     }
                 }
             }
-            context.getItemInHand().hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
+            context.getItemInHand().hurtAndBreak(1, player, entity -> entity.broadcastBreakEvent(entity.getUsedItemHand()));
             return InteractionResult.SUCCESS;
         }
 
@@ -63,11 +62,19 @@ public class ScytheItem extends SwordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
+        ImmutableMultimap.Builder<Attribute, AttributeModifier> attributes = ImmutableMultimap.builder();
+        attributes.putAll(super.getDefaultAttributeModifiers(slot));
+        attributes.put(AttributeRegistry.ATTACK_RANGE.get(), new AttributeModifier(BASE_ATTACK_RANGE_UUID, "bonus", 1, AttributeModifier.Operation.ADDITION));
+        return slot == EquipmentSlot.MAINHAND ? attributes.build() : super.getDefaultAttributeModifiers(slot);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag tooltipFlag) {
         tooltip.add(Component.translatable("item.scythe.tooltip").withStyle(ChatFormatting.GOLD));
         tooltip.add(Component.translatable("item.scythe.tooltip.radius").withStyle(ChatFormatting.GOLD)
                 .append(Component.literal(String.valueOf(radius)).withStyle(ChatFormatting.RED)));
 
-        super.appendHoverText(itemStack, tooltipContext, tooltip, tooltipFlag);
+        super.appendHoverText(stack, level, tooltip, tooltipFlag);
     }
 }

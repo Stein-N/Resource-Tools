@@ -95,9 +95,6 @@ public class ItemTagProv extends ItemTagsProvider {
 
         this.tag(CrackerItemTags.ENCHANTABLES).addTag(CrackerItemTags.SCYTHE);
 
-        this.tag(ItemTags.WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
-        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
-
         this.tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ItemRegistry.GARLIC.get());
 
         this.tag(ItemTags.BREAKS_DECORATED_POTS)

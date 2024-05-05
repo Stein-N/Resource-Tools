@@ -10,6 +10,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.xstopho.resource_config_api.api.ConfigRegistry;
 import net.xstopho.resource_cracker.config.CrackerConfig;
 import net.xstopho.resource_cracker.modifier.LootModifier;
+import net.xstopho.resource_cracker.registries.AttributeRegistry;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.CreativeTabRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
@@ -20,6 +21,8 @@ public class ResourceCracker {
 
     public ResourceCracker() {
         ConfigRegistry.register(CrackerConstants.MOD_ID, CrackerConfig.BUILDER);
+
+        AttributeRegistry.init();
 
         BlockRegistry.init();
         ItemRegistry.init();
