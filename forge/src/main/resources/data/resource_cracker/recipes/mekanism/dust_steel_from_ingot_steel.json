@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "mekanism"
+  },
+  "ingredients": [
+    {
+      "tag": "forge:tools/crack_hammer"
+    },
+    {
+      "item": "mekanism:ingot_steel"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "mekanism:dust_steel"
+  }
+}
