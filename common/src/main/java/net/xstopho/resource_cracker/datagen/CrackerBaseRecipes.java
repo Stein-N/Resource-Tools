@@ -132,14 +132,14 @@ public class CrackerBaseRecipes {
 
     /**********************************************************************************/
     /*                          Here are only Helper Methods                          */
-    /**********************************************************************************/
-    public static InventoryChangeTrigger.TriggerInstance has(MinMaxBounds.Ints ints, ItemLike itemLike) {
-        return inventoryTrigger(ItemPredicate.Builder.item().of(new ItemLike[]{itemLike}).withCount(ints).build());
-    }
-
     public static InventoryChangeTrigger.TriggerInstance has(ItemLike itemLike) {
         return inventoryTrigger(ItemPredicate.Builder.item().of(new ItemLike[]{itemLike}).build());
     }
+
+    public static InventoryChangeTrigger.TriggerInstance has(TagKey<Item> tag) {
+        return inventoryTrigger(ItemPredicate.Builder.item().of(tag).build());
+    }
+
 
     public static InventoryChangeTrigger.TriggerInstance inventoryTrigger(ItemPredicate... itemPredicates) {
         return new InventoryChangeTrigger.TriggerInstance(ContextAwarePredicate.ANY, MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, itemPredicates);
