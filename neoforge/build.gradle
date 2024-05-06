@@ -13,7 +13,7 @@ dependencies {
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
 
     runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
-    runtimeOnly "maven.modrinth:ae2:${ae2}"
+    runtimeOnly "maven.modrinth:ae2:${ae2}-neoforge"
 }
 
 runs {
