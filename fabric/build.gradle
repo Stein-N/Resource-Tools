@@ -53,7 +53,7 @@ loom {
 // Loader Specific Settings
 publishMods {
     file = remapJar.archiveFile
-    modLoaders.addAll("fabric", "quilt")
+    modLoaders.add("fabric")
 
     modrinth {
         minecraftVersions.addAll('1.20.3', '1.20.4')
