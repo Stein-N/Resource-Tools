@@ -2,6 +2,8 @@
 - Mod Crack Hammer Recipes are no longer included, they can be added through Datapacks
   (Linked on the Main Page)
 - Adding all new missing ItemTags
+- Removing Attack Range Attribute for 1.20 up to 1.20.4
+  - as compensation the Scythe gets an Attack Knockback bonus
 - Forge losses support to all Mod Recipes, since Mekanism and Applied Energetics 2(AE2) switch to NeoForge
 - NeoForge gets support for Mekanism and (AE2) Recipes
 - Fabric gets support for Tech Reborn recipes but looses AE2 recipes
