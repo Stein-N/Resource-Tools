@@ -1,13 +1,19 @@
 #### v1.12.0
-- Mod Crack Hammer Recipes are no longer included, they can be added through Datapacks
-  (Linked on the Main Page)
-- Adding all new missing ItemTags
-- Forge losses support to all Mod Recipes, since Mekanism and Applied Energetics 2(AE2) switch to NeoForge
-- NeoForge gets support for Mekanism and (AE2) Recipes
-- Fabric gets support for Tech Reborn recipes but looses AE2 recipes
-- Now Resource Config API and Resource Library are required for all Minecraft Versions
-- complete refactor and preparation to unify the codebase between Fabric and NeoForge
-  - don't have impacts to you gameplay
+- General:
+  - Adding all new missing ItemTags
+  - Removing Attack Range Attribute for 1.20 up to 1.20.4
+    - as compensation the Scythe gets an Attack Knockback bonus
+    - 1.20.5 and above will have the Entity/Block Interaction Range bonus
+  - Resource Config API and Resource Library are now required
+  - eventually last Update till 1.21
+- Forge:
+  - no Mod Recipes after 1.20.1
+  - Applied Energetics and Mekanism are now NeoForge exclusive
+- NeoForge:
+  - Applied Energetics and Mekanism Recipes for 1.20.4
+- Fabric:
+  - Applied Energetics Recipes only for 1.20.1
+  - Tech Reborn Recipes for all versions
 
 #### v1.11.0
 - more internal changes that have no impact to you experience
