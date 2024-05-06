@@ -18,6 +18,8 @@ dependencies {
 
     runtimeOnly(fg.deobf("maven.modrinth:emi:${emi}+forge"))
     runtimeOnly(fg.deobf("maven.modrinth:jade:${jade}-forge"))
+    runtimeOnly(fg.deobf("maven.modrinth:ae2:${ae2}-forge"))
+    runtimeOnly(fg.deobf("maven.modrinth:mekanism:${mekanism}"))
 }
 
 minecraft {
