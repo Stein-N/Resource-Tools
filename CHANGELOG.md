@@ -3,6 +3,7 @@
   - Adding all new missing ItemTags
   - Removing Attack Range Attribute for 1.20 up to 1.20.4
     - as compensation the Scythe gets an Attack Knockback bonus
+    - 1.20.5 and above will have the Entity/Block Interaction Range bonus
   - Resource Config API and Resource Library are now required
   - eventually last Update till 1.21
 - Forge:

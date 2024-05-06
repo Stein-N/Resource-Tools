@@ -23,17 +23,11 @@ Because he was on break, I decided to create my own Mod with similar Blocks/Item
 ### Most used Textures are made by [Malcom Riley](https://github.com/malcolmriley/unused-textures).
 
 ### Provides Recipes for:
-##### Fabric - 1.20 and above
-- [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (only 1.20.1)
-- [Tech Reborn](https://www.curseforge.com/minecraft/mc-mods/techreborn)
-
-##### Forge - 1.20.1 up to 1.20.6
-- [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (only 1.20.1)
-- [Mekanism](https://www.curseforge.com/minecraft/mc-mods/mekanism) (only 1.20.1)
-
-##### NeoForge - 1.20.4 and above
-- [Applied Energetics 2](https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2) (upcoming update)
-- [Mekanism](https://www.curseforge.com/minecraft/mc-mods/mekanism) (upcoming update)
+|          |  Tech Reborn  | Applied Energetics 2 | Mekanism |
+|---------:|:-------------:|:--------------------:|:--------:|
+|   Fabric | 1.20 - 1.20.4 |        1.20.1        | -------- |
+|    Forge | ------------- |        1.20.1        |  1.20.1  |
+| NeoForge | ------------- |    1.20.4, 1.20.6    |  1.20.4  |
 
 ### Item and Tools Overview
 
