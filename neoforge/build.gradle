@@ -18,6 +18,8 @@ dependencies {
 
     runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
     runtimeOnly "maven.modrinth:jade:${jade}-neoforge"
+    runtimeOnly "maven.modrinth:mekanism:${mekanism}"
+    runtimeOnly "maven.modrinth:ae2:${ae2}"
 }
 
 runs {

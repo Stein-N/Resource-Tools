@@ -17,6 +17,10 @@ dependencies {
     modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
     modRuntimeOnly "maven.modrinth:jade:${jade}-fabric"
 
+    modRuntimeOnly "curse.maven:techreborn-233564:5319153"
+    modRuntimeOnly "curse.maven:reborncore-237903:5319152"
+    modRuntimeOnly "teamreborn:energy:3.0.0"
+
 }
 
 loom {
