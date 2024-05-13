@@ -3,6 +3,10 @@ plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
 }
 
+base {
+    archivesName = "${mod_id}-fabric-1.20.5-1.20.6"
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.officialMojangMappings()
