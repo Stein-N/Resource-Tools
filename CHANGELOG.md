@@ -1,3 +1,6 @@
+#### v1.12.1
+- fixing BlockStates for Spring blocks
+
 #### v1.12.0
 - General:
   - Adding all new missing ItemTags
