@@ -12,6 +12,7 @@ import net.xstopho.resource_cracker.config.CrackerConfig;
 import net.xstopho.resource_cracker.modifier.LootModifier;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.CreativeTabRegistry;
+import net.xstopho.resource_cracker.registries.ItemModelRenderRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
 @Mod(CrackerConstants.MOD_ID)
@@ -25,6 +26,7 @@ public class ResourceCracker {
         CreativeTabRegistry.init();
 
         LootModifier.init();
+
     }
 
     @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -33,6 +35,7 @@ public class ResourceCracker {
         @SubscribeEvent
         public static void renderSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GARLIC_CROP.get(), RenderType.cutout());
+            ItemModelRenderRegistry.init();
         }
     }
 }

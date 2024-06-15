@@ -20,7 +20,7 @@ public class RecipeProv extends RecipeProvider implements IConditionBuilder {
     @Override
     protected void buildRecipes(RecipeOutput output) {
 
-        AE2Recipes.generate(output.withConditions(getConditions(modLoaded("ae2"))));
+        //AE2Recipes.generate(output.withConditions(getConditions(modLoaded("ae2"))));
 
         CrackerRecipes.generateToolRecipes(output);
         CrackerRecipes.generateMaterialDustRecipes(output);
