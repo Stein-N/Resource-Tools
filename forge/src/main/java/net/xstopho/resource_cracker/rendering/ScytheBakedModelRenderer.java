@@ -26,7 +26,7 @@ public class ScytheBakedModelRenderer {
 
     @SubscribeEvent
     public static void onModelBakeEvent(ModelEvent.ModifyBakingResult event) {
-        Map<ResourceLocation, BakedModel> map = event.getModels();
+        Map<ModelResourceLocation, BakedModel> map = event.getModels();
 
         map.put(location("scythe_copper"), new ScytheBakedModel("scythe_copper", map));
         map.put(location("scythe_gold"), new ScytheBakedModel("scythe_gold", map));
@@ -36,7 +36,7 @@ public class ScytheBakedModelRenderer {
         map.put(location("scythe_netherite"), new ScytheBakedModel("scythe_netherite", map));
     }
 
-    private static ResourceLocation location(String path) {
-        return new ModelResourceLocation(new ResourceLocation(CrackerConstants.MOD_ID, path), "inventory");
+    private static ModelResourceLocation location(String path) {
+        return ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, path));
     }
 }
