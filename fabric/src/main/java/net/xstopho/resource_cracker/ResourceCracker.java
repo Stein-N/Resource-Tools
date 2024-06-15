@@ -6,6 +6,7 @@ import net.xstopho.resource_cracker.config.CrackerConfig;
 import net.xstopho.resource_cracker.modifier.LootModifier;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.CreativeTabRegistry;
+import net.xstopho.resource_cracker.registries.ItemModelRenderRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
 public class ResourceCracker implements ModInitializer {
@@ -18,5 +19,7 @@ public class ResourceCracker implements ModInitializer {
         CreativeTabRegistry.init();
 
         LootModifier.init();
+
+        ItemModelRenderRegistry.init();
     }
 }
