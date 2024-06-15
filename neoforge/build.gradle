@@ -4,7 +4,7 @@ plugins {
 }
 
 base {
-    archivesName = "${mod_id}-neoforge-1.20.6"
+    archivesName = "${mod_id}-neoforge-${minecraft_version}"
 }
 
 var at = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -37,9 +37,9 @@ publishMods {
     modLoaders.add("neoforge")
 
     modrinth {
-        minecraftVersions.add('1.20.6')
+        minecraftVersions.addAll('1.21')
     }
     curseforge {
-        minecraftVersions.add('1.20.6')
+        minecraftVersions.addAll('1.21')
     }
 }

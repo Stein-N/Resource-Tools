@@ -5,7 +5,7 @@ plugins {
 }
 
 base {
-    archivesName = "${mod_id}-forge-1.20.6"
+    archivesName = "${mod_id}-forge-${minecraft_version}"
 }
 
 dependencies {
@@ -30,8 +30,6 @@ minecraft {
             workingDirectory project.file('runs/client')
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName 'Client'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods {
                 modClientRun {
                     source sourceSets.main
@@ -45,8 +43,6 @@ minecraft {
             ideaModule "${rootProject.name}.${project.name}.main"
             args '--mod', mod_id, '--all', '--output', file('src/generated'), '--existing', project(':common').file("src/main/resources/").getAbsolutePath()
             taskName 'Data'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods {
                 modDataRun {
                     source sourceSets.main
@@ -76,9 +72,9 @@ publishMods {
     modLoaders.add("forge")
 
     modrinth {
-        minecraftVersions.add('1.20.6')
+        minecraftVersions.addAll('1.21')
     }
     curseforge {
-        minecraftVersions.add('1.20.6')
+        minecraftVersions.addAll('1.21')
     }
 }
