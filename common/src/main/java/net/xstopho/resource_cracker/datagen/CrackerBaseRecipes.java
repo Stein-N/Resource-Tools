@@ -159,6 +159,6 @@ public class CrackerBaseRecipes {
     }
 
     public static ResourceLocation location(String path) {
-        return new ResourceLocation(CrackerConstants.MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, path);
     }
 }

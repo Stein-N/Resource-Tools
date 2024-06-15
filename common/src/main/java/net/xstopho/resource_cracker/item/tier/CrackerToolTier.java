@@ -6,7 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
-import net.xstopho.resourcelibrary.items.tags.TagHelper;
+import net.xstopho.resourcelibrary.util.TagHelper;
 
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 public enum CrackerToolTier implements Tier {
 
     STEEL(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 450, 6.0F, 2.0F, 14,
-            () -> Ingredient.of(TagHelper.createPlatformTag("ingot/steel")));
+            () -> Ingredient.of(TagHelper.createItemTag("ingot/steel")));
 
     private final TagKey<Block> incorrectBlocksForDrops;
     private final int uses;

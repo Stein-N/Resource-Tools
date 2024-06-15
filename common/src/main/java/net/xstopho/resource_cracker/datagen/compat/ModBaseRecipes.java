@@ -12,6 +12,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.xstopho.resource_cracker.datagen.CrackerBaseRecipes;
 import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
+import net.xstopho.resourcelibrary.util.TagHelper;
 
 public class ModBaseRecipes extends CrackerBaseRecipes {
 
@@ -75,12 +76,12 @@ public class ModBaseRecipes extends CrackerBaseRecipes {
     }
 
     private static Item item(String id) {
-        ResourceLocation location = new ResourceLocation(modId, id);
+        ResourceLocation location = ResourceLocation.fromNamespaceAndPath(modId, id);
         if (BuiltInRegistries.ITEM.containsKey(location)) return BuiltInRegistries.ITEM.get(location);
         else throw new IllegalStateException("Item Registry missing the following entry: " + location);
     }
 
     public static TagKey<Item> createTag(String id) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation("c", id));
+        return TagHelper.createItemTag(id);
     }
 }

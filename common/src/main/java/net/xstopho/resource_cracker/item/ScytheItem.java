@@ -3,6 +3,7 @@ package net.xstopho.resource_cracker.item;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
@@ -16,21 +17,22 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.xstopho.resource_cracker.CrackerConstants;
 
 import java.util.List;
 import java.util.UUID;
 
 public class ScytheItem extends SwordItem {
-    public static final UUID BASE_ENTITY_REACH_UUID = UUID.nameUUIDFromBytes("BASE_ENTITY_INTERACTION_RANGE_UUID".getBytes());
-    public static final UUID BASE_BLOCK_REACH_UUID = UUID.nameUUIDFromBytes("BASE_BLOCK_INTERACTION_REACH_UUID".getBytes());
+    public static final ResourceLocation BASE_ENTITY_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "base_entity_reach");
+    public static final ResourceLocation BASE_BLOCK_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "base_block_reach");
     private static final int radius = 1;
 
     public ScytheItem(Tier tier, int attackDamage, float attackSpeed) {
         super(tier, new Properties()
                 .attributes(createAttributes(tier, attackDamage, attackSpeed)
-                        .withModifierAdded(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(BASE_BLOCK_REACH_UUID, "bonus", 1,
+                        .withModifierAdded(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(BASE_BLOCK_REACH, 1,
                                 AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
-                        .withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(BASE_ENTITY_REACH_UUID, "bonus", 1,
+                        .withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(BASE_ENTITY_REACH, 1,
                                 AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)));
     }
 
