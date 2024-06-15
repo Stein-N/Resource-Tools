@@ -25,7 +25,7 @@ public class ScytheBakedModel implements BakedModel, IForgeBakedModel {
 
     public ScytheBakedModel(String item, Map<ModelResourceLocation, BakedModel> map) {
         this.inventoryLocation = ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, item));
-        this.inHandLocation = ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "in_hand/" + item));
+        this.inHandLocation = ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "item/in_hand/" + item));
         this.inventoryModel = map.get(inventoryLocation);
         this.inHandModel = map.get(inHandLocation);
     }
