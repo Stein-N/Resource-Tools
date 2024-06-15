@@ -17,7 +17,11 @@ dependencies {
     modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resource_config_api}"
     modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${resource_library}"
 
-    //modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
+    modRuntimeOnly "curse.maven:techreborn-233564:5430714"
+    modRuntimeOnly "curse.maven:reborncore-237903:5430713"
+    modRuntimeOnly "teamreborn:energy:4.1.0"
+
+    modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
     //modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
 
 }
