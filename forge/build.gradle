@@ -53,14 +53,6 @@ minecraft {
     }
 }
 
-tasks.withType(JavaCompile).configureEach {
-    exclude("net/xstopho/resource_cracker/mixin")
-}
-
-processResources {
-    exclude("resource_cracker.mixins.json")
-}
-
 sourceSets.each {
     def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
     it.output.resourcesDir = dir
