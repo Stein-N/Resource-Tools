@@ -1,3 +1,7 @@
+#### v2.0.0
+- initial Release for Minecraft 1.21
+- only internal Changes
+
 #### v1.12.1
 - fixing BlockStates for Spring blocks
 
