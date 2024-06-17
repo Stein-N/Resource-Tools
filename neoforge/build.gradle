@@ -16,8 +16,8 @@ dependencies {
     implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
 
-    //runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
-    //runtimeOnly "maven.modrinth:ae2:${ae2}-neoforge"
+    runtimeOnly "maven.modrinth:emi:${emi_version}+neoforge"
+    runtimeOnly "maven.modrinth:ae2:${ae2_version}-neoforge"
 }
 
 runs {
@@ -35,11 +35,4 @@ runs {
 publishMods {
     file = jar.archiveFile
     modLoaders.add("neoforge")
-
-    modrinth {
-        minecraftVersions.addAll('1.21')
-    }
-    curseforge {
-        minecraftVersions.addAll('1.21')
-    }
 }

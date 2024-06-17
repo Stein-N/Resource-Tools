@@ -21,8 +21,8 @@ dependencies {
     modRuntimeOnly "curse.maven:reborncore-237903:5430713"
     modRuntimeOnly "teamreborn:energy:4.1.0"
 
-    modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
-    //modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
+    modRuntimeOnly "maven.modrinth:modmenu:${mod_menu_version}"
+    modRuntimeOnly "maven.modrinth:emi:${emi_version}+fabric"
 
 }
 
@@ -58,12 +58,6 @@ publishMods {
     file = remapJar.archiveFile
     modLoaders.add("fabric")
 
-    modrinth {
-        minecraftVersions.addAll('1.21')
-        requires('fabric-api')
-    }
-    curseforge {
-        minecraftVersions.addAll('1.21')
-        requires('fabric-api')
-    }
+    modrinth { requires('fabric-api') }
+    curseforge { requires('fabric-api') }
 }
