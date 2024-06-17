@@ -1,3 +1,9 @@
+#### v2.0.1
+- NeoForge:
+  - adding missing Recipes for Mekanism and Applied Energetics 2
+- Fabric:
+  - adding missing Tech Reborn Recipes
+
 #### v2.0.0
 - initial Release for Minecraft 1.21
 - only internal Changes
