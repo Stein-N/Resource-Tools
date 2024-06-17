@@ -7,6 +7,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.xstopho.resource_cracker.datagen.compat.mods.AE2Recipes;
+import net.xstopho.resource_cracker.datagen.compat.mods.MekanismRecipes;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -20,7 +21,8 @@ public class RecipeProv extends RecipeProvider implements IConditionBuilder {
     @Override
     protected void buildRecipes(RecipeOutput output) {
 
-        //AE2Recipes.generate(output.withConditions(getConditions(modLoaded("ae2"))));
+        AE2Recipes.generate(output.withConditions(getConditions(modLoaded("ae2"))));
+        MekanismRecipes.generate(output.withConditions(getConditions(modLoaded("mekanism"))));
 
         CrackerRecipes.generateToolRecipes(output);
         CrackerRecipes.generateMaterialDustRecipes(output);
