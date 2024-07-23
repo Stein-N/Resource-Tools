@@ -7,10 +7,14 @@ import net.minecraft.world.item.TooltipFlag;
 import net.xstopho.resourcelibrary.items.RecipeRemainder;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class CrackHammerItem extends RecipeRemainder {
-    public CrackHammerItem(int durability) {
-        super(new Properties().durability(durability));
+    private final Supplier<Integer> durability;
+
+    public CrackHammerItem(Supplier<Integer> durability) {
+        super(new Properties());
+        this.durability = durability;
     }
 
     @Override
@@ -34,5 +38,9 @@ public class CrackHammerItem extends RecipeRemainder {
         tooltip.add(Component.translatable("item.crack_hammer.tooltip").withStyle(ChatFormatting.GOLD));
 
         super.appendHoverText(itemStack, tooltipContext, tooltip, tooltipFlag);
+    }
+
+    public int getDurability() {
+        return durability.get();
     }
 }

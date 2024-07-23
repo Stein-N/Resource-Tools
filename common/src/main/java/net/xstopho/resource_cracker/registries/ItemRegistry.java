@@ -37,19 +37,19 @@ public class ItemRegistry {
     public static final RegistryObject<Item> NUGGET_EMERALD = register("nugget_emerald");
     public static final RegistryObject<Item> NUGGET_COPPER = register("nugget_copper");
 
-    public static final RegistryObject<Item> CRACK_HAMMER_COPPER = register("crack_hammer_copper", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_COPPER.get()));
-    public static final RegistryObject<Item> CRACK_HAMMER_GOLD = register("crack_hammer_gold", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_GOLD.get()));
-    public static final RegistryObject<Item> CRACK_HAMMER_IRON = register("crack_hammer_iron", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_IRON.get()));
-    public static final RegistryObject<Item> CRACK_HAMMER_STEEL = register("crack_hammer_steel", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_STEEL.get()));
-    public static final RegistryObject<Item> CRACK_HAMMER_DIAMOND = register("crack_hammer_diamond", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_DIAMOND.get()));
-    public static final RegistryObject<Item> CRACK_HAMMER_NETHERITE = register("crack_hammer_netherite", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_NETHERITE.get()));
+    public static final RegistryObject<Item> CRACK_HAMMER_COPPER = register("crack_hammer_copper", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_COPPER));
+    public static final RegistryObject<Item> CRACK_HAMMER_GOLD = register("crack_hammer_gold", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_GOLD));
+    public static final RegistryObject<Item> CRACK_HAMMER_IRON = register("crack_hammer_iron", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_IRON));
+    public static final RegistryObject<Item> CRACK_HAMMER_STEEL = register("crack_hammer_steel", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_STEEL));
+    public static final RegistryObject<Item> CRACK_HAMMER_DIAMOND = register("crack_hammer_diamond", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_DIAMOND));
+    public static final RegistryObject<Item> CRACK_HAMMER_NETHERITE = register("crack_hammer_netherite", () -> new CrackHammerItem(CrackerConfig.CRACK_HAMMER_NETHERITE));
 
-    public static final RegistryObject<Item> CHISEL_COPPER = register("chisel_copper", () -> new ChiselItem(CrackerConfig.CHISEL_COPPER.get()));
-    public static final RegistryObject<Item> CHISEL_GOLD = register("chisel_gold", () -> new ChiselItem(CrackerConfig.CHISEL_GOLD.get()));
-    public static final RegistryObject<Item> CHISEL_IRON = register("chisel_iron", () -> new ChiselItem(CrackerConfig.CHISEL_IRON.get()));
-    public static final RegistryObject<Item> CHISEL_STEEL = register("chisel_steel", () -> new ChiselItem(CrackerConfig.CHISEL_STEEL.get()));
-    public static final RegistryObject<Item> CHISEL_DIAMOND = register("chisel_diamond", () -> new ChiselItem(CrackerConfig.CHISEL_DIAMOND.get()));
-    public static final RegistryObject<Item> CHISEL_NETHERITE = register("chisel_netherite", () -> new ChiselItem(CrackerConfig.CHISEL_NETHERITE.get()));
+    public static final RegistryObject<Item> CHISEL_COPPER = register("chisel_copper", () -> new ChiselItem(CrackerConfig.CHISEL_COPPER));
+    public static final RegistryObject<Item> CHISEL_GOLD = register("chisel_gold", () -> new ChiselItem(CrackerConfig.CHISEL_GOLD));
+    public static final RegistryObject<Item> CHISEL_IRON = register("chisel_iron", () -> new ChiselItem(CrackerConfig.CHISEL_IRON));
+    public static final RegistryObject<Item> CHISEL_STEEL = register("chisel_steel", () -> new ChiselItem(CrackerConfig.CHISEL_STEEL));
+    public static final RegistryObject<Item> CHISEL_DIAMOND = register("chisel_diamond", () -> new ChiselItem(CrackerConfig.CHISEL_DIAMOND));
+    public static final RegistryObject<Item> CHISEL_NETHERITE = register("chisel_netherite", () -> new ChiselItem(CrackerConfig.CHISEL_NETHERITE));
 
     public static final RegistryObject<Item> SCYTHE_COPPER = register("scythe_copper", () -> new ScytheItem(Tiers.GOLD, 2, -1.8f));
     public static final RegistryObject<Item> SCYTHE_GOLD = register("scythe_gold", () -> new ScytheItem(Tiers.GOLD, 3, -1.8f));

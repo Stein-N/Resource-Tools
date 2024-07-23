@@ -18,6 +18,7 @@
         "client": [ "net.xstopho.resource_cracker.ResourceCrackerClient" ],
         "fabric-datagen": [ "net.xstopho.resource_cracker.ResourceCrackerDatagen" ]
     },
+    "mixins": [ "${mod_id}.mixins.json" ],
     "depends": {
         "fabric-api": "*",
         "fabricloader": "*",

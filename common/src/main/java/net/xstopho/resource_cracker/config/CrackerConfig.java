@@ -1,11 +1,11 @@
 package net.xstopho.resource_cracker.config;
 
-import net.xstopho.resource_config_api.builder.ConfigBuilder;
+import net.xstopho.resourceconfigapi.builder.ResourceConfigBuilder;
 
 import java.util.function.Supplier;
 
 public class CrackerConfig {
-    public static final ConfigBuilder BUILDER = new ConfigBuilder();
+    public static final ResourceConfigBuilder BUILDER = new ResourceConfigBuilder();
 
     public static final Supplier<Integer>
             CRACK_HAMMER_COPPER, CRACK_HAMMER_GOLD, CRACK_HAMMER_IRON, CRACK_HAMMER_STEEL, CRACK_HAMMER_DIAMOND, CRACK_HAMMER_NETHERITE,
@@ -28,25 +28,25 @@ public class CrackerConfig {
     static {
         BUILDER.push("Crack Hammer Durability");
 
-        CRACK_HAMMER_COPPER = BUILDER.define("copper", 64);
-        CRACK_HAMMER_GOLD = BUILDER.define("gold", 96);
-        CRACK_HAMMER_IRON = BUILDER.define("iron", 128);
-        CRACK_HAMMER_STEEL = BUILDER.define("steel", 160);
-        CRACK_HAMMER_DIAMOND = BUILDER.define("diamond", 256);
-        CRACK_HAMMER_NETHERITE = BUILDER.define("netherite", 384);
+        CRACK_HAMMER_COPPER = BUILDER.sync().define("copper", 64);
+        CRACK_HAMMER_GOLD = BUILDER.sync().define("gold", 96);
+        CRACK_HAMMER_IRON = BUILDER.sync().define("iron", 128);
+        CRACK_HAMMER_STEEL = BUILDER.sync().define("steel", 160);
+        CRACK_HAMMER_DIAMOND = BUILDER.sync().define("diamond", 256);
+        CRACK_HAMMER_NETHERITE = BUILDER.sync().define("netherite", 384);
 
         BUILDER.pop().push("Chisel Durability");
 
-        CHISEL_COPPER = BUILDER.define("copper", 10);
-        CHISEL_GOLD = BUILDER.define("gold", 15);
-        CHISEL_IRON = BUILDER.define("iron", 30);
-        CHISEL_STEEL = BUILDER.define("steel", 45);
-        CHISEL_DIAMOND = BUILDER.define("diamond", 64);
-        CHISEL_NETHERITE = BUILDER.define("netherite", 96);
+        CHISEL_COPPER = BUILDER.sync().define("copper", 10);
+        CHISEL_GOLD = BUILDER.sync().define("gold", 15);
+        CHISEL_IRON = BUILDER.sync().define("iron", 30);
+        CHISEL_STEEL = BUILDER.sync().define("steel", 45);
+        CHISEL_DIAMOND = BUILDER.sync().define("diamond", 64);
+        CHISEL_NETHERITE = BUILDER.sync().define("netherite", 96);
 
         BUILDER.pop().push("Scythe Harvest Radius");
 
-        SCYTHE_RADIUS = BUILDER.defineInRange("radius", 1, 1, 3);
+        SCYTHE_RADIUS = BUILDER.sync().defineInRange("radius", 1, 1, 3);
 
         BUILDER.pop().push("Block and Mob Loot Settings");
 

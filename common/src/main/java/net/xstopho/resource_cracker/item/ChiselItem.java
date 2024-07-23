@@ -18,12 +18,15 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class ChiselItem extends Item {
     public static final Random rnd = new Random();
+    private final Supplier<Integer> durability;
 
-    public ChiselItem(int durability) {
-        super(new Properties().durability(durability));
+    public ChiselItem(Supplier<Integer> durability) {
+        super(new Properties());
+        this.durability = durability;
     }
 
     @Override
@@ -53,5 +56,9 @@ public class ChiselItem extends Item {
         tooltip.add(Component.translatable("item.chisel.tooltip").withStyle(ChatFormatting.GOLD));
 
         super.appendHoverText(stack, ccontext, tooltip, flag);
+    }
+
+    public int getDurability() {
+        return durability.get();
     }
 }
