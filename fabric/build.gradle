@@ -1,10 +1,7 @@
 plugins {
     id 'ml-loader'
-    id 'fabric-loom' version '1.7-SNAPSHOT'
-}
-
-base {
-    archivesName = "${mod_id}-fabric-${minecraft_version}"
+    id 'fabric-loom'
+    id 'me.modmuss50.mod-publish-plugin'
 }
 
 dependencies {
