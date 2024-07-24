@@ -2,6 +2,7 @@ package net.xstopho.resource_cracker.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
@@ -60,5 +61,13 @@ public class ChiselItem extends Item {
 
     public int getDurability() {
         return durability.get();
+    }
+
+    public ItemStack addDurability() {
+        ItemStack stack = this.getDefaultInstance();
+        stack.set(DataComponents.MAX_DAMAGE, getDurability());
+        stack.set(DataComponents.MAX_STACK_SIZE, 1);
+        stack.set(DataComponents.DAMAGE, 0);
+        return stack;
     }
 }

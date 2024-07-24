@@ -4,8 +4,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.xstopho.resource_cracker.CrackerConstants;
+import net.xstopho.resource_cracker.item.ChiselItem;
+import net.xstopho.resource_cracker.item.CrackHammerItem;
 import net.xstopho.resourcelibrary.registration.RegistryObject;
 import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
@@ -17,19 +18,19 @@ public class CreativeTabRegistry {
             () -> CreativeModeTab.builder(null, -1).title(Component.translatable("item_group.resource_cracker"))
                     .icon(() -> new ItemStack(ItemRegistry.CRACK_HAMMER_DIAMOND.get())).displayItems((itemDisplayParameters, output) -> {
 
-                        output.accept(ItemRegistry.CRACK_HAMMER_COPPER.get());
-                        output.accept(ItemRegistry.CRACK_HAMMER_GOLD.get());
-                        output.accept(ItemRegistry.CRACK_HAMMER_IRON.get());
-                        output.accept(ItemRegistry.CRACK_HAMMER_STEEL.get());
-                        output.accept(ItemRegistry.CRACK_HAMMER_DIAMOND.get());
-                        output.accept(ItemRegistry.CRACK_HAMMER_NETHERITE.get());
+                        output.accept(((CrackHammerItem) ItemRegistry.CRACK_HAMMER_COPPER.get()).addDurability());
+                        output.accept(((CrackHammerItem) ItemRegistry.CRACK_HAMMER_GOLD.get()).addDurability());
+                        output.accept(((CrackHammerItem) ItemRegistry.CRACK_HAMMER_IRON.get()).addDurability());
+                        output.accept(((CrackHammerItem) ItemRegistry.CRACK_HAMMER_STEEL.get()).addDurability());
+                        output.accept(((CrackHammerItem) ItemRegistry.CRACK_HAMMER_DIAMOND.get()).addDurability());
+                        output.accept(((CrackHammerItem) ItemRegistry.CRACK_HAMMER_NETHERITE.get()).addDurability());
 
-                        output.accept(ItemRegistry.CHISEL_COPPER.get());
-                        output.accept(ItemRegistry.CHISEL_GOLD.get());
-                        output.accept(ItemRegistry.CHISEL_IRON.get());
-                        output.accept(ItemRegistry.CHISEL_STEEL.get());
-                        output.accept(ItemRegistry.CHISEL_DIAMOND.get());
-                        output.accept(ItemRegistry.CHISEL_NETHERITE.get());
+                        output.accept(((ChiselItem) ItemRegistry.CHISEL_COPPER.get()).addDurability());
+                        output.accept(((ChiselItem) ItemRegistry.CHISEL_GOLD.get()).addDurability());
+                        output.accept(((ChiselItem) ItemRegistry.CHISEL_IRON.get()).addDurability());
+                        output.accept(((ChiselItem) ItemRegistry.CHISEL_STEEL.get()).addDurability());
+                        output.accept(((ChiselItem) ItemRegistry.CHISEL_DIAMOND.get()).addDurability());
+                        output.accept(((ChiselItem) ItemRegistry.CHISEL_NETHERITE.get()).addDurability());
 
                         output.accept(ItemRegistry.SCYTHE_COPPER.get());
                         output.accept(ItemRegistry.SCYTHE_GOLD.get());
