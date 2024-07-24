@@ -14,7 +14,7 @@ public class TechRebornRecipes extends ModBaseRecipes {
         defineRecipe("amethyst_dust", Blocks.AMETHYST_BLOCK);
         defineRecipe("andesite_dust", Blocks.ANDESITE);
         defineRecipe("basalt_dust", createTag("basalt"));
-        defineRecipe("bauxite_dust", createTag("bauxite_ores"));
+        defineRecipe("bauxite_dust", createTag("ores/bauxite"));
         defineRecipe("brass_dust", "brass_storage_block", 9);
         defineRecipe("brass_dust", "brass_ingot");
         defineRecipe("bronze_dust", "bronze_storage_block", 9);
@@ -31,7 +31,7 @@ public class TechRebornRecipes extends ModBaseRecipes {
         defineRecipe("ender_eye_dust", Items.ENDER_EYE);
         defineRecipe("ender_pearl_dust", Items.ENDER_PEARL);
         defineRecipe("flint_dust", Items.FLINT);
-        defineRecipe("galena_dust", createTag("galena_ores"));
+        defineRecipe("galena_dust", createTag("ores/galena"));
         defineRecipe("granite_dust", Items.GRANITE);
         defineRecipe("invar_dust", "invar_storage_block", 9);
         defineRecipe("invar_dust", "invar_ingot");
@@ -44,7 +44,7 @@ public class TechRebornRecipes extends ModBaseRecipes {
         defineRecipe("obsidian_dust", Items.OBSIDIAN);
         defineRecipe("peridot_dust", "peridot_storage_block", 9);
         defineRecipe("peridot_dust", "peridot_gem");
-        defineRecipe("peridot_dust", createTag("peridot_ores"));
+        defineRecipe("peridot_dust", createTag("ores/peridot"));
         defineRecipe("platinum_dust", "platinum_storage_block", 9);
         defineRecipe("platinum_dust", "platinum_ingot");
         defineRecipe("pyrite_dust", "pyrite_ore");
@@ -54,12 +54,12 @@ public class TechRebornRecipes extends ModBaseRecipes {
         defineRecipe("red_garnet_dust", "red_garnet_gem");
         defineRecipe("ruby_dust", "ruby_storage_block", 9);
         defineRecipe("ruby_dust", "ruby_gem");
-        defineRecipe("ruby_dust", createTag("ruby_ores"));
+        defineRecipe("ruby_dust", createTag("ores/ruby"));
         defineRecipe("sapphire_dust", "sapphire_storage_block", 9);
         defineRecipe("sapphire_dust", "sapphire_gem");
-        defineRecipe("sapphire_dust", createTag("sapphire_ores"));
-        defineRecipe("sodalite_dust", createTag("sodalite_ores"));
-        defineRecipe("sphalerite_dust", createTag("sphalerite_ores"));
+        defineRecipe("sapphire_dust", createTag("ores/sapphire"));
+        defineRecipe("sodalite_dust", createTag("ores/sodalite"));
+        defineRecipe("sphalerite_dust", createTag("ores/sphalerite"));
         defineRecipe("titanium_dust", "titanium_storage_block", 9);
         defineRecipe("titanium_dust", "titanium_ingot");
         defineRecipe("yellow_garnet_dust", "yellow_garnet_storage_block", 9);
