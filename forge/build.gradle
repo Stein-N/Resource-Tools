@@ -5,17 +5,17 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
 }
 
-configurations {
-    excludedImpl.extendsFrom implementation
-}
-
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
-    excludedImpl('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
+    implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
-    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}"
-    implementation "net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}"
+    implementation("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}") { transitive = false }
+    implementation("net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}") { transitive = false }
+}
+
+mixin {
+    config("${mod_id}.mixins.json")
 }
 
 minecraft {
@@ -68,6 +68,7 @@ minecraft {
 jar {
     manifest {
         attributes([
+                'FMLCorePluginContainsFMLMod': 'true',
                 'MixinConfigs': "${mod_id}.mixins.json"
         ])
     }
