@@ -11,6 +11,9 @@ dependencies {
 
     implementation("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}") { transitive = false }
     implementation("net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}") { transitive = false }
+
+    runtimeOnly("maven.modrinth:jei:${jei_version}-forge")
+    runtimeOnly("curse.maven:configured-457570:5441231")
 }
 
 mixin {
