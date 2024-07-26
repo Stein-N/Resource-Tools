@@ -1,3 +1,6 @@
+#### v2.1.1
+- fixing an issue where Crack Hammers can only be crafted once per World Start
+
 #### v2.1.0
 - Updating to Resource Config API 2.1.1
 - Scythe Radius config value now gets applied correctly

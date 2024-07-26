@@ -26,15 +26,13 @@ public abstract class ShapedRecipeMixin {
 
     @Inject(method = "assemble", at = @At("HEAD"), cancellable = true)
     private void onAssemble(CraftingInput input, HolderLookup.Provider registries, CallbackInfoReturnable<ItemStack> cir) {
-        if (getIngredients().size() > 4) {
-            ItemStack result = getResultItem(registries);
+        ItemStack result = getResultItem(registries).copy();
 
-            if (result.getItem() instanceof ChiselItem chisel) {
-                cir.setReturnValue(addDurability(result, chisel.getDurability()));
-            }
-            if (result.getItem() instanceof CrackHammerItem crackHammer) {
-                cir.setReturnValue(addDurability(result, crackHammer.getDurability()));
-            }
+        if (result.getItem() instanceof ChiselItem chisel) {
+            cir.setReturnValue(addDurability(result, chisel.getDurability()));
+        }
+        if (result.getItem() instanceof CrackHammerItem crackHammer) {
+            cir.setReturnValue(addDurability(result, crackHammer.getDurability()));
         }
     }
 
