@@ -8,10 +8,10 @@ dependencies {
     implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
 
-    runtimeOnly "maven.modrinth:emi:${emi_version}+neoforge"
-    runtimeOnly "maven.modrinth:jade:${jade_version}+neoforge"
-    runtimeOnly "maven.modrinth:ae2:${ae2_version}-neoforge"
-    runtimeOnly "maven.modrinth:mekanism:${mekanism_version}-neoforge"
+    //runtimeOnly "maven.modrinth:emi:${emi_version}+neoforge"
+    //runtimeOnly "maven.modrinth:jade:${jade_version}+neoforge"
+    //runtimeOnly "maven.modrinth:ae2:${ae2_version}-neoforge"
+    //runtimeOnly "maven.modrinth:mekanism:${mekanism_version}-neoforge"
 }
 
 neoForge {
@@ -26,7 +26,7 @@ neoForge {
         configureEach {
             systemProperty('neoforge.enableGameTestNamespaces', mod_id)
             ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
-            gameDirectory = project.file("runs/${it.name.toLowerCase()}")
+            gameDirectory = file("../common/runs/${it.name.toLowerCase()}")
         }
         client {
             client()

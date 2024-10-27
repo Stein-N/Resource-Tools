@@ -12,8 +12,8 @@ dependencies {
     implementation("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}")
     implementation("net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}")
 
-    runtimeOnly("maven.modrinth:jei:${jei_version}-forge")
-    runtimeOnly("curse.maven:configured-457570:5441231")
+    //runtimeOnly("maven.modrinth:jei:${jei_version}-forge")
+    //runtimeOnly("curse.maven:configured-457570:5441231")
 }
 
 mixin {
@@ -27,7 +27,7 @@ minecraft {
 
     runs {
         client {
-            workingDirectory project.file('runs/client')
+            workingDirectory file('--/common/runs/client')
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName 'Client'
             mods {
@@ -38,7 +38,7 @@ minecraft {
             }
         }
         server {
-            workingDirectory project.file('runs/server')
+            workingDirectory file('--/common/runs/server')
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName "Server"
             args '--nogui'
@@ -50,7 +50,7 @@ minecraft {
             }
         }
         data {
-            workingDirectory project.file('runs/client')
+            workingDirectory file('--/common/runs/client')
             ideaModule "${rootProject.name}.${project.name}.main"
             args '--mod', mod_id, '--all', '--output', file('src/generated'), '--existing', project(':common').file("src/main/resources/").getAbsolutePath()
             taskName 'Data'
