@@ -1,5 +1,6 @@
 package net.xstopho.resource_cracker.registries;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -12,7 +13,7 @@ import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
 public class CreativeTabRegistry {
 
-    private static final RegistryProvider<CreativeModeTab> CREATIVE_TABS = RegistryProvider.get(Registries.CREATIVE_MODE_TAB, CrackerConstants.MOD_ID);
+    private static final RegistryProvider<CreativeModeTab> CREATIVE_TABS = RegistryProvider.get(CrackerConstants.MOD_ID, BuiltInRegistries.CREATIVE_MODE_TAB);
 
     public static final RegistryObject<CreativeModeTab> RESOURCE_CRACKER = CREATIVE_TABS.register("item_group",
             () -> CreativeModeTab.builder(null, -1).title(Component.translatable("item_group.resource_cracker"))

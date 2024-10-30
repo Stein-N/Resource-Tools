@@ -1,14 +1,18 @@
 package net.xstopho.resource_cracker.datagen.compat.mods;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.xstopho.resource_cracker.datagen.compat.ModBaseRecipes;
 
 public class TechRebornRecipes extends ModBaseRecipes {
-    public static void generate(RecipeOutput output) {
-        setConstants("techreborn", output);
+    public TechRebornRecipes(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        super(provider, "techreborn", recipeOutput);
+    }
 
+    @Override
+    public void generate() {
         defineRecipe("aluminum_dust", "aluminum_storage_block", 9);
         defineRecipe("aluminum_dust", "aluminum_ingot");
         defineRecipe("amethyst_dust", Blocks.AMETHYST_BLOCK);
@@ -66,6 +70,5 @@ public class TechRebornRecipes extends ModBaseRecipes {
         defineRecipe("yellow_garnet_dust", "yellow_garnet_gem");
         defineRecipe("zinc_dust", "zinc_storage_block", 9);
         defineRecipe("zinc_dust", "zinc_ingot");
-
     }
 }

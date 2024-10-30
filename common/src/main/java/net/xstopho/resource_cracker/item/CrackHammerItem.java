@@ -1,26 +1,22 @@
 package net.xstopho.resource_cracker.item;
 
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.xstopho.resourcelibrary.items.RecipeRemainder;
+import net.xstopho.resourcelibrary.item.ResourceCraftingRemainder;
 
 import java.util.List;
 import java.util.function.Supplier;
 
-public class CrackHammerItem extends RecipeRemainder {
+public class CrackHammerItem extends ResourceCraftingRemainder {
     private final Supplier<Integer> durability;
 
-    public CrackHammerItem(Supplier<Integer> durability) {
-        super(new Properties());
+    public CrackHammerItem(Supplier<Integer> durability, Properties properties) {
+        super(properties);
         this.durability = durability;
-    }
-
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return false;
     }
 
     @Override

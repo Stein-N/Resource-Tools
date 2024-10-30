@@ -1,14 +1,18 @@
 package net.xstopho.resource_cracker.datagen.compat.mods;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.Items;
 import net.xstopho.resource_cracker.datagen.compat.ModBaseRecipes;
 
 public class MekanismRecipes extends ModBaseRecipes {
 
-    public static void generate(RecipeOutput output) {
-        setConstants("mekanism", output);
+    public MekanismRecipes(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        super(provider, "mekanism", recipeOutput);
+    }
 
+    @Override
+    public void generate() {
         defineRecipe("dirty_dust_copper", "clump_copper");
         defineRecipe("dirty_dust_gold", "clump_gold");
         defineRecipe("dirty_dust_iron", "clump_iron");

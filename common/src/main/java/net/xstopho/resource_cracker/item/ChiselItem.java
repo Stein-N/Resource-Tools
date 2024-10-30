@@ -25,14 +25,9 @@ public class ChiselItem extends Item {
     public static final Random rnd = new Random();
     private final Supplier<Integer> durability;
 
-    public ChiselItem(Supplier<Integer> durability) {
-        super(new Properties());
+    public ChiselItem(Supplier<Integer> durability, Properties properties) {
+        super(properties);
         this.durability = durability;
-    }
-
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return false;
     }
 
     @NotNull

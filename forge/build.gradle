@@ -27,7 +27,7 @@ minecraft {
 
     runs {
         client {
-            workingDirectory file('--/common/runs/client')
+            workingDirectory file('../common/runs/client')
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName 'Client'
             mods {
@@ -38,7 +38,7 @@ minecraft {
             }
         }
         server {
-            workingDirectory file('--/common/runs/server')
+            workingDirectory file('../common/runs/server')
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName "Server"
             args '--nogui'
@@ -50,7 +50,7 @@ minecraft {
             }
         }
         data {
-            workingDirectory file('--/common/runs/client')
+            workingDirectory file('../common/runs/client')
             ideaModule "${rootProject.name}.${project.name}.main"
             args '--mod', mod_id, '--all', '--output', file('src/generated'), '--existing', project(':common').file("src/main/resources/").getAbsolutePath()
             taskName 'Data'

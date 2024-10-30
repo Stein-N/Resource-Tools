@@ -1,124 +1,156 @@
 package net.xstopho.resource_cracker.datagen;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
-public class CrackerRecipes extends CrackerBaseRecipes {
+public class CrackerRecipes extends CrackerRecipeProvider {
 
-    public static void generateToolRecipes(RecipeOutput output) {
+    public CrackerRecipes(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        super(provider, recipeOutput);
+    }
+
+    @Override
+    public void buildRecipes() {
+        /////////////
+        //  Tools  //
+        /////////////
         /* Crack Hammer */
-        crackHammerRecipe(output, ItemRegistry.CRACK_HAMMER_COPPER.get(), Items.COPPER_INGOT);
-        crackHammerRecipe(output, ItemRegistry.CRACK_HAMMER_GOLD.get(), Items.GOLD_INGOT);
-        crackHammerRecipe(output, ItemRegistry.CRACK_HAMMER_IRON.get(), Items.IRON_INGOT);
-        crackHammerRecipe(output, ItemRegistry.CRACK_HAMMER_DIAMOND.get(), Items.DIAMOND);
-        crackHammerRecipe(output, ItemRegistry.CRACK_HAMMER_STEEL.get(), ItemRegistry.STEEL_INGOT.get());
-        netheriteUpgrade(output, ItemRegistry.CRACK_HAMMER_NETHERITE.get(), ItemRegistry.CRACK_HAMMER_DIAMOND.get());
+        crackHammerRecipe(ItemRegistry.CRACK_HAMMER_COPPER.get(), Items.COPPER_INGOT);
+        crackHammerRecipe(ItemRegistry.CRACK_HAMMER_GOLD.get(), Items.GOLD_INGOT);
+        crackHammerRecipe(ItemRegistry.CRACK_HAMMER_IRON.get(), Items.IRON_INGOT);
+        crackHammerRecipe(ItemRegistry.CRACK_HAMMER_DIAMOND.get(), Items.DIAMOND);
+        crackHammerRecipe(ItemRegistry.CRACK_HAMMER_STEEL.get(), ItemRegistry.STEEL_INGOT.get());
+        smithingUpgrade(ItemRegistry.CRACK_HAMMER_NETHERITE.get(), ItemRegistry.CRACK_HAMMER_DIAMOND.get(), Items.NETHERITE_INGOT);
 
         /*  Chisel  */
-        chiselRecipe(output, ItemRegistry.CHISEL_COPPER.get(), Items.COPPER_INGOT);
-        chiselRecipe(output, ItemRegistry.CHISEL_GOLD.get(), Items.GOLD_INGOT);
-        chiselRecipe(output, ItemRegistry.CHISEL_IRON.get(), Items.IRON_INGOT);
-        chiselRecipe(output, ItemRegistry.CHISEL_DIAMOND.get(), Items.DIAMOND);
-        chiselRecipe(output, ItemRegistry.CHISEL_STEEL.get(), ItemRegistry.STEEL_INGOT.get());
-        netheriteUpgrade(output, ItemRegistry.CHISEL_NETHERITE.get(), ItemRegistry.CHISEL_DIAMOND.get());
+        chiselRecipe(ItemRegistry.CHISEL_COPPER.get(), Items.COPPER_INGOT);
+        chiselRecipe(ItemRegistry.CHISEL_GOLD.get(), Items.GOLD_INGOT);
+        chiselRecipe(ItemRegistry.CHISEL_IRON.get(), Items.IRON_INGOT);
+        chiselRecipe(ItemRegistry.CHISEL_DIAMOND.get(), Items.DIAMOND);
+        chiselRecipe(ItemRegistry.CHISEL_STEEL.get(), ItemRegistry.STEEL_INGOT.get());
+        smithingUpgrade(ItemRegistry.CHISEL_NETHERITE.get(), ItemRegistry.CHISEL_DIAMOND.get(), Items.NETHERITE_INGOT);
 
         /* Scythe */
-        scytheRecipe(output, ItemRegistry.SCYTHE_COPPER.get(), Items.COPPER_INGOT);
-        scytheRecipe(output, ItemRegistry.SCYTHE_IRON.get(), Items.IRON_INGOT);
-        scytheRecipe(output, ItemRegistry.SCYTHE_GOLD.get(), Items.GOLD_INGOT);
-        scytheRecipe(output, ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.STEEL_INGOT.get());
-        scytheRecipe(output, ItemRegistry.SCYTHE_DIAMOND.get(), Items.DIAMOND);
-        netheriteUpgrade(output, ItemRegistry.SCYTHE_NETHERITE.get(), ItemRegistry.SCYTHE_DIAMOND.get());
-    }
+        scytheRecipe(ItemRegistry.SCYTHE_COPPER.get(), Items.COPPER_INGOT);
+        scytheRecipe(ItemRegistry.SCYTHE_IRON.get(), Items.IRON_INGOT);
+        scytheRecipe(ItemRegistry.SCYTHE_GOLD.get(), Items.GOLD_INGOT);
+        scytheRecipe(ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.STEEL_INGOT.get());
+        scytheRecipe(ItemRegistry.SCYTHE_DIAMOND.get(), Items.DIAMOND);
+        smithingUpgrade(ItemRegistry.SCYTHE_NETHERITE.get(), ItemRegistry.SCYTHE_DIAMOND.get(), Items.NETHERITE_INGOT);
 
-    public static void generateMaterialDustRecipes(RecipeOutput output) {
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_CARBON.get(), Items.CHARCOAL, 2);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_COPPER.get(), Items.RAW_COPPER, 2);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_IRON.get(), Items.RAW_IRON, 2);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_GOLD.get(), Items.RAW_GOLD, 2);
+        ////////////////////////
+        //   Material Dusts   //
+        ////////////////////////
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_CARBON.get(), Items.CHARCOAL, 2);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_COPPER.get(), Items.RAW_COPPER, 2);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_IRON.get(), Items.RAW_IRON, 2);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_GOLD.get(), Items.RAW_GOLD, 2);
 
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_COPPER.get(), Items.COPPER_INGOT, 1);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_IRON.get(), Items.IRON_INGOT, 1);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_GOLD.get(), Items.GOLD_INGOT, 1);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_STEEL.get(), ItemRegistry.STEEL_INGOT.get(), 1);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_DIAMOND.get(), Items.DIAMOND, 1);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get(), Items.NETHERITE_SCRAP, 1);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), Items.NETHERITE_INGOT, 1);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_EMERALD.get(), Items.EMERALD, 1);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_COPPER.get(), Items.COPPER_INGOT, 1);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_IRON.get(), Items.IRON_INGOT, 1);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_GOLD.get(), Items.GOLD_INGOT, 1);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_STEEL.get(), ItemRegistry.STEEL_INGOT.get(), 1);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_DIAMOND.get(), Items.DIAMOND, 1);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get(), Items.NETHERITE_SCRAP, 1);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_NETHERITE.get(), Items.NETHERITE_INGOT, 1);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_EMERALD.get(), Items.EMERALD, 1);
 
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_DIAMOND.get(), Items.DIAMOND_ORE, 2);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_DIAMOND.get(), Items.DEEPSLATE_DIAMOND_ORE, 2);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_EMERALD.get(), Items.EMERALD_ORE, 2);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_EMERALD.get(), Items.DEEPSLATE_EMERALD_ORE, 2);
-        materialDustRecipe(output, ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get(), Items.ANCIENT_DEBRIS, 2);
-    }
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_DIAMOND.get(), Items.DIAMOND_ORE, 2);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_DIAMOND.get(), Items.DEEPSLATE_DIAMOND_ORE, 2);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_EMERALD.get(), Items.EMERALD_ORE, 2);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_EMERALD.get(), Items.DEEPSLATE_EMERALD_ORE, 2);
+        materialDustRecipe(ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get(), Items.ANCIENT_DEBRIS, 2);
 
-    public static void generateSpringBlockRecipes(RecipeOutput output) {
-        springBlockRecipe(output, BlockRegistry.WATER_SPRING_BLOCK.get(), Items.WATER_BUCKET);
-        springBlockRecipe(output, BlockRegistry.LAVA_SPRING_BLOCK.get(), Items.LAVA_BUCKET);
-    }
+        ////////////////
+        //   Blocks   //
+        ////////////////
+        springBlockRecipe(BlockRegistry.WATER_SPRING_BLOCK.get(), Items.WATER_BUCKET);
+        springBlockRecipe(BlockRegistry.LAVA_SPRING_BLOCK.get(), Items.LAVA_BUCKET);
 
-    public static void generateProcessingRecipes(RecipeOutput output) {
-        processingRecipes(output, ItemRegistry.MATERIAL_DUST_COPPER.get(), Items.COPPER_INGOT, true, true, false, true);
-        processingRecipes(output, ItemRegistry.MATERIAL_DUST_IRON.get(), Items.IRON_INGOT, true, true, false, true);
-        processingRecipes(output, ItemRegistry.MATERIAL_DUST_GOLD.get(), Items.GOLD_INGOT, true, true, false, true);
-        processingRecipes(output, ItemRegistry.MATERIAL_DUST_DIAMOND.get(), Items.DIAMOND, true, true, false, true);
-        processingRecipes(output, ItemRegistry.MATERIAL_DUST_EMERALD.get(), Items.EMERALD, true, true, false, true);
-        processingRecipes(output, ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get(), Items.NETHERITE_SCRAP, true, true, false, true);
-        processingRecipes(output, ItemRegistry.MATERIAL_DUST_STEEL.get(), ItemRegistry.STEEL_INGOT.get(), true, true, false, true);
-        processingRecipes(output, ItemRegistry.GARLIC.get(), ItemRegistry.MATERIAL_DUST_SULFUR.get(), true, true, false, true);
-        processingRecipes(output, Items.ROTTEN_FLESH, Items.LEATHER, true, true, false, true);
+        ////////////////
+        //  Smelting  //
+        ////////////////
+        smeltingRecipe(Items.COPPER_INGOT, ItemRegistry.MATERIAL_DUST_COPPER.get());
+        smeltingRecipe(Items.IRON_INGOT, ItemRegistry.MATERIAL_DUST_IRON.get());
+        smeltingRecipe(Items.GOLD_INGOT, ItemRegistry.MATERIAL_DUST_GOLD.get());
+        smeltingRecipe(ItemRegistry.STEEL_INGOT.get(), ItemRegistry.MATERIAL_DUST_STEEL.get());
+        smeltingRecipe(ItemRegistry.GARLIC.get(), ItemRegistry.MATERIAL_DUST_SULFUR.get());
+        smeltingRecipe(Items.LEATHER, Items.ROTTEN_FLESH);
 
-        blastingRecipe(output, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), Items.NETHERITE_INGOT);
-        smokingRecipe(output, Items.ROTTEN_FLESH, ItemRegistry.BEEF_JERKY.get());
-    }
+        ////////////////
+        //  Blasting  //
+        ////////////////
+        blastingRecipe(Items.COPPER_INGOT, ItemRegistry.MATERIAL_DUST_COPPER.get());
+        blastingRecipe(Items.IRON_INGOT, ItemRegistry.MATERIAL_DUST_IRON.get());
+        blastingRecipe(Items.GOLD_INGOT, ItemRegistry.MATERIAL_DUST_GOLD.get());
+        blastingRecipe(Items.DIAMOND, ItemRegistry.MATERIAL_DUST_DIAMOND.get());
+        blastingRecipe(Items.EMERALD, ItemRegistry.MATERIAL_DUST_EMERALD.get());
+        blastingRecipe(Items.NETHERITE_SCRAP, ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get());
+        blastingRecipe(Items.NETHERITE_INGOT, ItemRegistry.MATERIAL_DUST_NETHERITE.get());
+        blastingRecipe(ItemRegistry.STEEL_INGOT.get(), ItemRegistry.MATERIAL_DUST_STEEL.get());
+        blastingRecipe(ItemRegistry.GARLIC.get(), ItemRegistry.MATERIAL_DUST_SULFUR.get());
+        blastingRecipe(Items.LEATHER, Items.ROTTEN_FLESH);
 
-    public static void generateCompactingRecipes(RecipeOutput output) {
-        compressionRecipe(output, BlockRegistry.STEEL_BLOCK.get(), ItemRegistry.STEEL_INGOT.get(), true, true);
-        compressionRecipe(output, Items.DIAMOND, ItemRegistry.NUGGET_DIAMOND.get(), true, false);
-        compressionRecipe(output, Items.EMERALD, ItemRegistry.NUGGET_EMERALD.get(), true, false);
-        compressionRecipe(output, Items.COPPER_INGOT, ItemRegistry.NUGGET_COPPER.get(), true, true);
-    }
+        ////////////////
+        //  Campfire  //
+        ////////////////
+        campfireRecipe(ItemRegistry.MATERIAL_DUST_SULFUR.get(), ItemRegistry.GARLIC.get());
+        campfireRecipe(Items.LEATHER, Items.ROTTEN_FLESH);
 
-    public static void generateOtherRecipes(RecipeOutput output) {
-        // Netherite Dust Recipe
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), 1)
-                .pattern("AAA").pattern("AGG").pattern("GG ")
-                .define('A', CrackerItemTags.NETHERITE_SCRAP_DUSTS)
+        ///////////////
+        //  Smoking  //
+        ///////////////
+        smokingRecipe(ItemRegistry.BEEF_JERKY.get(), Items.ROTTEN_FLESH);
+
+        ///////////////////
+        //  Compressing  //
+        ///////////////////
+        compressingRecipe(BlockRegistry.STEEL_BLOCK.get(), ItemRegistry.STEEL_INGOT.get());
+        compressingRecipe(Items.DIAMOND, ItemRegistry.NUGGET_DIAMOND.get());
+        compressingRecipe(Items.EMERALD, ItemRegistry.NUGGET_EMERALD.get());
+        compressingRecipe(Items.COPPER_INGOT, ItemRegistry.NUGGET_COPPER.get());
+
+        /////////////////////
+        //  Decompressing  //
+        /////////////////////
+        decompressRecipe(ItemRegistry.STEEL_INGOT.get(), BlockRegistry.STEEL_BLOCK.get());
+        decompressRecipe(ItemRegistry.NUGGET_COPPER.get(), Items.COPPER_INGOT);
+
+        ///////////////////
+        // Other Recipes //
+        ///////////////////
+        this.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_NETHERITE.get())
+                .pattern("NNN").pattern("NGG").pattern("GG ")
+                .define('N', CrackerItemTags.NETHERITE_DUSTS)
                 .define('G', CrackerItemTags.GOLD_DUSTS)
-                .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get()), has(ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get()))
-                .save(output, location("crafting/" + getSimpleRecipeName(ItemRegistry.MATERIAL_DUST_NETHERITE.get())));
+                .unlockedBy("has_netherite_dust", has(CrackerItemTags.NETHERITE_DUSTS))
+                .save(this.recipeOutput, this.path("crafting/" + getSimpleRecipeName(ItemRegistry.MATERIAL_DUST_NETHERITE.get())));
 
-        // Steeldust Recipe
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_STEEL.get(), 2)
+        this.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_STEEL.get(), 2)
                 .pattern("II").pattern("SS")
                 .define('I', CrackerItemTags.IRON_DUSTS)
                 .define('S', CrackerItemTags.COAL_DUSTS)
                 .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_IRON.get()), has(ItemRegistry.MATERIAL_DUST_IRON.get()))
-                .save(output, location("crafting/" + getSimpleRecipeName(ItemRegistry.MATERIAL_DUST_STEEL.get())));
+                .save(this.recipeOutput, path("crafting/" + getSimpleRecipeName(ItemRegistry.MATERIAL_DUST_STEEL.get())));
 
-        // Slimeball Recipe
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 3)
+        this.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 3)
                 .pattern("HGS")
                 .define('H', Items.HONEYCOMB)
                 .define('G', Items.GREEN_DYE)
                 .define('S', CrackerItemTags.SALTPETER_DUSTS)
                 .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_SALTPETER.get()), has(ItemRegistry.MATERIAL_DUST_SALTPETER.get()))
-                .save(output, location("crafting/" + getSimpleRecipeName(Items.SLIME_BALL)));
+                .save(this.recipeOutput, path("crafting/" + getSimpleRecipeName(Items.SLIME_BALL)));
 
-        // Gunpowder Recipe
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.GUNPOWDER, 3)
+        this.shaped(RecipeCategory.MISC, Items.GUNPOWDER, 3)
                 .pattern("SPC").define('C', Items.CHARCOAL)
                 .define('P', CrackerItemTags.SALTPETER_DUSTS)
                 .define('S', CrackerItemTags.SULFUR_DUSTS)
                 .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_SALTPETER.get()), has(ItemRegistry.MATERIAL_DUST_SALTPETER.get()))
-                .save(output, location("crafting/" + getSimpleRecipeName(Items.GUNPOWDER)));
+                .save(this.recipeOutput, path("crafting/" + getSimpleRecipeName(Items.GUNPOWDER)));
     }
 }

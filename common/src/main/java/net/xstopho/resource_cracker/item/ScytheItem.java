@@ -12,8 +12,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,13 +28,11 @@ public class ScytheItem extends SwordItem {
     public static final ResourceLocation BASE_BLOCK_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "base_block_reach");
     private static final int radius = CrackerConfig.SCYTHE_RADIUS.get();
 
-    public ScytheItem(Tier tier, int attackDamage, float attackSpeed) {
-        super(tier, new Properties()
-                .attributes(createAttributes(tier, attackDamage, attackSpeed)
-                        .withModifierAdded(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(BASE_BLOCK_REACH, 1,
-                                AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
-                        .withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(BASE_ENTITY_REACH, 1,
-                                AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)));
+    public ScytheItem(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Properties properties) {
+        super(toolMaterial, attackDamage, attackSpeed, properties
+                .attributes(ItemAttributeModifiers.builder()
+                        .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(BASE_BLOCK_REACH, 1, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                        .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(BASE_ENTITY_REACH, 1, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
     }
 
     @Override

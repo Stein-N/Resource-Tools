@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.xstopho.resource_cracker.datagen.compat.mods.TechRebornRecipes;
 
 import java.util.concurrent.CompletableFuture;
@@ -17,15 +18,19 @@ public class RecipeProv extends FabricRecipeProvider {
     }
 
     @Override
-    public void buildRecipes(RecipeOutput output) {
+    protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        return new CrackerRecipes(provider, recipeOutput) {
+            @Override
+            public void buildRecipes() {
+                super.buildRecipes();
 
-        TechRebornRecipes.generate(withConditions(output, ResourceConditions.allModsLoaded("techreborn")));
+                new TechRebornRecipes(provider, withConditions(recipeOutput, ResourceConditions.allModsLoaded("techreborn")));
+            }
+        };
+    }
 
-        CrackerRecipes.generateToolRecipes(output);
-        CrackerRecipes.generateMaterialDustRecipes(output);
-        CrackerRecipes.generateSpringBlockRecipes(output);
-        CrackerRecipes.generateProcessingRecipes(output);
-        CrackerRecipes.generateCompactingRecipes(output);
-        CrackerRecipes.generateOtherRecipes(output);
+    @Override
+    public String getName() {
+        return "Recipe Provider";
     }
 }

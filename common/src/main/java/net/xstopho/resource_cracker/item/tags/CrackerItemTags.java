@@ -2,7 +2,7 @@ package net.xstopho.resource_cracker.item.tags;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.xstopho.resourcelibrary.util.TagHelper;
+import net.xstopho.resourcelibrary.util.TagUtil;
 
 public class CrackerItemTags {
 
@@ -46,6 +46,6 @@ public class CrackerItemTags {
     public static final TagKey<Item> BEEF_JERKY = createTag("foods/beef_jerky");
 
     public static TagKey<Item> createTag(String id) {
-        return TagHelper.createItemTag(id);
+        return TagUtil.createItemTag(id);
     }
 }
