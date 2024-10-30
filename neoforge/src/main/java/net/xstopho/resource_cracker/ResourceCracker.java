@@ -26,7 +26,6 @@ public class ResourceCracker {
         CreativeTabRegistry.init();
 
         LootModifier.init();
-
     }
 
     @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

@@ -1,12 +1,16 @@
 package net.xstopho.resource_cracker.datagen;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
 import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
+
+import java.util.concurrent.CompletableFuture;
 
 public class CrackerRecipes extends CrackerRecipeProvider {
 
@@ -152,5 +156,22 @@ public class CrackerRecipes extends CrackerRecipeProvider {
                 .define('S', CrackerItemTags.SULFUR_DUSTS)
                 .unlockedBy(getHasName(ItemRegistry.MATERIAL_DUST_SALTPETER.get()), has(ItemRegistry.MATERIAL_DUST_SALTPETER.get()))
                 .save(this.recipeOutput, path("crafting/" + getSimpleRecipeName(Items.GUNPOWDER)));
+    }
+
+    public static class Runner extends RecipeProvider.Runner {
+
+        public Runner(PackOutput p_365369_, CompletableFuture<HolderLookup.Provider> p_361563_) {
+            super(p_365369_, p_361563_);
+        }
+
+        @Override
+        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+            return new CrackerRecipes(provider, recipeOutput);
+        }
+
+        @Override
+        public String getName() {
+            return "Resource Cracker Recipes";
+        }
     }
 }

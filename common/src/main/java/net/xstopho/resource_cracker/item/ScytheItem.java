@@ -29,10 +29,9 @@ public class ScytheItem extends SwordItem {
     private static final int radius = CrackerConfig.SCYTHE_RADIUS.get();
 
     public ScytheItem(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Properties properties) {
-        super(toolMaterial, attackDamage, attackSpeed, properties
-                .attributes(ItemAttributeModifiers.builder()
-                        .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(BASE_BLOCK_REACH, 1, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
-                        .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(BASE_ENTITY_REACH, 1, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
+        super(toolMaterial, attackDamage, attackSpeed, properties.attributes(ItemAttributeModifiers.builder()
+                .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(BASE_BLOCK_REACH, 10, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(BASE_ENTITY_REACH, 10, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
     }
 
     @Override

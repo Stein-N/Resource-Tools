@@ -56,13 +56,12 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SCYTHE_COPPER = register("scythe_copper", properties -> new ScytheItem(ToolMaterial.GOLD, 2, -1.8f, properties));
     public static final RegistryObject<Item> SCYTHE_GOLD = register("scythe_gold", properties -> new ScytheItem(ToolMaterial.GOLD, 3, -1.8f, properties));
     public static final RegistryObject<Item> SCYTHE_IRON = register("scythe_iron", properties -> new ScytheItem(ToolMaterial.IRON, 3, -1.8f, properties));
-    public static final RegistryObject<Item> SCYTHE_STEEL = register("scythe_steel", properties -> new ScytheItem(CrackerConstants.STEEL, 3, -1.8f, properties));
+    public static final RegistryObject<Item> SCYTHE_STEEL = register("scythe_steel", properties -> new ScytheItem(ToolMaterial.IRON, 3, -1.8f, properties));
     public static final RegistryObject<Item> SCYTHE_DIAMOND = register("scythe_diamond", properties -> new ScytheItem(ToolMaterial.DIAMOND, 4, -1.8f, properties));
     public static final RegistryObject<Item> SCYTHE_NETHERITE = register("scythe_netherite", properties -> new ScytheItem(ToolMaterial.NETHERITE, 5, -1.8f, properties));
 
     public static final RegistryObject<Item> GARLIC = register("garlic", properties -> new BlockItem(BlockRegistry.GARLIC_CROP.get(), properties.food(CrackerFoodProperties.GARLIC)));
     public static final RegistryObject<Item> BEEF_JERKY = register("beef_jerky", properties -> new Item(properties.food(CrackerFoodProperties.BEEF_JERKY)));
-
 
     public static RegistryObject<Item> register(String id, Function<Item.Properties, Item> function, Item.Properties properties) {
         return ITEMS.register(id, () -> function.apply(properties.setId(createKey(id))));

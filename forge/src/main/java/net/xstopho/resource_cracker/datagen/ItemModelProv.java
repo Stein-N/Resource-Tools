@@ -1,14 +1,18 @@
 package net.xstopho.resource_cracker.datagen;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.xstopho.resource_cracker.CrackerConstants;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
-import net.xstopho.resourcelibrary.datagen.ResourceItemModelProvider;
 
-public class ItemModelProv extends ResourceItemModelProvider {
+public class ItemModelProv extends ItemModelProvider {
+
+    private static final ResourceLocation PARENT = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "item/in_hand/handheld_large");
 
     public ItemModelProv(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, CrackerConstants.MOD_ID, existingFileHelper);
@@ -61,19 +65,36 @@ public class ItemModelProv extends ResourceItemModelProvider {
         itemWithParentBlock("lava_spring_block");
         itemWithParentBlock("water_spring_block");
 
-        inHandModel(ItemRegistry.SCYTHE_COPPER.get());
-        inHandModel(ItemRegistry.SCYTHE_GOLD.get());
-        inHandModel(ItemRegistry.SCYTHE_IRON.get());
-        inHandModel(ItemRegistry.SCYTHE_STEEL.get());
-        inHandModel(ItemRegistry.SCYTHE_DIAMOND.get());
-        inHandModel(ItemRegistry.SCYTHE_NETHERITE.get());
+        createInHandItem(ItemRegistry.SCYTHE_COPPER.get());
+        createInHandItem(ItemRegistry.SCYTHE_GOLD.get());
+        createInHandItem(ItemRegistry.SCYTHE_IRON.get());
+        createInHandItem(ItemRegistry.SCYTHE_STEEL.get());
+        createInHandItem(ItemRegistry.SCYTHE_DIAMOND.get());
+        createInHandItem(ItemRegistry.SCYTHE_NETHERITE.get());
     }
 
     void itemWithParentBlock(String id) {
         withExistingParent(id, ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "block/" + id));
     }
 
-    void inHandModel(Item item) {
-        createInHandItem(item, ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "item/in_hand/handheld_large"));
+    public void simpleItem(Item item) {
+        ResourceLocation key = getItemKey(item);
+        withExistingParent(getItemKey(item).getPath(), ResourceLocation.withDefaultNamespace("item/generated"))
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(key.getNamespace(), "item/" + key.getPath()));
+    }
+
+    public void createInHandItem(Item item) {
+        this.getBuilder(modifyItemKey(item).toString())
+                .parent(new ModelFile.UncheckedModelFile(PARENT))
+                .texture("layer0", modifyItemKey(item));
+    }
+
+    private ResourceLocation modifyItemKey(Item item) {
+        ResourceLocation key = getItemKey(item);
+        return ResourceLocation.fromNamespaceAndPath(key.getNamespace(), "item/in_hand/" + key.getPath());
+    }
+
+    private ResourceLocation getItemKey(Item item) {
+        return BuiltInRegistries.ITEM.getKey(item);
     }
 }

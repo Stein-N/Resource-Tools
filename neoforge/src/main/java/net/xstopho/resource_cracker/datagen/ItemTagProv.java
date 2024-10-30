@@ -60,7 +60,7 @@ public class ItemTagProv extends ItemTagsProvider {
         this.tag(CrackerItemTags.DIAMOND_NUGGETS).add(ItemRegistry.NUGGET_DIAMOND.get());
         this.tag(CrackerItemTags.EMERALD_NUGGETS).add(ItemRegistry.NUGGET_EMERALD.get());
         this.tag(CrackerItemTags.COPPER_NUGGETS).add(ItemRegistry.NUGGET_COPPER.get());
-        this.tag(CrackerItemTags.STEEL_INGOTS).add(ItemRegistry.STEEL_INGOT.get());
+        //this.tag(CrackerItemTags.STEEL_INGOTS).add(ItemRegistry.STEEL_INGOT.get());
 
         this.tag(CrackerItemTags.STEEL_BLOCKS).add(BlockRegistry.STEEL_BLOCK.get().asItem());
 
@@ -83,7 +83,7 @@ public class ItemTagProv extends ItemTagsProvider {
                 .addTag(CrackerItemTags.EMERALD_NUGGETS)
                 .addTag(CrackerItemTags.COPPER_NUGGETS);
 
-        this.tag(CrackerItemTags.INGOTS).add(ItemRegistry.STEEL_INGOT.get());
+        //this.tag(CrackerItemTags.INGOTS).add(ItemRegistry.STEEL_INGOT.get());
         this.tag(CrackerItemTags.GARLIC).add(ItemRegistry.GARLIC.get());
         this.tag(CrackerItemTags.BEEF_JERKY).add(ItemRegistry.BEEF_JERKY.get());
         this.tag(CrackerItemTags.FOODS).add(ItemRegistry.GARLIC.get(), ItemRegistry.BEEF_JERKY.get());
