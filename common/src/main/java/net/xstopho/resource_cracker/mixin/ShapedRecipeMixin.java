@@ -7,6 +7,7 @@ import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.xstopho.resource_cracker.item.ChiselItem;
 import net.xstopho.resource_cracker.item.CrackHammerItem;
+import net.xstopho.resource_cracker.item.ScytheItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,17 +22,13 @@ public abstract class ShapedRecipeMixin {
         ItemStack result = ((ShapedRecipeAccessor) this).cracker_getResult();
 
         if (result.getItem() instanceof ChiselItem chisel) {
-            cir.setReturnValue(addDurability(result, chisel.getDurability()));
+            cir.setReturnValue(chisel.addDurability(result));
         }
         if (result.getItem() instanceof CrackHammerItem crackHammer) {
-            cir.setReturnValue(addDurability(result, crackHammer.getDurability()));
+            cir.setReturnValue(crackHammer.addDurability(result));
         }
-    }
-
-    private ItemStack addDurability(ItemStack stack, int durability) {
-        stack.set(DataComponents.MAX_DAMAGE, durability);
-        stack.set(DataComponents.MAX_STACK_SIZE, 1);
-        stack.set(DataComponents.DAMAGE, 0);
-        return stack;
+        if (result.getItem() instanceof ScytheItem scythe) {
+            cir.setReturnValue(scythe.addExtendedRange(result));
+        }
     }
 }

@@ -2,6 +2,8 @@ package net.xstopho.resource_cracker.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
@@ -24,14 +26,12 @@ import net.xstopho.resource_cracker.config.CrackerConfig;
 import java.util.List;
 
 public class ScytheItem extends SwordItem {
-    public static final ResourceLocation BASE_ENTITY_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "base_entity_reach");
-    public static final ResourceLocation BASE_BLOCK_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "base_block_reach");
+    public static final ResourceLocation EXTENDED_ENTITY_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "extended_entity_reach");
+    public static final ResourceLocation EXTENDED_BLOCK_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "extended_block_reach");
     private static final int radius = CrackerConfig.SCYTHE_RADIUS.get();
 
     public ScytheItem(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Properties properties) {
-        super(toolMaterial, attackDamage, attackSpeed, properties.attributes(ItemAttributeModifiers.builder()
-                .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(BASE_BLOCK_REACH, 10, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
-                .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(BASE_ENTITY_REACH, 10, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
+        super(toolMaterial, attackDamage, attackSpeed, properties);
     }
 
     @Override
@@ -60,6 +60,14 @@ public class ScytheItem extends SwordItem {
         }
 
         return InteractionResult.PASS;
+    }
+
+    public ItemStack addExtendedRange(ItemStack stack) {
+        ItemStack copy = stack.copy();
+        copy.set(DataComponents.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers.builder()
+                .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(EXTENDED_ENTITY_REACH, 1, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(EXTENDED_BLOCK_REACH, 1, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build());
+        return copy;
     }
 
     @Override
