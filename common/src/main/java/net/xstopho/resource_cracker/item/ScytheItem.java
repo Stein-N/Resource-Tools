@@ -2,7 +2,6 @@ package net.xstopho.resource_cracker.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -12,10 +11,7 @@ import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.ToolMaterial;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.CropBlock;
@@ -30,8 +26,15 @@ public class ScytheItem extends SwordItem {
     public static final ResourceLocation EXTENDED_BLOCK_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "extended_block_reach");
     private static final int radius = CrackerConfig.SCYTHE_RADIUS.get();
 
+    private final ToolMaterial toolMaterial;
+    private final float attackDamage;
+    private final float attackSpeed;
+
     public ScytheItem(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Properties properties) {
         super(toolMaterial, attackDamage, attackSpeed, properties);
+        this.toolMaterial = toolMaterial;
+        this.attackSpeed = attackSpeed;
+        this.attackDamage = attackDamage;
     }
 
     @Override
@@ -62,11 +65,15 @@ public class ScytheItem extends SwordItem {
         return InteractionResult.PASS;
     }
 
-    public ItemStack addExtendedRange(ItemStack stack) {
+    public ItemStack addComponents(ItemStack stack) {
         ItemStack copy = stack.copy();
+
         copy.set(DataComponents.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers.builder()
-                .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(EXTENDED_ENTITY_REACH, 1, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
-                .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(EXTENDED_BLOCK_REACH, 1, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build());
+                .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, (this.toolMaterial.attackDamageBonus() + this.attackDamage), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, this.attackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(EXTENDED_ENTITY_REACH, 1.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(EXTENDED_BLOCK_REACH, 1.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build());
+
         return copy;
     }
 

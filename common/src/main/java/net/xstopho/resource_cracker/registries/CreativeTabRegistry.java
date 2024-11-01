@@ -1,7 +1,6 @@
 package net.xstopho.resource_cracker.registries;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -29,7 +28,7 @@ public class CreativeTabRegistry {
                                 output.accept(chiselItem.addDurability(item.get().getDefaultInstance()));
                             }
                             if (item.get() instanceof ScytheItem scytheItem) {
-                                output.accept(scytheItem.addExtendedRange(item.get().getDefaultInstance()));
+                                output.accept(scytheItem.addComponents(item.get().getDefaultInstance()));
                             }
                         }
 

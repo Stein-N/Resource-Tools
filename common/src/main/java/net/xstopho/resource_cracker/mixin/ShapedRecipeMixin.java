@@ -1,7 +1,6 @@
 package net.xstopho.resource_cracker.mixin;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.ShapedRecipe;
@@ -28,7 +27,7 @@ public abstract class ShapedRecipeMixin {
             cir.setReturnValue(crackHammer.addDurability(result));
         }
         if (result.getItem() instanceof ScytheItem scythe) {
-            cir.setReturnValue(scythe.addExtendedRange(result));
+            cir.setReturnValue(scythe.addComponents(result));
         }
     }
 }
