@@ -99,5 +99,8 @@ public class ItemTagProv extends FabricTagProvider.ItemTagProvider {
                 .addTag(CrackerItemTags.SCYTHE)
                 .addTag(CrackerItemTags.CHISEL)
                 .addTag(CrackerItemTags.CRACK_HAMMER);
+
+        getOrCreateTagBuilder(ItemTags.SWORDS)
+                .addTag(CrackerItemTags.SCYTHE);
     }
 }
