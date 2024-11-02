@@ -8,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_cracker.CrackerConstants;
 import net.xstopho.resource_cracker.item.ChiselItem;
 import net.xstopho.resource_cracker.item.CrackHammerItem;
-import net.xstopho.resource_cracker.item.ScytheItem;
 import net.xstopho.resourcelibrary.registration.RegistryObject;
 import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
@@ -27,10 +26,14 @@ public class CreativeTabRegistry {
                             if (item.get() instanceof ChiselItem chiselItem) {
                                 output.accept(chiselItem.addDurability(item.get().getDefaultInstance()));
                             }
-                            if (item.get() instanceof ScytheItem scytheItem) {
-                                output.accept(scytheItem.addComponents(item.get().getDefaultInstance()));
-                            }
                         }
+
+                        output.accept(ItemRegistry.SCYTHE_COPPER.get());
+                        output.accept(ItemRegistry.SCYTHE_GOLD.get());
+                        output.accept(ItemRegistry.SCYTHE_IRON.get());
+                        output.accept(ItemRegistry.SCYTHE_STEEL.get());
+                        output.accept(ItemRegistry.SCYTHE_DIAMOND.get());
+                        output.accept(ItemRegistry.SCYTHE_NETHERITE.get());
 
                         output.accept(BlockRegistry.WATER_SPRING_BLOCK.get());
                         output.accept(BlockRegistry.LAVA_SPRING_BLOCK.get());

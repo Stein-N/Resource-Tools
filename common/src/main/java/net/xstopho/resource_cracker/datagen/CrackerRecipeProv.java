@@ -12,9 +12,9 @@ import net.xstopho.resource_cracker.registries.ItemRegistry;
 
 import java.util.concurrent.CompletableFuture;
 
-public class CrackerRecipes extends CrackerRecipeProvider {
+public class CrackerRecipeProv extends CrackerBaseRecipes {
 
-    public CrackerRecipes(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+    public CrackerRecipeProv(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
         super(provider, recipeOutput);
     }
 
@@ -166,7 +166,7 @@ public class CrackerRecipes extends CrackerRecipeProvider {
 
         @Override
         protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-            return new CrackerRecipes(provider, recipeOutput);
+            return new CrackerRecipeProv(provider, recipeOutput);
         }
 
         @Override
