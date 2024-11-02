@@ -13,11 +13,11 @@ import net.minecraft.world.level.ItemLike;
 import net.xstopho.resource_cracker.CrackerConstants;
 import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 
-public abstract class CrackerRecipeProvider extends RecipeProvider {
+public abstract class CrackerBaseRecipes extends RecipeProvider {
 
     protected final RecipeOutput recipeOutput;
 
-    public CrackerRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+    public CrackerBaseRecipes(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
         super(provider, recipeOutput);
         this.recipeOutput = recipeOutput;
     }

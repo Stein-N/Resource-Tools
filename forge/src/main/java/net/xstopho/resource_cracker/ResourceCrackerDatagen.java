@@ -20,7 +20,7 @@ public class ResourceCrackerDatagen {
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new CrackerRecipes.Runner(output, provider));
+        generator.addProvider(event.includeServer(), new CrackerRecipeProv.Runner(output, provider));
         generator.addProvider(event.includeServer(), LootProv.create(output, provider));
         generator.addProvider(event.includeServer(), new BlockStateProv(output, fileHelper));
         generator.addProvider(event.includeServer(), new ItemModelProv(output, fileHelper));

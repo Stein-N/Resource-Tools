@@ -19,7 +19,7 @@ public class RecipeProv extends FabricRecipeProvider {
 
     @Override
     protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-        return new CrackerRecipes(provider, recipeOutput) {
+        return new CrackerRecipeProv(provider, recipeOutput) {
             @Override
             public void buildRecipes() {
                 super.buildRecipes();
