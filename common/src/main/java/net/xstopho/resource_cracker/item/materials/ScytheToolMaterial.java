@@ -32,14 +32,6 @@ public record ScytheToolMaterial(int durability, float speed, float attackDamage
     public static final ScytheToolMaterial GOLD = new ScytheToolMaterial(32, 12.0F, 0.0F, 22, ItemTags.GOLD_TOOL_MATERIALS);
     public static final ScytheToolMaterial NETHERITE = new ScytheToolMaterial(2031, 9.0F, 4.0F, 15, ItemTags.NETHERITE_TOOL_MATERIALS);
 
-    public ScytheToolMaterial(int durability, float speed, float attackDamageBonus, int enchantmentValue, TagKey<Item> repairItems) {
-        this.durability = durability;
-        this.speed = speed;
-        this.attackDamageBonus = attackDamageBonus;
-        this.enchantmentValue = enchantmentValue;
-        this.repairItems = repairItems;
-    }
-
     private Item.Properties applyCommonProperties(Item.Properties properties) {
         return properties.durability(this.durability).repairable(this.repairItems).enchantable(this.enchantmentValue);
     }
@@ -58,25 +50,5 @@ public record ScytheToolMaterial(int durability, float speed, float attackDamage
                 .add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, attackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                 .add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(EXTENDED_ENTITY_REACH, 1.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                 .add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(EXTENDED_BLOCK_REACH, 1.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
-    }
-
-    public int durability() {
-        return this.durability;
-    }
-
-    public float speed() {
-        return this.speed;
-    }
-
-    public float attackDamageBonus() {
-        return this.attackDamageBonus;
-    }
-
-    public int enchantmentValue() {
-        return this.enchantmentValue;
-    }
-
-    public TagKey<Item> repairItems() {
-        return this.repairItems;
     }
 }

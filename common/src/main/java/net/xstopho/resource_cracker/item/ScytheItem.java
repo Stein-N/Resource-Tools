@@ -22,7 +22,6 @@ import java.util.List;
 public class ScytheItem extends Item {
     private static final int radius = CrackerConfig.SCYTHE_RADIUS.get();
 
-
     public ScytheItem(ScytheToolMaterial material, float attackDamage, float attackSpeed, Properties properties) {
         super(material.applyScytheProperties(properties, attackDamage, attackSpeed));
     }
