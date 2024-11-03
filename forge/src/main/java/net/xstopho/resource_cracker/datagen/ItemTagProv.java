@@ -61,8 +61,12 @@ public class ItemTagProv extends ItemTagsProvider {
         this.tag(CrackerItemTags.EMERALD_NUGGETS).add(ItemRegistry.NUGGET_EMERALD.get());
         this.tag(CrackerItemTags.COPPER_NUGGETS).add(ItemRegistry.NUGGET_COPPER.get());
         this.tag(CrackerItemTags.STEEL_INGOTS).add(ItemRegistry.STEEL_INGOT.get());
+        this.tag(CrackerItemTags.COPPER_INGOTS).add(Items.COPPER_INGOT);
 
         this.tag(CrackerItemTags.STEEL_BLOCKS).add(BlockRegistry.STEEL_BLOCK.get().asItem());
+
+        this.tag(CrackerItemTags.COPPER_TOOL_MATERIALS).addTag(CrackerItemTags.COPPER_INGOTS);
+        this.tag(CrackerItemTags.STEEL_TOOL_MATERIALS).addTag(CrackerItemTags.STEEL_INGOTS);
 
         this.tag(CrackerItemTags.DUSTS)
                 .addTag(CrackerItemTags.COAL_DUSTS)

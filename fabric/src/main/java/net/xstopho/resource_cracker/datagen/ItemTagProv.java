@@ -56,8 +56,12 @@ public class ItemTagProv extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(CrackerItemTags.EMERALD_NUGGETS).add(ItemRegistry.NUGGET_EMERALD.get());
         getOrCreateTagBuilder(CrackerItemTags.COPPER_NUGGETS).add(ItemRegistry.NUGGET_COPPER.get());
         getOrCreateTagBuilder(CrackerItemTags.STEEL_INGOTS).add(ItemRegistry.STEEL_INGOT.get());
+        getOrCreateTagBuilder(CrackerItemTags.COPPER_INGOTS).add(Items.COPPER_INGOT);
 
         getOrCreateTagBuilder(CrackerItemTags.STEEL_BLOCKS).add(BlockRegistry.STEEL_BLOCK.get().asItem());
+
+        getOrCreateTagBuilder(CrackerItemTags.COPPER_TOOL_MATERIALS).addTag(CrackerItemTags.COPPER_INGOTS);
+        getOrCreateTagBuilder(CrackerItemTags.STEEL_TOOL_MATERIALS).addTag(CrackerItemTags.STEEL_INGOTS);
 
         getOrCreateTagBuilder(CrackerItemTags.DUSTS)
                 .addTag(CrackerItemTags.COAL_DUSTS)

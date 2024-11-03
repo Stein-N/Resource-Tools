@@ -53,7 +53,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHISEL_DIAMOND = register("chisel_diamond", properties -> new ChiselItem(CrackerConfig.CHISEL_DIAMOND, properties));
     public static final RegistryObject<Item> CHISEL_NETHERITE = register("chisel_netherite", properties -> new ChiselItem(CrackerConfig.CHISEL_NETHERITE, properties.fireResistant()));
 
-    public static final RegistryObject<Item> SCYTHE_COPPER = register("scythe_copper", properties -> new ScytheItem(ScytheToolMaterial.GOLD, 2, -1.8f, properties));
+    public static final RegistryObject<Item> SCYTHE_COPPER = register("scythe_copper", properties -> new ScytheItem(ScytheToolMaterial.COPPER, 2, -1.8f, properties));
     public static final RegistryObject<Item> SCYTHE_GOLD = register("scythe_gold", properties -> new ScytheItem(ScytheToolMaterial.GOLD, 3, -1.8f, properties));
     public static final RegistryObject<Item> SCYTHE_IRON = register("scythe_iron", properties -> new ScytheItem(ScytheToolMaterial.IRON, 3, -1.8f, properties));
     public static final RegistryObject<Item> SCYTHE_STEEL = register("scythe_steel", properties -> new ScytheItem(ScytheToolMaterial.STEEL, 3, -1.8f, properties));

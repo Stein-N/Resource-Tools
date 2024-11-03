@@ -40,10 +40,14 @@ public class CrackerItemTags {
     public static final TagKey<Item> EMERALD_NUGGETS = createTag("nuggets/emerald");
     public static final TagKey<Item> COPPER_NUGGETS = createTag("nuggets/copper");
     public static final TagKey<Item> STEEL_INGOTS = createTag("ingots/steel");
+    public static final TagKey<Item> COPPER_INGOTS = createTag("ingots/copper");
 
     public static final TagKey<Item> STEEL_BLOCKS = createTag("blocks/steel");
     public static final TagKey<Item> GARLIC = createTag("foods/garlic");
     public static final TagKey<Item> BEEF_JERKY = createTag("foods/beef_jerky");
+
+    public static final TagKey<Item> STEEL_TOOL_MATERIALS = createTag("steel_tool_materials");
+    public static final TagKey<Item> COPPER_TOOL_MATERIALS = createTag("copper_tool_materials");
 
     public static TagKey<Item> createTag(String id) {
         return TagUtil.createItemTag(id);

@@ -21,16 +21,17 @@ import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 
 import java.util.List;
 
-public record ScytheToolMaterial(int durability, float speed, float attackDamageBonus, int enchantmentValue, TagKey<Item> repairItems) {
+public record ScytheToolMaterial(int durability, float attackDamageBonus, int enchantmentValue, TagKey<Item> repairItems) {
 
     private static final ResourceLocation EXTENDED_ENTITY_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "extended_entity_reach");
     private static final ResourceLocation EXTENDED_BLOCK_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "extended_block_reach");
 
-    public static final ScytheToolMaterial IRON = new ScytheToolMaterial(250, 2.0F, 0.0F, 15, ItemTags.IRON_TOOL_MATERIALS);
-    public static final ScytheToolMaterial STEEL = new ScytheToolMaterial(450, 4.5F, 1.25F, 13, CrackerItemTags.STEEL_INGOTS);
-    public static final ScytheToolMaterial DIAMOND = new ScytheToolMaterial(1561, 8.0F, 3.0F, 10, ItemTags.DIAMOND_TOOL_MATERIALS);
-    public static final ScytheToolMaterial GOLD = new ScytheToolMaterial(32, 12.0F, 0.0F, 22, ItemTags.GOLD_TOOL_MATERIALS);
-    public static final ScytheToolMaterial NETHERITE = new ScytheToolMaterial(2031, 9.0F, 4.0F, 15, ItemTags.NETHERITE_TOOL_MATERIALS);
+    public static final ScytheToolMaterial COPPER = new ScytheToolMaterial(100, 0.0F, 5, CrackerItemTags.COPPER_TOOL_MATERIALS);
+    public static final ScytheToolMaterial GOLD = new ScytheToolMaterial(32, 0.0F, 22, ItemTags.GOLD_TOOL_MATERIALS);
+    public static final ScytheToolMaterial IRON = new ScytheToolMaterial(250, 0.0F, 15, ItemTags.IRON_TOOL_MATERIALS);
+    public static final ScytheToolMaterial STEEL = new ScytheToolMaterial(450,  1.5F, 13, CrackerItemTags.STEEL_TOOL_MATERIALS);
+    public static final ScytheToolMaterial DIAMOND = new ScytheToolMaterial(1561, 3.0F, 10, ItemTags.DIAMOND_TOOL_MATERIALS);
+    public static final ScytheToolMaterial NETHERITE = new ScytheToolMaterial(2031,  4.0F, 15, ItemTags.NETHERITE_TOOL_MATERIALS);
 
     private Item.Properties applyCommonProperties(Item.Properties properties) {
         return properties.durability(this.durability).repairable(this.repairItems).enchantable(this.enchantmentValue);
