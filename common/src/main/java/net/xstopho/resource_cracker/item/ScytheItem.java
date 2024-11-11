@@ -50,7 +50,6 @@ public class ScytheItem extends Item {
             context.getItemInHand().hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
             return InteractionResult.SUCCESS;
         }
-
         return InteractionResult.PASS;
     }
 

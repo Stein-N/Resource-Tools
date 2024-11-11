@@ -1,2 +1,2 @@
-#### v2.1.1
-- fixing an issue where Crack Hammers can only be crafted once per World Start
+#### v2.3.0
+- update to 1.21.3
