@@ -1,3 +1,6 @@
+#### v2.1.2
+- fixing an issue where Scythes can't be enchanted like a sword
+
 #### v2.1.1
 - fixing an issue where Crack Hammers can only be crafted once per World Start
 
