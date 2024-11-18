@@ -37,6 +37,14 @@ public class ItemTagProv extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(CrackerItemTags.SCYTHE_INGREDIENTS)
                 .add(Items.LEATHER, Items.RABBIT_HIDE);
 
+        getOrCreateTagBuilder(ItemTags.SWORDS)
+                .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
+                        ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
+
+        getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE)
+                .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
+                        ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
+
         getOrCreateTagBuilder(CrackerItemTags.COAL_DUSTS).add(ItemRegistry.MATERIAL_DUST_CARBON.get());
         getOrCreateTagBuilder(CrackerItemTags.CARBON_DUSTS).add(ItemRegistry.MATERIAL_DUST_CARBON.get());
         getOrCreateTagBuilder(CrackerItemTags.COPPER_DUSTS).add(ItemRegistry.MATERIAL_DUST_COPPER.get());

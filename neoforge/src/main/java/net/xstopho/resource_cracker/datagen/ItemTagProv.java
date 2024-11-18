@@ -42,6 +42,14 @@ public class ItemTagProv extends ItemTagsProvider {
         this.tag(CrackerItemTags.SCYTHE_INGREDIENTS)
                 .add(Items.LEATHER, Items.RABBIT_HIDE);
 
+        this.tag(ItemTags.SWORDS)
+                .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
+                        ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
+
+        this.tag(ItemTags.SWORD_ENCHANTABLE)
+                .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
+                        ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
+
         this.tag(CrackerItemTags.COAL_DUSTS).add(ItemRegistry.MATERIAL_DUST_CARBON.get());
         this.tag(CrackerItemTags.CARBON_DUSTS).add(ItemRegistry.MATERIAL_DUST_CARBON.get());
         this.tag(CrackerItemTags.COPPER_DUSTS).add(ItemRegistry.MATERIAL_DUST_COPPER.get());
