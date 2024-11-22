@@ -1,3 +1,6 @@
+#### v2.2.3
+- fixing a duplication Glitch when combining 2 damaged Crack Hammers
+
 #### v2.1.2
 - fixing an issue where Scythes can't be enchanted like a sword
 
