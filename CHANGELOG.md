@@ -1,2 +1,2 @@
-#### v2.3.0
-- update to 1.21.3
+#### v2.3.1
+- fixing duplication glitch when combining Crack Hammer
