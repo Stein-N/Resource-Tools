@@ -13,8 +13,8 @@ plugins {
 }
 
 // Change the rootProject Name to your repository/project folder name
-rootProject.name = "Resource-Cracker-1.21.3"
+rootProject.name = "Resource-Cracker-1.21.4"
 include("common")
 include("fabric")
-include("forge")
+//include("forge")
 include("neoforge")
