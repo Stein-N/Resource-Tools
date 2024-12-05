@@ -1,15 +1,15 @@
 package net.xstopho.resource_cracker.datagen.helper;
 
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
+import net.minecraft.client.data.models.blockstates.Variant;
+import net.minecraft.client.data.models.blockstates.VariantProperties;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.models.BlockModelGenerators;
-import net.minecraft.data.models.blockstates.MultiVariantGenerator;
-import net.minecraft.data.models.blockstates.PropertyDispatch;
-import net.minecraft.data.models.blockstates.Variant;
-import net.minecraft.data.models.blockstates.VariantProperties;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
-import net.minecraft.data.models.model.TextureSlot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
