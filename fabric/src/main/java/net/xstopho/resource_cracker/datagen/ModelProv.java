@@ -1,10 +1,10 @@
 package net.xstopho.resource_cracker.datagen;
 
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.models.BlockModelGenerators;
-import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import net.xstopho.resource_cracker.block.GarlicCropBlock;
 import net.xstopho.resource_cracker.datagen.helper.BlockModelHelper;
 import net.xstopho.resource_cracker.datagen.helper.ItemModelHelper;
@@ -42,13 +42,6 @@ public class ModelProv extends FabricModelProvider {
         item.generateFlatItem(ItemRegistry.CHISEL_NETHERITE.get(), ModelTemplates.FLAT_ITEM);
         item.generateFlatItem(ItemRegistry.CHISEL_STEEL.get(), ModelTemplates.FLAT_ITEM);
 
-        item.generateFlatItem(ItemRegistry.SCYTHE_COPPER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-        item.generateFlatItem(ItemRegistry.SCYTHE_IRON.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-        item.generateFlatItem(ItemRegistry.SCYTHE_GOLD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-        item.generateFlatItem(ItemRegistry.SCYTHE_STEEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-        item.generateFlatItem(ItemRegistry.SCYTHE_DIAMOND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-        item.generateFlatItem(ItemRegistry.SCYTHE_NETHERITE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-
         item.generateFlatItem(ItemRegistry.MATERIAL_DUST_COPPER.get(), ModelTemplates.FLAT_ITEM);
         item.generateFlatItem(ItemRegistry.MATERIAL_DUST_IRON.get(), ModelTemplates.FLAT_ITEM);
         item.generateFlatItem(ItemRegistry.MATERIAL_DUST_GOLD.get(), ModelTemplates.FLAT_ITEM);
@@ -69,11 +62,11 @@ public class ModelProv extends FabricModelProvider {
 
         item.generateFlatItem(ItemRegistry.BEEF_JERKY.get(), ModelTemplates.FLAT_ITEM);
 
-        ItemModelHelper.createInHandItemModel(item, ItemRegistry.SCYTHE_COPPER.get());
-        ItemModelHelper.createInHandItemModel(item, ItemRegistry.SCYTHE_GOLD.get());
-        ItemModelHelper.createInHandItemModel(item, ItemRegistry.SCYTHE_IRON.get());
-        ItemModelHelper.createInHandItemModel(item, ItemRegistry.SCYTHE_STEEL.get());
-        ItemModelHelper.createInHandItemModel(item, ItemRegistry.SCYTHE_DIAMOND.get());
-        ItemModelHelper.createInHandItemModel(item, ItemRegistry.SCYTHE_NETHERITE.get());
+        ItemModelHelper.generateScytheModels(item, ItemRegistry.SCYTHE_COPPER.get());
+        ItemModelHelper.generateScytheModels(item, ItemRegistry.SCYTHE_GOLD.get());
+        ItemModelHelper.generateScytheModels(item, ItemRegistry.SCYTHE_IRON.get());
+        ItemModelHelper.generateScytheModels(item, ItemRegistry.SCYTHE_STEEL.get());
+        ItemModelHelper.generateScytheModels(item, ItemRegistry.SCYTHE_DIAMOND.get());
+        ItemModelHelper.generateScytheModels(item, ItemRegistry.SCYTHE_NETHERITE.get());
     }
 }
