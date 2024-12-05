@@ -16,17 +16,15 @@ public class ResourceCrackerDatagen {
 
     @SubscribeEvent
     public static void data(GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
-        PackOutput output = generator.getPackOutput();
+        PackOutput output = event.getGenerator().getPackOutput();
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new CrackerRecipeProv.Runner(output, provider));
-        generator.addProvider(event.includeServer(), LootProv.create(output, provider));
-        generator.addProvider(event.includeServer(), new BlockStateProv(output, fileHelper));
-        generator.addProvider(event.includeServer(), new ItemModelProv(output, fileHelper));
-
-        BlockTagProv blockTags = generator.addProvider(event.includeServer(), new BlockTagProv(output, provider, fileHelper));
-        generator.addProvider(event.includeServer(), new ItemTagProv(output, provider, blockTags.contentsGetter(), fileHelper));
+        event.addProvider(new CrackerRecipeProv.Runner(output, provider));
+        event.addProvider(LootProv.create(output, provider));
+        event.addProvider(new BlockStateProv(output, fileHelper));
+        event.addProvider(new ItemModelProv(output, fileHelper));
+        event.addProvider(new BlockTagProv(output, provider, fileHelper));
+        event.addProvider(new ItemTagProv(output, provider, null, fileHelper));
     }
 }
