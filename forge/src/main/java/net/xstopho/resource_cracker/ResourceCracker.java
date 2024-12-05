@@ -33,7 +33,6 @@ public class ResourceCracker {
         @SubscribeEvent
         public static void renderSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GARLIC_CROP.get(), RenderType.cutout());
-            ItemModelRenderRegistry.init();
         }
     }
 }
