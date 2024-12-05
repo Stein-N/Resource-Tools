@@ -8,8 +8,8 @@ import net.xstopho.resource_cracker.registries.BlockRegistry;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BlockTagProv extends FabricTagProvider.BlockTagProvider{
-    public BlockTagProv(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+public class BlockTagsProvider extends FabricTagProvider.BlockTagProvider{
+    public BlockTagsProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 

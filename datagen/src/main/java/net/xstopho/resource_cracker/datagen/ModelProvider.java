@@ -11,8 +11,8 @@ import net.xstopho.resource_cracker.datagen.helper.ItemModelHelper;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
-public class ModelProv extends FabricModelProvider {
-    public ModelProv(FabricDataOutput output) {
+public class ModelProvider extends FabricModelProvider {
+    public ModelProvider(FabricDataOutput output) {
         super(output);
     }
 

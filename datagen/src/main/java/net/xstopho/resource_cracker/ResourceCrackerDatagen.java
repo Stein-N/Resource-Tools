@@ -10,10 +10,10 @@ public class ResourceCrackerDatagen implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
-        pack.addProvider(LootProv::new);
-        pack.addProvider(ModelProv::new);
-        pack.addProvider(BlockTagProv::new);
-        pack.addProvider(ItemTagProv::new);
-        pack.addProvider(RecipeProv::new);
+        pack.addProvider(LootTablesProvider::new);
+        pack.addProvider(ModelProvider::new);
+        pack.addProvider(BlockTagsProvider::new);
+        pack.addProvider(ItemTagsProvider::new);
+        pack.addProvider(RecipesProvider::new);
     }
 }

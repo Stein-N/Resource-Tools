@@ -11,10 +11,10 @@ import net.xstopho.resource_cracker.registries.ItemRegistry;
 
 import java.util.concurrent.CompletableFuture;
 
-public class LootProv extends FabricBlockLootTableProvider {
+public class LootTablesProvider extends FabricBlockLootTableProvider {
 
 
-    public LootProv(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public LootTablesProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, registryLookup);
     }
 

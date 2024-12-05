@@ -11,8 +11,8 @@ import net.xstopho.resource_cracker.registries.ItemRegistry;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ItemTagProv extends FabricTagProvider.ItemTagProvider {
-    public ItemTagProv(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> completableFuture) {
+public class ItemTagsProvider extends FabricTagProvider.ItemTagProvider {
+    public ItemTagsProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> completableFuture) {
         super(output, completableFuture);
     }
 

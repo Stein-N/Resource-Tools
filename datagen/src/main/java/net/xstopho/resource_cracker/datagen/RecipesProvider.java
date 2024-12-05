@@ -5,13 +5,14 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.xstopho.resource_cracker.datagen.base.CrackerRecipeProv;
 
 import java.util.concurrent.CompletableFuture;
 
-public class RecipeProv extends FabricRecipeProvider {
+public class RecipesProvider extends FabricRecipeProvider {
 
 
-    public RecipeProv(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public RecipesProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
