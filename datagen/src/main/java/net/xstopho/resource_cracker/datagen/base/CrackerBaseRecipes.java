@@ -1,4 +1,4 @@
-package net.xstopho.resource_cracker.datagen;
+package net.xstopho.resource_cracker.datagen.base;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
