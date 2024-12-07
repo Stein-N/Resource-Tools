@@ -17,5 +17,5 @@ rootProject.name = "Resource-Cracker-1.21.4"
 include("common")
 include("datagen")
 include("fabric")
-//include("forge")
+include("forge")
 include("neoforge")
