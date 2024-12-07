@@ -33,7 +33,7 @@ public class BlockRegistry {
     private static RegistryObject<Block> register(String id, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties blockBehavior) {
         RegistryObject<Block> toReturn = BLOCKS.register(id, () -> function.apply(blockBehavior.setId(createKey(id))));
 
-        ItemRegistry.register(id, properties -> new BlockItem(toReturn.get(), properties));
+        ItemRegistry.register(id, properties -> new BlockItem(toReturn.get(), properties.useBlockDescriptionPrefix()));
         return toReturn;
     }
 
