@@ -1,3 +1,6 @@
+#### v2.3.2
+- fix names for Spring and Block
+
 #### v2.3.1
 - fixing duplication glitch when combining Crack Hammer
 
