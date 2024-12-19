@@ -6,7 +6,7 @@ import net.xstopho.resourcelibrary.modifier.LootTableModifier;
 public class LootModifier {
 
 
-    static final LootTableModifier modifier = LootTableModifier.get();
+    static final LootTableModifier modifier = LootTableModifier.getInstance();
 
     public static void init() {
         BlockLootModifier.init(modifier);

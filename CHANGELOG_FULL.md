@@ -1,3 +1,6 @@
+#### v2.2.4
+- apply resource library changes
+
 #### v2.2.3
 - fixing a duplication Glitch when combining 2 damaged Crack Hammers
 
