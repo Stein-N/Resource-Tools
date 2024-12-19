@@ -1,3 +1,6 @@
+#### v2.3.4
+- apply resource library changes
+
 #### v2.3.3
 - fixing recipe mismatch for garlic to sulfur
 
