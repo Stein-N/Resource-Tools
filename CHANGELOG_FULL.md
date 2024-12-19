@@ -1,3 +1,6 @@
+#### v2.3.2
+- apply resourcelibrary changes
+
 #### v2.3.1
 - fixing duplication glitch when combining Crack Hammer
 
