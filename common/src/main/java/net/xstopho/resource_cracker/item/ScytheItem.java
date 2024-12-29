@@ -18,14 +18,15 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.xstopho.resource_cracker.CrackerConstants;
-import net.xstopho.resource_cracker.config.CrackerConfig;
+import net.xstopho.resource_cracker.config.ToolConfig;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ScytheItem extends SwordItem {
     public static final ResourceLocation BASE_ENTITY_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "base_entity_reach");
     public static final ResourceLocation BASE_BLOCK_REACH = ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "base_block_reach");
-    private static final int radius = CrackerConfig.SCYTHE_RADIUS.get();
+    private final Supplier<Integer> radius;
 
     public ScytheItem(Tier tier, int attackDamage, float attackSpeed) {
         super(tier, new Properties()
@@ -34,6 +35,8 @@ public class ScytheItem extends SwordItem {
                                 AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                         .withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(BASE_ENTITY_REACH, 1,
                                 AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)));
+
+        this.radius = () -> ToolConfig.scytheHarvestRadius;
     }
 
     @Override
@@ -47,8 +50,8 @@ public class ScytheItem extends SwordItem {
         BlockState clickedState = context.getLevel().getBlockState(clickedPos);
 
         if (clickedState.getBlock() instanceof CropBlock clickedCrop && clickedCrop.isMaxAge(clickedState)) {
-            for (int x = -radius; x <= radius; x++) {
-                for (int z = -radius; z <= radius; z++) {
+            for (int x = -radius.get(); x <= radius.get(); x++) {
+                for (int z = -radius.get(); z <= radius.get(); z++) {
                     BlockPos crop = clickedPos.offset(x, 0, z);
                     BlockState cropState = context.getLevel().getBlockState(crop);
                     if (cropState.getBlock() instanceof CropBlock replantCrop && replantCrop.isMaxAge(cropState)) {
@@ -68,7 +71,7 @@ public class ScytheItem extends SwordItem {
     public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
         tooltip.add(Component.translatable("item.scythe.tooltip").withStyle(ChatFormatting.GOLD));
         tooltip.add(Component.translatable("item.scythe.tooltip.radius").withStyle(ChatFormatting.GOLD)
-                .append(Component.literal(String.valueOf(radius)).withStyle(ChatFormatting.RED)));
+                .append(Component.literal(String.valueOf(radius.get())).withStyle(ChatFormatting.RED)));
 
         super.appendHoverText(itemStack, tooltipContext, tooltip, tooltipFlag);
     }
