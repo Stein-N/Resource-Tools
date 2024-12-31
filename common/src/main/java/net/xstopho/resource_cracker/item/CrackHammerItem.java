@@ -43,7 +43,6 @@ public class CrackHammerItem extends RecipeRemainder {
     }
 
     public int getDurability() {
-        CrackerConstants.LOGGER.error("Hammer Durability: {}", durability.get());
         return durability.get();
     }
 

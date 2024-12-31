@@ -34,17 +34,17 @@ public class ToolConfig {
     public static int copperChisel = 10;
 
     @ConfigEntry(category = "Chisel Durability", translation = "gold")
-    public static int goldChisel = 10;
+    public static int goldChisel = 15;
 
     @ConfigEntry(category = "Chisel Durability", translation = "iron")
-    public static int ironChisel = 10;
+    public static int ironChisel = 30;
 
     @ConfigEntry(category = "Chisel Durability", translation = "steel")
-    public static int steelChisel = 10;
+    public static int steelChisel = 45;
 
     @ConfigEntry(category = "Chisel Durability", translation = "diamond")
-    public static int diamondChisel = 10;
+    public static int diamondChisel = 64;
 
     @ConfigEntry(category = "Chisel Durability", translation = "netherite")
-    public static int netheriteChisel = 10;
+    public static int netheriteChisel = 96;
 }

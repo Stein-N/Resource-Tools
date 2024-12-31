@@ -9,22 +9,21 @@ import java.util.function.Supplier;
 
 public class BlockLootModifier {
 
-    private static final Supplier<Float> diamondNuggetFromDiamondOre = () -> LootConfig.diamondNuggetFromDiamondOre;
-    private static final Supplier<Float> diamondNuggetFromCoalOre = () -> LootConfig.diamondNuggetFromCoalOre;
-    private static final Supplier<Float> emeraldNuggetFromOre = () -> LootConfig.emeraldNuggetFromOre;
-    private static final Supplier<Float> copperNuggetFromOre = () -> LootConfig.copperNuggetFromOre;
-
     public static void init(LootTableModifier modifier) {
-        modifier.addItems(ItemRegistry.NUGGET_DIAMOND, 1f, 3f, diamondNuggetFromDiamondOre.get(),
-                Blocks.DIAMOND_ORE.getLootTable(), Blocks.DEEPSLATE_DIAMOND_ORE.getLootTable());
+        modifier.addItems(ItemRegistry.NUGGET_DIAMOND, 1f, 3f, () -> LootConfig.diamondNuggetFromDiamondOre,
+                Blocks.DIAMOND_ORE.getLootTable(),
+                Blocks.DEEPSLATE_DIAMOND_ORE.getLootTable());
 
-        modifier.addItems(ItemRegistry.NUGGET_DIAMOND, 1f, diamondNuggetFromCoalOre.get(),
-                Blocks.COAL_ORE.getLootTable(), Blocks.DEEPSLATE_COAL_ORE.getLootTable());
+        modifier.addItems(ItemRegistry.NUGGET_DIAMOND, 1f, () -> LootConfig.diamondNuggetFromCoalOre,
+                Blocks.COAL_ORE.getLootTable(),
+                Blocks.DEEPSLATE_COAL_ORE.getLootTable());
 
-        modifier.addItems(ItemRegistry.NUGGET_EMERALD, 1f, 4f, emeraldNuggetFromOre.get(),
-                Blocks.EMERALD_ORE.getLootTable(), Blocks.DEEPSLATE_EMERALD_ORE.getLootTable());
+        modifier.addItems(ItemRegistry.NUGGET_EMERALD, 1f, 4f, () -> LootConfig.emeraldNuggetFromOre,
+                Blocks.EMERALD_ORE.getLootTable(),
+                Blocks.DEEPSLATE_EMERALD_ORE.getLootTable());
 
-        modifier.addItems(ItemRegistry.NUGGET_COPPER, 1f, 6f, copperNuggetFromOre.get(),
-                Blocks.COPPER_ORE.getLootTable(), Blocks.DEEPSLATE_COPPER_ORE.getLootTable());
+        modifier.addItems(ItemRegistry.NUGGET_COPPER, 1f, 6f, () -> LootConfig.copperNuggetFromOre,
+                Blocks.COPPER_ORE.getLootTable(),
+                Blocks.DEEPSLATE_COPPER_ORE.getLootTable());
     }
 }
