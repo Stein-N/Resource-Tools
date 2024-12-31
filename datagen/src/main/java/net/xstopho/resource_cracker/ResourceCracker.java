@@ -1,22 +1,30 @@
 package net.xstopho.resource_cracker;
 
-import net.fabricmc.api.ModInitializer;
-import net.xstopho.resource_cracker.config.CrackerConfig;
-import net.xstopho.resource_cracker.modifier.LootModifier;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.xstopho.resource_cracker.provider.*;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
-import net.xstopho.resource_cracker.registries.CreativeTabRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
-import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 
-public class ResourceCracker implements ModInitializer {
-    @Override
-    public void onInitialize() {
-        ConfigRegistry.register(CrackerConstants.MOD_ID, CrackerConfig.BUILDER, true);
+@Mod(CrackerConstants.MOD_ID)
+public class ResourceCracker {
 
-        BlockRegistry.init();
-        ItemRegistry.init();
-        CreativeTabRegistry.init();
+    public ResourceCracker(IEventBus bus) {
+        CrackerConstants.commonInit();
+    }
 
-        LootModifier.init();
+    @EventBusSubscriber(modid = CrackerConstants.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+    public static class Datagen {
+
+        @SubscribeEvent
+        public static void generateData(GatherDataEvent.Client event) {
+            event.createBlockAndItemTags(BlockTags::new, ItemTags::new);
+            event.createProvider(Recipes.Runner::new);
+            event.createProvider(Loot::create);
+            event.createProvider(Models::new);
+        }
     }
 }

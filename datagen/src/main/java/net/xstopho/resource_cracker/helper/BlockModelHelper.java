@@ -1,4 +1,4 @@
-package net.xstopho.resource_cracker.datagen.helper;
+package net.xstopho.resource_cracker.helper;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class BlockModelHelper {
-
     public static void createSpringBlock(BlockModelGenerators generator, Block block) {
         TextureMapping map = new TextureMapping();
 

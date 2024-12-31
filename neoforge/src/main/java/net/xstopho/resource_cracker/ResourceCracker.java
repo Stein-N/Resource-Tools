@@ -7,7 +7,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.xstopho.resource_cracker.config.CrackerConfig;
 import net.xstopho.resource_cracker.modifier.LootModifier;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.CreativeTabRegistry;
@@ -18,13 +17,7 @@ import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 public class ResourceCracker {
 
     public ResourceCracker() {
-        ConfigRegistry.register(CrackerConstants.MOD_ID, CrackerConfig.BUILDER, true);
-
-        BlockRegistry.init();
-        ItemRegistry.init();
-        CreativeTabRegistry.init();
-
-        LootModifier.init();
+        CrackerConstants.commonInit();
     }
 
     @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

@@ -1,4 +1,4 @@
-package net.xstopho.resource_cracker.datagen.base;
+package net.xstopho.resource_cracker.helper;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -13,17 +13,14 @@ import net.minecraft.world.level.ItemLike;
 import net.xstopho.resource_cracker.CrackerConstants;
 import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 
-public abstract class CrackerBaseRecipes extends RecipeProvider {
 
-    protected final RecipeOutput recipeOutput;
+public abstract class BaseRecipes extends RecipeProvider {
 
-    public CrackerBaseRecipes(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+    private final RecipeOutput recipeOutput;
+
+    protected BaseRecipes(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
         super(provider, recipeOutput);
         this.recipeOutput = recipeOutput;
-    }
-
-    protected ResourceKey<Recipe<?>> path(String path) {
-        return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, path));
     }
 
     public void crackHammerRecipe(ItemLike result, ItemLike ingot) {
@@ -59,7 +56,7 @@ public abstract class CrackerBaseRecipes extends RecipeProvider {
                 .save(this.recipeOutput, path("material_dust/" + getConversionRecipeName(result, input)));
     }
 
-    public void compressingRecipe(ItemLike result, ItemLike input) {
+    public void compressRecipe(ItemLike result, ItemLike input) {
         this.shapeless(RecipeCategory.MISC, result)
                 .requires(input, 9)
                 .unlockedBy(getHasName(input), has(input))
@@ -74,7 +71,7 @@ public abstract class CrackerBaseRecipes extends RecipeProvider {
 
     public void smeltingRecipe(ItemLike result, ItemLike input) {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.MISC, result,
-                0.7f, 200).unlockedBy(getHasName(input), has(input))
+                        0.7f, 200).unlockedBy(getHasName(input), has(input))
                 .save(this.recipeOutput, path("smelting/" + getSmeltingRecipeName(result)));
     }
 
@@ -107,11 +104,15 @@ public abstract class CrackerBaseRecipes extends RecipeProvider {
 
     public void smithingUpgrade(Item output, ItemLike upgradeItem, ItemLike upgradeMaterial) {
         SmithingTransformRecipeBuilder.smithing(
-                Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                Ingredient.of(upgradeItem), Ingredient.of(upgradeMaterial),
-                RecipeCategory.TOOLS, output)
+                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(upgradeItem), Ingredient.of(upgradeMaterial),
+                        RecipeCategory.TOOLS, output)
                 .unlocks(getHasName(upgradeItem), has(upgradeItem))
                 .unlocks(getHasName(upgradeMaterial), has(upgradeMaterial))
                 .save(this.recipeOutput, path("smithing/" + getSimpleRecipeName(output)));
+    }
+
+    protected ResourceKey<Recipe<?>> path(String path) {
+        return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, path));
     }
 }

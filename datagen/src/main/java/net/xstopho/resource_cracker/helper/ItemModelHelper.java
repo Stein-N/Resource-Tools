@@ -1,4 +1,4 @@
-package net.xstopho.resource_cracker.datagen.helper;
+package net.xstopho.resource_cracker.helper;
 
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ItemModelUtils;

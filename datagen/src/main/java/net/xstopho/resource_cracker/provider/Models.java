@@ -1,33 +1,25 @@
-package net.xstopho.resource_cracker.datagen;
+package net.xstopho.resource_cracker.provider;
 
-import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.data.PackOutput;
+import net.xstopho.resource_cracker.CrackerConstants;
 import net.xstopho.resource_cracker.block.GarlicCropBlock;
-import net.xstopho.resource_cracker.datagen.helper.BlockModelHelper;
-import net.xstopho.resource_cracker.datagen.helper.ItemModelHelper;
+import net.xstopho.resource_cracker.helper.BlockModelHelper;
+import net.xstopho.resource_cracker.helper.ItemModelHelper;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
+import org.jetbrains.annotations.NotNull;
 
-public class ModelProvider extends FabricModelProvider {
-    public ModelProvider(FabricDataOutput output) {
-        super(output);
+public class Models extends ModelProvider {
+
+    public Models(PackOutput packOutput) {
+        super(packOutput, CrackerConstants.MOD_ID);
     }
 
-    @Override
-    public void generateBlockStateModels(BlockModelGenerators block) {
-
-        block.createCropBlock(BlockRegistry.GARLIC_CROP.get(), GarlicCropBlock.AGE, 0, 1, 2, 3, 4, 5);
-        block.createTrivialCube(BlockRegistry.STEEL_BLOCK.get());
-
-        BlockModelHelper.createSpringBlock(block, BlockRegistry.LAVA_SPRING_BLOCK.get());
-        BlockModelHelper.createSpringBlock(block, BlockRegistry.WATER_SPRING_BLOCK.get());
-    }
-
-    @Override
-    public void generateItemModels(ItemModelGenerators item) {
+    private void createItemModels(ItemModelGenerators item) {
         item.generateFlatItem(ItemRegistry.CRACK_HAMMER_COPPER.get(), ModelTemplates.FLAT_ITEM);
         item.generateFlatItem(ItemRegistry.CRACK_HAMMER_GOLD.get(), ModelTemplates.FLAT_ITEM);
         item.generateFlatItem(ItemRegistry.CRACK_HAMMER_IRON.get(), ModelTemplates.FLAT_ITEM);
@@ -68,5 +60,20 @@ public class ModelProvider extends FabricModelProvider {
         ItemModelHelper.generateScytheModels(item, ItemRegistry.SCYTHE_STEEL.get());
         ItemModelHelper.generateScytheModels(item, ItemRegistry.SCYTHE_DIAMOND.get());
         ItemModelHelper.generateScytheModels(item, ItemRegistry.SCYTHE_NETHERITE.get());
+    }
+
+    private void createBlockModels(BlockModelGenerators block) {
+        BlockModelHelper.createSpringBlock(block, BlockRegistry.LAVA_SPRING_BLOCK.get());
+        BlockModelHelper.createSpringBlock(block, BlockRegistry.WATER_SPRING_BLOCK.get());
+
+        block.createTrivialCube(BlockRegistry.STEEL_BLOCK.get());
+        block.createCropBlock(BlockRegistry.GARLIC_CROP.get(), GarlicCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+
+    }
+
+    @Override
+    protected void registerModels(@NotNull BlockModelGenerators blockModels, @NotNull ItemModelGenerators itemModels) {
+        createBlockModels(blockModels);
+        createItemModels(itemModels);
     }
 }

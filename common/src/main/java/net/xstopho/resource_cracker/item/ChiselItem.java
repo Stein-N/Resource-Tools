@@ -13,7 +13,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.xstopho.resource_cracker.config.CrackerConfig;
+import net.xstopho.resource_cracker.config.LootConfig;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,10 +24,12 @@ import java.util.function.Supplier;
 public class ChiselItem extends Item {
     public static final Random rnd = new Random();
     private final Supplier<Integer> durability;
+    private final Supplier<Float> saltpeterChance;
 
     public ChiselItem(Supplier<Integer> durability, Properties properties) {
         super(properties);
         this.durability = durability;
+        this.saltpeterChance = () -> LootConfig.saltpeterFromBricks;
     }
 
     @NotNull
@@ -38,7 +40,7 @@ public class ChiselItem extends Item {
         Block block = context.getLevel().getBlockState(context.getClickedPos()).getBlock();
         BlockPos pos = context.getClickedPos().relative(context.getClickedFace());
 
-        if (block.equals(Blocks.BRICKS) && rnd.nextFloat() <= CrackerConfig.SALTPETER_FROM_BRICKS.get()) {
+        if (block.equals(Blocks.BRICKS) && rnd.nextFloat() <= saltpeterChance.get()) {
             Containers.dropItemStack(context.getLevel(), pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ItemRegistry.MATERIAL_DUST_SALTPETER.get()));
         }
 

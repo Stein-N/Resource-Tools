@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom'
+    id 'net.neoforged.moddev'
 }
 
 repositories {
@@ -7,28 +7,35 @@ repositories {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
-
-    implementation(project(':common'))
-
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}+${minecraft_version}"
-
-    modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resource_config_api}"
-    modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${resource_library}"
+    implementation(project(":common"))
+    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
+    implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
 }
 
-loom {
-    runs {
-        datagen {
-            client()
-            name  "Common Datagen"
-            vmArg "-Dfabric-api.datagen"
-            vmArg "-Dfabric-api.datagen.output-dir=${file('../common/src/generated')}"
-            vmArg "-Dfabric-api.datagen.modid=${mod_id}"
+compileJava {
+    source(project(':common').sourceSets.main.allSource)
+}
 
-            runDir "build/datagen"
+neoForge {
+    version = neoforge_version
+
+    parchment {
+        minecraftVersion = parchment_mc_version
+        mappingsVersion = parchment_version
+    }
+
+    runs {
+        configureEach {
+            gameDirectory = project.file("runs/${it.name.toLowerCase()}")
         }
+        data {
+            clientData()
+            ideName = "Common Datagen"
+            gameDirectory = file('../common/runs/data')
+            programArguments = ['--mod', project.mod_id, '--all', '--output', file('../common/src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()]
+        }
+    }
+    mods {
+        "${mod_id}" { sourceSet sourceSets.main }
     }
 }

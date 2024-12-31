@@ -14,13 +14,14 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.xstopho.resource_cracker.config.CrackerConfig;
+import net.xstopho.resource_cracker.config.ToolConfig;
 import net.xstopho.resource_cracker.item.materials.ScytheToolMaterial;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ScytheItem extends Item {
-    private static final int radius = CrackerConfig.SCYTHE_RADIUS.get();
+    private static final Supplier<Integer> radius = () -> ToolConfig.scytheHarvestRadius;
 
     public ScytheItem(ScytheToolMaterial material, float attackDamage, float attackSpeed, Properties properties) {
         super(material.applyScytheProperties(properties, attackDamage, attackSpeed));
@@ -37,8 +38,8 @@ public class ScytheItem extends Item {
         BlockState clickedState = context.getLevel().getBlockState(clickedPos);
 
         if (clickedState.getBlock() instanceof CropBlock clickedCrop && clickedCrop.isMaxAge(clickedState)) {
-            for (int x = -radius; x <= radius; x++) {
-                for (int z = -radius; z <= radius; z++) {
+            for (int x = -radius.get(); x <= radius.get(); x++) {
+                for (int z = -radius.get(); z <= radius.get(); z++) {
                     BlockPos crop = clickedPos.offset(x, 0, z);
                     BlockState cropState = context.getLevel().getBlockState(crop);
                     if (cropState.getBlock() instanceof CropBlock replantCrop && replantCrop.isMaxAge(cropState)) {
@@ -57,7 +58,7 @@ public class ScytheItem extends Item {
     public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
         tooltip.add(Component.translatable("item.scythe.tooltip").withStyle(ChatFormatting.GOLD));
         tooltip.add(Component.translatable("item.scythe.tooltip.radius").withStyle(ChatFormatting.GOLD)
-                .append(Component.literal(String.valueOf(radius)).withStyle(ChatFormatting.RED)));
+                .append(Component.literal(String.valueOf(radius.get())).withStyle(ChatFormatting.RED)));
 
         super.appendHoverText(itemStack, tooltipContext, tooltip, tooltipFlag);
     }
