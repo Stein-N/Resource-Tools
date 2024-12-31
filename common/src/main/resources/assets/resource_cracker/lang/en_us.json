@@ -100,5 +100,32 @@
   "config.resource_cracker.tool_settings.iron.label": "Iron",
   "config.resource_cracker.tool_settings.steel.label":"Steel",
   "config.resource_cracker.tool_settings.diamond.label": "Diamond",
-  "config.resource_cracker.tool_settings.netherite.label":"Netherite"
+  "config.resource_cracker.tool_settings.netherite.label":"Netherite",
+
+  "tag.item.c.blocks.steel": "Steel Blocks",
+
+  "tag.item.c.dusts.carbon": " Carbon Dusts",
+  "tag.item.c.dusts.coal": "Coal Dusts",
+  "tag.item.c.dusts.diamond": "Diamond Dusts",
+  "tag.item.c.dusts.emerald": "Emerald Dusts",
+  "tag.item.c.dusts.netherite": "Netherite Dusts",
+  "tag.item.c.dusts.netherite_scrap": "Netherite Scrap Dusts",
+  "tag.item.c.dusts.saltpeter": "Saltpeter",
+  "tag.item.c.dusts.sulfur": "Sulfur",
+  "tag.item.c.dusts.steel": "Steel Dusts",
+
+  "tag.item.c.foods.beef_jerky": "Beef Jerky",
+  "tag.item.c.foods.garlic": "Garlic",
+
+  "tag.item.c.ingots.steel": "Steel Ingots",
+
+  "tag.item.c.nuggets.diamond": "Diamond Nuggets",
+  "tag.item.c.nuggets.emerald": "Emerald Nuggets",
+  "tag.item.c.nuggets.copper": "Copper Nuggets",
+
+  "tag.item.c.tools.chisel": "Chisels",
+  "tag.item.c.tools.crack_hammer": "Crack Hammers",
+  "tag.item.c.tools.crack_hammer.crafting_ingredients": "Crack Hammers Crafting Ingredient",
+  "tag.item.c.tools.scythe": "Scythes",
+  "tag.item.c.tools.scythe.crafting_ingredients": "Scythes Crafting Ingredient"
 }

@@ -10,6 +10,7 @@ import net.xstopho.resource_cracker.CrackerConstants;
 import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -19,32 +20,53 @@ public class ItemTags extends ItemTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
-        this.tag(CrackerItemTags.CRACK_HAMMER)
-                .add(ItemRegistry.CRACK_HAMMER_COPPER.get(), ItemRegistry.CRACK_HAMMER_GOLD.get(), ItemRegistry.CRACK_HAMMER_IRON.get(),
-                        ItemRegistry.CRACK_HAMMER_STEEL.get(), ItemRegistry.CRACK_HAMMER_DIAMOND.get(), ItemRegistry.CRACK_HAMMER_NETHERITE.get());
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
+        this.tag(CrackerItemTags.CRACK_HAMMER).add(
+                ItemRegistry.CRACK_HAMMER_COPPER.get(),
+                ItemRegistry.CRACK_HAMMER_GOLD.get(),
+                ItemRegistry.CRACK_HAMMER_IRON.get(),
+                ItemRegistry.CRACK_HAMMER_STEEL.get(),
+                ItemRegistry.CRACK_HAMMER_DIAMOND.get(),
+                ItemRegistry.CRACK_HAMMER_NETHERITE.get());
 
-        this.tag(CrackerItemTags.CHISEL)
-                .add(ItemRegistry.CHISEL_COPPER.get(), ItemRegistry.CHISEL_GOLD.get(), ItemRegistry.CHISEL_IRON.get(),
-                        ItemRegistry.CHISEL_STEEL.get(), ItemRegistry.CHISEL_DIAMOND.get(), ItemRegistry.CHISEL_NETHERITE.get());
+        this.tag(CrackerItemTags.CHISEL).add(
+                ItemRegistry.CHISEL_COPPER.get(),
+                ItemRegistry.CHISEL_GOLD.get(),
+                ItemRegistry.CHISEL_IRON.get(),
+                ItemRegistry.CHISEL_STEEL.get(),
+                ItemRegistry.CHISEL_DIAMOND.get(),
+                ItemRegistry.CHISEL_NETHERITE.get());
 
-        this.tag(CrackerItemTags.SCYTHE)
-                .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
-                        ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
+        this.tag(CrackerItemTags.SCYTHE).add(
+                ItemRegistry.SCYTHE_COPPER.get(),
+                ItemRegistry.SCYTHE_GOLD.get(),
+                ItemRegistry.SCYTHE_IRON.get(),
+                ItemRegistry.SCYTHE_STEEL.get(),
+                ItemRegistry.SCYTHE_DIAMOND.get(),
+                ItemRegistry.SCYTHE_NETHERITE.get());
 
         this.tag(CrackerItemTags.CRACK_HAMMER_INGREDIENTS)
-                .add(Items.STRING, Items.LEATHER, Items.RABBIT_HIDE);
+                .addTag(CrackerItemTags.LEATHER)
+                .addTag(CrackerItemTags.STRING);
 
         this.tag(CrackerItemTags.SCYTHE_INGREDIENTS)
-                .add(Items.LEATHER, Items.RABBIT_HIDE);
+                .addTag(CrackerItemTags.LEATHER);
 
-        this.tag(net.minecraft.tags.ItemTags.SWORDS)
-                .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
-                        ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
+        this.tag(net.minecraft.tags.ItemTags.SWORDS).add(
+                ItemRegistry.SCYTHE_COPPER.get(),
+                ItemRegistry.SCYTHE_GOLD.get(),
+                ItemRegistry.SCYTHE_IRON.get(),
+                ItemRegistry.SCYTHE_STEEL.get(),
+                ItemRegistry.SCYTHE_DIAMOND.get(),
+                ItemRegistry.SCYTHE_NETHERITE.get());
 
-        this.tag(net.minecraft.tags.ItemTags.SWORD_ENCHANTABLE)
-                .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
-                        ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
+        this.tag(net.minecraft.tags.ItemTags.SWORD_ENCHANTABLE).add(
+                ItemRegistry.SCYTHE_COPPER.get(),
+                ItemRegistry.SCYTHE_GOLD.get(),
+                ItemRegistry.SCYTHE_IRON.get(),
+                ItemRegistry.SCYTHE_STEEL.get(),
+                ItemRegistry.SCYTHE_DIAMOND.get(),
+                ItemRegistry.SCYTHE_NETHERITE.get());
 
         this.tag(CrackerItemTags.COAL_DUSTS).add(ItemRegistry.MATERIAL_DUST_CARBON.get());
         this.tag(CrackerItemTags.CARBON_DUSTS).add(ItemRegistry.MATERIAL_DUST_CARBON.get());
@@ -67,6 +89,8 @@ public class ItemTags extends ItemTagsProvider {
         this.tag(CrackerItemTags.STEEL_INGOTS).add(ItemRegistry.STEEL_INGOT.get());
 
         this.tag(CrackerItemTags.STEEL_BLOCKS).add(BlockRegistry.STEEL_BLOCK.get().asItem());
+        this.tag(CrackerItemTags.LEATHER).add(Items.LEATHER, Items.RABBIT_HIDE);
+        this.tag(CrackerItemTags.STRING).add(Items.STRING);
 
         this.tag(CrackerItemTags.DUSTS)
                 .addTag(CrackerItemTags.COAL_DUSTS)
