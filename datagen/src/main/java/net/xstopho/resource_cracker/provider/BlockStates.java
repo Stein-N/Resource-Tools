@@ -1,4 +1,4 @@
-package net.xstopho.resource_cracker.datagen;
+package net.xstopho.resource_cracker.provider;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -15,9 +15,8 @@ import net.xstopho.resourcelibrary.registration.RegistryObject;
 
 import java.util.function.Function;
 
-public class BlockStateProv extends ResourceBlockStateProvider {
-
-    public BlockStateProv(PackOutput output, ExistingFileHelper exFileHelper) {
+public class BlockStates extends ResourceBlockStateProvider {
+    public BlockStates(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, CrackerConstants.MOD_ID, exFileHelper);
     }
 

@@ -1,9 +1,8 @@
-package net.xstopho.resource_cracker.datagen;
+package net.xstopho.resource_cracker.provider;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -11,15 +10,12 @@ import net.xstopho.resource_cracker.CrackerConstants;
 import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ItemTagProv extends ItemTagsProvider {
-
-
-    public ItemTagProv(PackOutput p_275343_, CompletableFuture<HolderLookup.Provider> p_275729_, CompletableFuture<TagLookup<Block>> p_275322_, @Nullable ExistingFileHelper existingFileHelper) {
-        super(p_275343_, p_275729_, p_275322_, CrackerConstants.MOD_ID, existingFileHelper);
+public class ItemTags extends ItemTagsProvider {
+    public ItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags, ExistingFileHelper fileHelper) {
+        super(output, lookupProvider, blockTags, CrackerConstants.MOD_ID, fileHelper);
     }
 
     @Override
@@ -42,11 +38,11 @@ public class ItemTagProv extends ItemTagsProvider {
         this.tag(CrackerItemTags.SCYTHE_INGREDIENTS)
                 .add(Items.LEATHER, Items.RABBIT_HIDE);
 
-        this.tag(ItemTags.SWORDS)
+        this.tag(net.minecraft.tags.ItemTags.SWORDS)
                 .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
                         ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
 
-        this.tag(ItemTags.SWORD_ENCHANTABLE)
+        this.tag(net.minecraft.tags.ItemTags.SWORD_ENCHANTABLE)
                 .add(ItemRegistry.SCYTHE_COPPER.get(), ItemRegistry.SCYTHE_GOLD.get(), ItemRegistry.SCYTHE_IRON.get(),
                         ItemRegistry.SCYTHE_STEEL.get(), ItemRegistry.SCYTHE_DIAMOND.get(), ItemRegistry.SCYTHE_NETHERITE.get());
 
@@ -103,12 +99,12 @@ public class ItemTagProv extends ItemTagsProvider {
 
         this.tag(CrackerItemTags.ENCHANTABLES).addTag(CrackerItemTags.SCYTHE);
 
-        this.tag(ItemTags.WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
-        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
+        this.tag(net.minecraft.tags.ItemTags.WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
+        this.tag(net.minecraft.tags.ItemTags.SHARP_WEAPON_ENCHANTABLE).addTag(CrackerItemTags.SCYTHE);
 
-        this.tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ItemRegistry.GARLIC.get());
+        this.tag(net.minecraft.tags.ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ItemRegistry.GARLIC.get());
 
-        this.tag(ItemTags.BREAKS_DECORATED_POTS)
+        this.tag(net.minecraft.tags.ItemTags.BREAKS_DECORATED_POTS)
                 .addTag(CrackerItemTags.SCYTHE)
                 .addTag(CrackerItemTags.CHISEL)
                 .addTag(CrackerItemTags.CRACK_HAMMER);

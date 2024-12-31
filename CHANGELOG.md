@@ -1,2 +1,3 @@
-#### v2.2.4
-- apply resource library changes
+#### v2.2.5
+- applying Resource Config API changes
+- adding more translations

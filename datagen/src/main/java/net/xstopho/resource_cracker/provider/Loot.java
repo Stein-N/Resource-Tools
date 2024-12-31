@@ -1,4 +1,4 @@
-package net.xstopho.resource_cracker.datagen;
+package net.xstopho.resource_cracker.provider;
 
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
@@ -18,14 +18,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-public class LootProv extends BlockLootSubProvider {
+public class Loot extends BlockLootSubProvider {
 
     public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
         return new LootTableProvider(output, Set.of(), List.of(
-                new LootTableProvider.SubProviderEntry(LootProv::new, LootContextParamSets.BLOCK)), provider);
+                new LootTableProvider.SubProviderEntry(Loot::new, LootContextParamSets.BLOCK)), provider);
     }
 
-    public LootProv(HolderLookup.Provider provider) {
+    public Loot(HolderLookup.Provider provider) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
     }
 

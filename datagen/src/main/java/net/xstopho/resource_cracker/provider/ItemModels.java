@@ -1,21 +1,15 @@
-package net.xstopho.resource_cracker.datagen;
+package net.xstopho.resource_cracker.provider;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.xstopho.resource_cracker.CrackerConstants;
-import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 import net.xstopho.resourcelibrary.datagen.ResourceItemModelProvider;
-import net.xstopho.resourcelibrary.registration.RegistryObject;
 
-public class ItemModelProv extends ResourceItemModelProvider {
-
-    public ItemModelProv(PackOutput output, ExistingFileHelper existingFileHelper) {
+public class ItemModels extends ResourceItemModelProvider {
+    public ItemModels(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, CrackerConstants.MOD_ID, existingFileHelper);
     }
 

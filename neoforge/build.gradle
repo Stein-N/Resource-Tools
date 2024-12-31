@@ -23,7 +23,7 @@ neoForge {
         configureEach {
             systemProperty('neoforge.enableGameTestNamespaces', mod_id)
             ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
-            gameDirectory = project.file("runs/${it.name.toLowerCase()}")
+            gameDirectory = file("../common/runs/${it.name.toLowerCase()}")
         }
         client {
             client()
@@ -31,10 +31,6 @@ neoForge {
         server {
             server()
             programArguments.add('nogui')
-        }
-        data {
-            data()
-            programArguments = ['--mod', project.mod_id, '--all', '--output', file('src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()]
         }
     }
     mods {
