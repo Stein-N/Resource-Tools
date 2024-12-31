@@ -24,9 +24,6 @@ public class BlockStates extends ResourceBlockStateProvider {
     protected void registerStatesAndModels() {
         createTrivialCube(BlockRegistry.STEEL_BLOCK);
         createGarlicCrop((CropBlock) BlockRegistry.GARLIC_CROP.get(), "garlic_crop_stage", "garlic_crop_stage");
-
-        createFurnaceLikeBlock(BlockRegistry.LAVA_SPRING_BLOCK.get());
-        createFurnaceLikeBlock(BlockRegistry.WATER_SPRING_BLOCK.get());
     }
 
     private void createGarlicCrop(CropBlock cropBlock, String modelName, String textureName) {
