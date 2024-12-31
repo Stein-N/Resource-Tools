@@ -7,11 +7,6 @@ plugins {
 dependencies {
     implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
-
-    //runtimeOnly "maven.modrinth:emi:${emi_version}+neoforge"
-    //runtimeOnly "maven.modrinth:jade:${jade_version}+neoforge"
-    //runtimeOnly "maven.modrinth:ae2:${ae2_version}-neoforge"
-    //runtimeOnly "maven.modrinth:mekanism:${mekanism_version}-neoforge"
 }
 
 neoForge {
@@ -34,10 +29,6 @@ neoForge {
         server {
             server()
             programArguments.add('nogui')
-        }
-        data {
-            data()
-            programArguments = ['--mod', project.mod_id, '--all', '--output', file('src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()]
         }
     }
     mods {

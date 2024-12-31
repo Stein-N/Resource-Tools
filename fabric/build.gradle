@@ -13,14 +13,7 @@ dependencies {
     modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resource_config_api}"
     modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${resource_library}"
 
-    //modRuntimeOnly "curse.maven:techreborn-233564:5608205"
-    //modRuntimeOnly "curse.maven:reborncore-237903:5608204"
-    //modRuntimeOnly "teamreborn:energy:4.1.0"
-
     modRuntimeOnly "maven.modrinth:modmenu:${mod_menu_version}"
-    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
-    //modRuntimeOnly "maven.modrinth:emi:${emi_version}+fabric"
-    //modRuntimeOnly "maven.modrinth:jade:${jade_version}+fabric"
 }
 
 loom {
@@ -40,15 +33,6 @@ loom {
             setConfigName("Fabric Server")
             ideConfigGenerated(true)
             runDir("runs/server")
-        }
-        datagen {
-            inherit server
-            name "Fabric Datagen"
-            vmArg "-Dfabric-api.datagen"
-            vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated")}"
-            vmArg "-Dfabric-api.datagen.modid=${mod_id}"
-
-            runDir "build/datagen"
         }
     }
 }

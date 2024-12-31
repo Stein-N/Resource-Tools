@@ -9,7 +9,8 @@ import net.xstopho.resource_cracker.registries.ItemModelRenderRegistry;
 public class ResourceCrackerClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        CrackerConstants.clientInit();
+
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GARLIC_CROP.get(), RenderType.cutout());
-        ItemModelRenderRegistry.init();
     }
 }
