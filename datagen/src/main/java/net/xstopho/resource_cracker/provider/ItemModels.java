@@ -4,10 +4,12 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.xstopho.resource_cracker.CrackerConstants;
+import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
 public class ItemModels extends ItemModelProvider {
@@ -62,8 +64,8 @@ public class ItemModels extends ItemModelProvider {
         simpleItem(ItemRegistry.BEEF_JERKY.get());
         simpleItem(ItemRegistry.GARLIC.get());
 
-        itemWithParentBlock("lava_spring_block");
-        itemWithParentBlock("water_spring_block");
+        itemWithParentBlock(BlockRegistry.LAVA_SPRING_BLOCK.get());
+        itemWithParentBlock(BlockRegistry.WATER_SPRING_BLOCK.get());
 
         createInHandItem(ItemRegistry.SCYTHE_COPPER.get());
         createInHandItem(ItemRegistry.SCYTHE_GOLD.get());
@@ -73,8 +75,9 @@ public class ItemModels extends ItemModelProvider {
         createInHandItem(ItemRegistry.SCYTHE_NETHERITE.get());
     }
 
-    public void itemWithParentBlock(String id) {
-        withExistingParent(id, ResourceLocation.fromNamespaceAndPath(CrackerConstants.MOD_ID, "block/" + id));
+    public void itemWithParentBlock(Block block) {
+        ResourceLocation location = BuiltInRegistries.BLOCK.getKey(block);
+        withExistingParent(location.getPath(), location.withPrefix("block/"));
     }
 
     public void simpleItem(Item item) {
@@ -91,7 +94,7 @@ public class ItemModels extends ItemModelProvider {
 
     private ResourceLocation modifyItemKey(Item item) {
         ResourceLocation key = getItemKey(item);
-        return ResourceLocation.fromNamespaceAndPath(key.getNamespace(), "item/in_hand/" + key.getPath());
+        return key.withPrefix("item/in_hand/");
     }
 
     private ResourceLocation getItemKey(Item item) {

@@ -88,6 +88,7 @@ public class ItemTags extends ItemTagsProvider {
         this.tag(CrackerItemTags.COPPER_NUGGETS).add(ItemRegistry.NUGGET_COPPER.get());
         this.tag(CrackerItemTags.STEEL_INGOTS).add(ItemRegistry.STEEL_INGOT.get());
 
+        this.tag(CrackerItemTags.COPPER_INGOTS).add(Items.COPPER_INGOT);
         this.tag(CrackerItemTags.STEEL_BLOCKS).add(BlockRegistry.STEEL_BLOCK.get().asItem());
         this.tag(CrackerItemTags.LEATHER).add(Items.LEATHER, Items.RABBIT_HIDE);
         this.tag(CrackerItemTags.STRING).add(Items.STRING);
