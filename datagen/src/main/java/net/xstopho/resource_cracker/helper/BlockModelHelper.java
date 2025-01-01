@@ -5,24 +5,25 @@ import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.blockstates.Variant;
 import net.minecraft.client.data.models.blockstates.VariantProperties;
-import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.xstopho.resource_cracker.CrackerConstants;
+
+import java.util.Optional;
 
 public class BlockModelHelper {
-    public static void createSpringBlock(BlockModelGenerators generator, Block block) {
+    public static void createSpringBlock(BlockModelGenerators generator, Block block, ResourceLocation fluid) {
         TextureMapping map = new TextureMapping();
 
-        map.put(TextureSlot.FRONT, modifyBlockKey(block, ""));
-        map.put(TextureSlot.SIDE, modifyBlockKey(block, "_side"));
-        map.put(TextureSlot.TOP, modifyBlockKey(block, "_side"));
+        map.put(TextureSlot.INSIDE, fluid);
 
-        ResourceLocation model = ModelTemplates.CUBE_ORIENTABLE.create(block, map, generator.modelOutput);
+        ResourceLocation model = new ModelTemplate(Optional.of(CrackerConstants.of("block/spring_block")), Optional.empty(), TextureSlot.INSIDE)
+                                    .create(block, map, generator.modelOutput);
         generator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(createPropertyDispatch(model)));
     }
 
@@ -39,14 +40,5 @@ public class BlockModelHelper {
                 .select(Direction.WEST, Variant.variant()
                         .with(VariantProperties.MODEL, model)
                         .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270));
-    }
-
-    private static ResourceLocation modifyBlockKey(Block block, String texturePosition) {
-        ResourceLocation key = getBlockKey(block);
-        return ResourceLocation.fromNamespaceAndPath(key.getNamespace(), "block/" + key.getPath() + texturePosition);
-    }
-
-    private static ResourceLocation getBlockKey(Block block) {
-        return BuiltInRegistries.BLOCK.getKey(block);
     }
 }

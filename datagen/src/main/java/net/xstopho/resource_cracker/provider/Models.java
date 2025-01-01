@@ -5,6 +5,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.xstopho.resource_cracker.CrackerConstants;
 import net.xstopho.resource_cracker.block.GarlicCropBlock;
 import net.xstopho.resource_cracker.helper.BlockModelHelper;
@@ -63,8 +64,8 @@ public class Models extends ModelProvider {
     }
 
     private void createBlockModels(BlockModelGenerators block) {
-        BlockModelHelper.createSpringBlock(block, BlockRegistry.LAVA_SPRING_BLOCK.get());
-        BlockModelHelper.createSpringBlock(block, BlockRegistry.WATER_SPRING_BLOCK.get());
+        BlockModelHelper.createSpringBlock(block, BlockRegistry.LAVA_SPRING_BLOCK.get(), ResourceLocation.withDefaultNamespace("lava_still"));
+        BlockModelHelper.createSpringBlock(block, BlockRegistry.WATER_SPRING_BLOCK.get(), ResourceLocation.withDefaultNamespace("water_still"));
 
         block.createTrivialCube(BlockRegistry.STEEL_BLOCK.get());
         block.createCropBlock(BlockRegistry.GARLIC_CROP.get(), GarlicCropBlock.AGE, 0, 1, 2, 3, 4, 5);
