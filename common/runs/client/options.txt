@@ -1,4 +1,4 @@
-version:4082
+version:4189
 ao:true
 biomeBlendRadius:2
 enableVsync:true
@@ -12,10 +12,10 @@ darknessEffectScale:1.0
 glintSpeed:0.5
 glintStrength:0.75
 prioritizeChunkUpdates:0
-fullscreen:false
+fullscreen:true
 gamma:0.5
 graphicsMode:1
-guiScale:2
+guiScale:3
 maxFps:120
 inactivityFpsLimit:"afk"
 mipmapLevels:4
@@ -51,7 +51,7 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:[]
+resourcePacks:["fabric"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us

@@ -64,12 +64,11 @@ public class Models extends ModelProvider {
     }
 
     private void createBlockModels(BlockModelGenerators block) {
-        BlockModelHelper.createSpringBlock(block, BlockRegistry.LAVA_SPRING_BLOCK.get(), ResourceLocation.withDefaultNamespace("lava_still"));
-        BlockModelHelper.createSpringBlock(block, BlockRegistry.WATER_SPRING_BLOCK.get(), ResourceLocation.withDefaultNamespace("water_still"));
+        BlockModelHelper.createLavaSpring(block, BlockRegistry.LAVA_SPRING_BLOCK.get());
+        BlockModelHelper.createWaterSpring(block, BlockRegistry.WATER_SPRING_BLOCK.get());
 
         block.createTrivialCube(BlockRegistry.STEEL_BLOCK.get());
         block.createCropBlock(BlockRegistry.GARLIC_CROP.get(), GarlicCropBlock.AGE, 0, 1, 2, 3, 4, 5);
-
     }
 
     @Override
