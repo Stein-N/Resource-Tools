@@ -1,4 +1,4 @@
-package net.xstopho.resource_cracker.item.tags;
+package net.xstopho.resource_cracker.helper;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;

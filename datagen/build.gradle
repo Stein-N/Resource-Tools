@@ -25,9 +25,6 @@ neoForge {
     }
 
     runs {
-        configureEach {
-            gameDirectory = project.file("runs/${it.name.toLowerCase()}")
-        }
         data {
             data()
             ideName = "Common Datagen"

@@ -1,3 +1,9 @@
+#### v2.2.8
+- adding all missing recipes
+
+#### v2.2.7
+- fixing smelting, smoking and blasting recipes, those were inverted
+
 #### v2.2.5
 - applying Resource Config API changes
   - edit the config inside the game

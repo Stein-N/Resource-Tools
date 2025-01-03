@@ -9,13 +9,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.xstopho.resource_cracker.CrackerConstants;
-import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
 public abstract class BaseRecipes extends RecipeProvider {
 
-    private RecipeOutput recipeOutput;
+    protected RecipeOutput recipeOutput;
+
     public BaseRecipes(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }
@@ -59,10 +59,12 @@ public abstract class BaseRecipes extends RecipeProvider {
                 .save(recipeOutput, path("tools/scythe/" + getSimpleRecipeName(output)));
     }
 
-    public void netheriteUpgrade(Item output, ItemLike input) {
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                        Ingredient.of(input), Ingredient.of(Items.NETHERITE_INGOT), RecipeCategory.TOOLS, output)
-                .unlocks(getHasName(input), has(input))
+    public void netheriteUpgradeRecipe(Item output, ItemLike upgradeItem, ItemLike upgradeMaterial) {
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(upgradeItem), Ingredient.of(upgradeMaterial),
+                        RecipeCategory.TOOLS, output)
+                .unlocks(getHasName(upgradeMaterial), has(upgradeMaterial))
                 .save(recipeOutput, path("smithing/" + getSimpleRecipeName(output)));
     }
 
@@ -99,37 +101,28 @@ public abstract class BaseRecipes extends RecipeProvider {
                 .save(recipeOutput, path("decompress/" + getConversionRecipeName(output, input)));
     }
 
-    public void smeltingRecipe(ItemLike input, ItemLike output) {
+    public void smeltingRecipe(ItemLike output, ItemLike input) {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.MISC, output, 0.7f, 200)
                 .unlockedBy(getHasName(input), has(input))
-                .save(recipeOutput, path("smelting/" + getSimpleRecipeName(output)));
+                .save(recipeOutput, path("smelting/" + getSmeltingRecipeName(output)));
     }
 
-    public void blastingRecipe(ItemLike input, ItemLike output) {
+    public void blastingRecipe(ItemLike output, ItemLike input) {
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(input), RecipeCategory.MISC, output, 0.7f, 100)
                 .unlockedBy(getHasName(input), has(input))
-                .save(recipeOutput, path("blasting/" + getSimpleRecipeName(output)));
+                .save(recipeOutput, path("blasting/" + getBlastingRecipeName(output)));
     }
 
-    public void smokingRecipe(ItemLike input, ItemLike output) {
+    public void smokingRecipe(ItemLike output, ItemLike input) {
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), RecipeCategory.MISC, output, 0.7f, 150)
                 .unlockedBy(getHasName(input), has(input))
-                .save(recipeOutput, path("smoking/" + getSimpleRecipeName(output)));
+                .save(recipeOutput, path("smoking/" + getConversionRecipeName(output, input)));
     }
 
-    public void campfireRecipe(ItemLike input, ItemLike output) {
+    public void campfireRecipe(ItemLike output, ItemLike input) {
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(input), RecipeCategory.MISC, output, 0.7f, 600)
                 .unlockedBy(getHasName(input), has(input))
-                .save(recipeOutput, path("campfire/" + getSimpleRecipeName(output)));
-    }
-
-    public void smithingUpgrade(Item output, ItemLike upgradeItem, ItemLike upgradeMaterial) {
-        SmithingTransformRecipeBuilder.smithing(
-                Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                Ingredient.of(upgradeItem), Ingredient.of(upgradeMaterial),
-                RecipeCategory.TOOLS, output)
-                .unlocks(getHasName(upgradeMaterial), has(upgradeMaterial))
-                .save(recipeOutput, path("smithing/" + getSimpleRecipeName(output)));
+                .save(recipeOutput, path("campfire/" + getConversionRecipeName(output, input)));
     }
 
     public ResourceLocation path(String path) {
