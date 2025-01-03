@@ -16,7 +16,7 @@ import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 
 public abstract class BaseRecipes extends RecipeProvider {
 
-    private final RecipeOutput recipeOutput;
+    protected final RecipeOutput recipeOutput;
 
     protected BaseRecipes(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
         super(provider, recipeOutput);

@@ -1,3 +1,6 @@
+#### v2.4.8
+- adding missing recipes
+
 #### v2.4.5
 - applying Resource Config API changes
   - edit the config inside the game
