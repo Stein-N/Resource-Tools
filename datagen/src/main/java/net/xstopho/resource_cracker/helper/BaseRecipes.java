@@ -16,7 +16,7 @@ import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 
 public abstract class BaseRecipes extends RecipeProvider {
 
-    private final RecipeOutput recipeOutput;
+    protected final RecipeOutput recipeOutput;
 
     protected BaseRecipes(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
         super(provider, recipeOutput);
@@ -78,19 +78,19 @@ public abstract class BaseRecipes extends RecipeProvider {
     public void blastingRecipe(ItemLike result, ItemLike input) {
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(input), RecipeCategory.MISC, result,
                         0.7f, 100).unlockedBy(getHasName(input), has(input))
-                .save(this.recipeOutput, path("blasting/" + getSmeltingRecipeName(result)));
+                .save(this.recipeOutput, path("blasting/" + getBlastingRecipeName(result)));
     }
 
     public void smokingRecipe(ItemLike result, ItemLike input) {
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), RecipeCategory.MISC, result,
                         0.7f, 150).unlockedBy(getHasName(input), has(input))
-                .save(this.recipeOutput, path("smoking/" + getSmeltingRecipeName(result)));
+                .save(this.recipeOutput, path("smoking/" + getConversionRecipeName(result, input)));
     }
 
     public void campfireRecipe(ItemLike result, ItemLike input) {
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(input), RecipeCategory.MISC, result,
                         0.7f, 400).unlockedBy(getHasName(input), has(input))
-                .save(this.recipeOutput, path("campfire/" + getSmeltingRecipeName(result)));
+                .save(this.recipeOutput, path("campfire/" + getConversionRecipeName(result, input)));
     }
 
     public void springBlockRecipe(ItemLike output, ItemLike bucket) {

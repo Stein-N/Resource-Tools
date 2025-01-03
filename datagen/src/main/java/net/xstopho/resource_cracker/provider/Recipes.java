@@ -2,10 +2,13 @@ package net.xstopho.resource_cracker.provider;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
 import net.xstopho.resource_cracker.helper.BaseRecipes;
+import net.xstopho.resource_cracker.item.tags.CrackerItemTags;
 import net.xstopho.resource_cracker.registries.BlockRegistry;
 import net.xstopho.resource_cracker.registries.ItemRegistry;
 
@@ -123,6 +126,39 @@ public class Recipes extends BaseRecipes {
         /////////////////////
         decompressRecipe(ItemRegistry.STEEL_INGOT.get(), BlockRegistry.STEEL_BLOCK.get());
         decompressRecipe(ItemRegistry.NUGGET_COPPER.get(), Items.COPPER_INGOT);
+
+        ////////////
+        //  Misc  //
+        ////////////
+        this.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_STEEL.get(), 4)
+                .pattern("CC").pattern("II")
+                .define('C', CrackerItemTags.CARBON_DUSTS)
+                .define('I', CrackerItemTags.IRON_DUSTS)
+                .unlockedBy("has_carbon_dust", has(CrackerItemTags.CARBON_DUSTS))
+                .save(this.recipeOutput, path("crafting/steel_dust"));
+
+        this.shaped(RecipeCategory.MISC, Items.GUNPOWDER, 2)
+                .pattern("SPC")
+                .define('S', CrackerItemTags.SULFUR_DUSTS)
+                .define('P', CrackerItemTags.SALTPETER_DUSTS)
+                .define('C', Items.CHARCOAL)
+                .unlockedBy(getHasName(Items.CHARCOAL), has(Items.CHARCOAL))
+                .save(this.recipeOutput, path("crafting/gunpowder_from_sulfur_saltpeter_charcoal"));
+
+        this.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 2)
+                .pattern("HCS")
+                .define('H', Items.HONEYCOMB)
+                .define('C', Items.GREEN_DYE)
+                .define('S', CrackerItemTags.SALTPETER_DUSTS)
+                .unlockedBy("has_saltpeter_dust", has(CrackerItemTags.SALTPETER_DUSTS))
+                .save(this.recipeOutput, path("crafting/slimeball_from_comb_dye_saltpeter"));
+
+        this.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), 1)
+                .pattern("NNN").pattern("NGG").pattern("G  ")
+                .define('N', CrackerItemTags.NETHERITE_SCRAP_DUSTS)
+                .define('G', CrackerItemTags.GOLD_DUSTS)
+                .unlockedBy("has_netherite_scrap_dust", has(CrackerItemTags.NETHERITE_SCRAP_DUSTS))
+                .save(this.recipeOutput, path("crafting/netherite_dust_from_scrap_gold_dust"));
     }
 
     public static class Runner extends RecipeProvider.Runner {
