@@ -79,8 +79,8 @@ public abstract class BaseRecipes extends RecipeProvider {
                 .save(recipeOutput, path("blocks/" + getSimpleRecipeName(output)));
     }
 
-    public void materialDustRecipe(ItemLike output, ItemLike input, int outputAmount) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, outputAmount)
+    public void materialDustRecipe(ItemLike output, ItemLike input, int amount) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, amount)
                 .requires(CrackerItemTags.CRACK_HAMMER)
                 .requires(input)
                 .unlockedBy(getHasName(input), has(input))

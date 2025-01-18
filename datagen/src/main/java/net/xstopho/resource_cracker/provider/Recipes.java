@@ -96,7 +96,7 @@ public class Recipes extends BaseRecipes {
         blastingRecipe(Items.NETHERITE_SCRAP, ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get());
         blastingRecipe(Items.NETHERITE_INGOT, ItemRegistry.MATERIAL_DUST_NETHERITE.get());
         blastingRecipe(ItemRegistry.STEEL_INGOT.get(), ItemRegistry.MATERIAL_DUST_STEEL.get());
-        blastingRecipe(ItemRegistry.GARLIC.get(), ItemRegistry.MATERIAL_DUST_SULFUR.get());
+        blastingRecipe(ItemRegistry.MATERIAL_DUST_SULFUR.get(), ItemRegistry.GARLIC.get());
         blastingRecipe(Items.LEATHER, Items.ROTTEN_FLESH);
 
         ////////////////
@@ -132,15 +132,15 @@ public class Recipes extends BaseRecipes {
                 .define('C', CrackerItemTags.CARBON_DUSTS)
                 .define('I', CrackerItemTags.IRON_DUSTS)
                 .unlockedBy("has_carbon_dust", has(CrackerItemTags.CARBON_DUSTS))
-                .save(this.recipeOutput, "crafting/steel_dust");
+                .save(this.recipeOutput, path("crafting/steel_dust"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.GUNPOWDER, 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.GUNPOWDER, 3)
                 .pattern("SPC")
                 .define('S', CrackerItemTags.SULFUR_DUSTS)
                 .define('P', CrackerItemTags.SALTPETER_DUSTS)
                 .define('C', Items.CHARCOAL)
                 .unlockedBy(getHasName(Items.CHARCOAL), has(Items.CHARCOAL))
-                .save(this.recipeOutput, "crafting/gunpowder_from_sulfur_saltpeter_charcoal");
+                .save(this.recipeOutput, path("crafting/gunpowder_from_sulfur_saltpeter_charcoal"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SLIME_BALL, 2)
                 .pattern("HCS")
@@ -148,13 +148,13 @@ public class Recipes extends BaseRecipes {
                 .define('C', Items.GREEN_DYE)
                 .define('S', CrackerItemTags.SALTPETER_DUSTS)
                 .unlockedBy("has_saltpeter_dust", has(CrackerItemTags.SALTPETER_DUSTS))
-                .save(this.recipeOutput, "crafting/slimeball_from_comb_dye_saltpeter");
+                .save(this.recipeOutput, path("crafting/slimeball_from_comb_dye_saltpeter"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MATERIAL_DUST_NETHERITE.get(), 1)
                 .pattern("NNN").pattern("NGG").pattern("G  ")
                 .define('N', CrackerItemTags.NETHERITE_SCRAP_DUSTS)
                 .define('G', CrackerItemTags.GOLD_DUSTS)
                 .unlockedBy("has_netherite_scrap_dust", has(CrackerItemTags.NETHERITE_SCRAP_DUSTS))
-                .save(this.recipeOutput, "crafting/netherite_dust_from_scrap_gold_dust");
+                .save(this.recipeOutput, path("crafting/netherite_dust_from_scrap_gold_dust"));
     }
 }

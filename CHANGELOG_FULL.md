@@ -1,3 +1,6 @@
+#### v2.2.9
+- fixing gunpowder and sulfur blasting recipe
+
 #### v2.2.8
 - adding all missing recipes
 
