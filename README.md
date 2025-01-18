@@ -22,13 +22,6 @@ Because he was on break, I decided to create my own Mod with similar Blocks/Item
 
 ### Most used Textures are made by [Malcom Riley](https://github.com/malcolmriley/unused-textures).
 
-### Provides Recipes for:
-|          |  Tech Reborn  | Applied Energetics 2 | Mekanism |
-|---------:|:-------------:|:--------------------:|:--------:|
-|   Fabric | 1.20 - 1.20.4 |        1.20.1        | -------- |
-|    Forge | ------------- |        1.20.1        |  1.20.1  |
-| NeoForge | ------------- |    1.20.4, 1.20.6    |  1.20.4  |
-
 ### Item and Tools Overview
 
 <details>
