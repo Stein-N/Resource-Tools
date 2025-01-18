@@ -98,7 +98,7 @@ public class Recipes extends BaseRecipes {
         blastingRecipe(Items.NETHERITE_SCRAP, ItemRegistry.MATERIAL_DUST_NETHERITE_SCRAP.get());
         blastingRecipe(Items.NETHERITE_INGOT, ItemRegistry.MATERIAL_DUST_NETHERITE.get());
         blastingRecipe(ItemRegistry.STEEL_INGOT.get(), ItemRegistry.MATERIAL_DUST_STEEL.get());
-        blastingRecipe(ItemRegistry.GARLIC.get(), ItemRegistry.MATERIAL_DUST_SULFUR.get());
+        blastingRecipe(ItemRegistry.MATERIAL_DUST_SULFUR.get(), ItemRegistry.GARLIC.get());
         blastingRecipe(Items.LEATHER, Items.ROTTEN_FLESH);
 
         ////////////////
@@ -136,7 +136,7 @@ public class Recipes extends BaseRecipes {
                 .unlockedBy("has_carbon_dust", has(CrackerItemTags.CARBON_DUSTS))
                 .save(this.recipeOutput, path("crafting/steel_dust"));
 
-        this.shaped(RecipeCategory.MISC, Items.GUNPOWDER, 2)
+        this.shaped(RecipeCategory.MISC, Items.GUNPOWDER, 3)
                 .pattern("SPC")
                 .define('S', CrackerItemTags.SULFUR_DUSTS)
                 .define('P', CrackerItemTags.SALTPETER_DUSTS)
